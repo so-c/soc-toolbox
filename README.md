@@ -10,7 +10,8 @@ PowerShellからVOICEVOXの音声合成エンジンを呼ぶためのスクリ�
 
 #### インストール手順
 
-1. [voicevox-caler.ps1](https://github.com/so-c/soc-toolbox/blob/main/voicevox-caller/voicevox-caller.ps1)と[VOICEVOX(PowerShell 5.x).rvls](https://github.com/so-c/soc-toolbox/blob/main/voicevox-caller/VOICEVOX(PowerShell%205.x).rvls)のRAWボタンを押して好きなフォルダに保存する
+1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
+1. `voicevox-caller`フォルダーにある`voicevox-caler.ps1`と`VOICEVOX(PowerShell 5.x).rvls`を好きな場所に保存する
 1. Recotte Studioの [環境設定 > ユーザー定義音声連携の設定] を開く
 1. インポートボタンを押して`VOICEVOX(PowerShell 5.x).rvls`を読み込む
 1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caler.ps1`のフルパスを書き足す
@@ -31,7 +32,7 @@ PowerShellからVOICEVOXの音声合成エンジンを呼ぶためのスクリ�
 
 #### 使い方
 
-VOICEVOXを起動した状態で[音声の同期] をしてください
+VOICEVOXを起動した状態で [音声の同期] をしてください
 
 #### ヒント
 
