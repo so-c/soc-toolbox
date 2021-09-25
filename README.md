@@ -10,12 +10,17 @@ PowerShellからVOICEVOXの音声合成エンジンを呼ぶためのスクリ�
 
 #### インストール手順
 
-1. `voicevox-caler.ps1`と`VOICEVOX(PowerShell 5.x).rvls`をダウンロードして好きなフォルダに保存する
+1. [voicevox-caler.ps1](https://github.com/so-c/soc-toolbox/blob/main/voicevox-caller/voicevox-caller.ps1)と[VOICEVOX(PowerShell 5.x).rvls](https://github.com/so-c/soc-toolbox/blob/main/voicevox-caller/VOICEVOX(PowerShell%205.x).rvls)のRAWボタンを押して好きなフォルダに保存する
 1. Recotte Studioの [環境設定 > ユーザー定義音声連携の設定] を開く
 1. インポートボタンを押して`VOICEVOX(PowerShell 5.x).rvls`を読み込む
 1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caler.ps1`のフルパスを書き足す
-   * `-ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
-1. [適用]ボタンを押す
+1. [適用] ボタンを押す
+
+[引数] の設定例
+
+```ps1
+-ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
+```
 
 #### 準備
 
