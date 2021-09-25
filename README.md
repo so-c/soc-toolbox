@@ -4,7 +4,7 @@
 
 ## voicevox-caller
 
-PowerShellから[VOICEVOX](https://github.com/Hiroshiba/voicevox)の音声合成エンジンを呼ぶためのスクリプトです。
+PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エンジンを呼ぶためのスクリプトです。
 
 ### Recotte Studioの「ユーザー定義音声連携」での使い方
 
