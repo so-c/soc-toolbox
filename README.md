@@ -39,3 +39,12 @@ VOICEVOXを起動した状態で [音声の同期] をしてください
 * 音声が作成されない場合は`voicevox-caler.ps1`と同じフォルダの`last_error.txt`を確認してみてください。最後に発生したエラーが出力されています
 * 調整パラメータを [ユーザ定義音声連携] の引数として渡せます。利用できるパラメータはVOICEVOXのドキュメント (http://127.0.0.1:50021/docs) を参照してください
 * このスクリプトはWindowsに最初からインストールされてるWindows PowerShell ISEで変更・動作確認できます。好みに合わせてカスタマイズして使ってください
+
+### 利用規約
+
+* ユーザ向け
+  * このリポジトリで公開しているスクリプトなどはインターネット全般で非商用・商用問わず利用できます
+  * Recotte StudioやVOICEVOX、各キャラクターにはそれぞれ利用規約があるのでそちらに従ってください
+  * （任意）ニコニコ動画で使う際は[voicevox\-caller \- ニコニ･コモンズ](https://commons.nicovideo.jp/material/nc252957)をコンテンツツリーに登録してもらえると作者が喜びます
+* 開発者向け
+  * [MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
