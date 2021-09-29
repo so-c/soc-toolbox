@@ -4,6 +4,7 @@
 #   + zip-archives\
 #       + [a-z0-9]+_Sample_voice_[0-9]{2}_wav_.zip
 
+Push-Location
 Set-Location $PSScriptRoot
 
 if (Test-Path .\wav) {
@@ -21,9 +22,16 @@ function Expand-MacZip($zipPath) {
             New-Item -Path $dirName -ItemType Directory
             continue
         }
-        $dest = [System.IO.Path]::Combine((Resolve-Path ".\wav"), ($e.FullName.Normalize() -replace '/', '\'))
-        Write-Host $dest
-        [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, $dest, $true)
+        $entryName = $e.FullName.Normalize() -replace '/', '\'
+        $entryName = $entryName -replace ':', '_'
+
+        $dest = [System.IO.Path]::Combine((Resolve-Path ".\wav"), $entryName)
+        try {
+            [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, $dest, $true)
+        } catch [System.NotSupportedException] {
+            Write-Error ”パス：$dest”
+            Write-Error $PSItem
+        }
     }
 }
 
@@ -34,3 +42,6 @@ Get-ChildItem .\zip-archives\*.zip | ForEach-Object {
 # ファイル名置換は止めて表示名だけ置換する
 # ファイル名に使えない文字があるので（例：'/'）
 Get-ChildItem .\wav\ -Recurse -Include *.wav | Rename-Item -NewName {$_.name -replace '&#x2c7;', 'ˇ'}
+Get-ChildItem .\wav\ -Recurse -Include *.wav | Rename-Item -NewName { $_.name -replace '#x2661;', '♡' }
+
+Pop-Location
