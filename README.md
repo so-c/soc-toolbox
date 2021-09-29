@@ -2,6 +2,11 @@
 
 主に動画編集に使うちょっとしたツール類
 
+1. [voicevox-caller](#voicevox-caller)
+1. [aivos-userdef](#aivos-userdef)
+
+----
+
 ## voicevox-caller
 
 PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エンジンを呼ぶためのスクリプトです。
@@ -11,10 +16,10 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エン�
 #### インストール手順
 
 1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
-1. `voicevox-caller`フォルダーにある`voicevox-caler.ps1`と`VOICEVOX(PowerShell 5.x).rvls`を好きな場所に保存する
+1. `voicevox-caller`フォルダーにある`voicevox-caller.ps1`と`VOICEVOX(PowerShell 5.x).rvls`を好きな場所に保存する
 1. Recotte Studioの [環境設定 > ユーザー定義音声連携の設定] を開く
 1. インポートボタンを押して`VOICEVOX(PowerShell 5.x).rvls`を読み込む
-1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caler.ps1`のフルパスを書き足す
+1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caller.ps1`のフルパスを書き足す
 1. [適用] ボタンを押す
 
 [引数] の設定例
@@ -37,8 +42,20 @@ VOICEVOXを起動した状態で [音声の同期] をしてください
 #### ヒント
 
 * 音声が作成されない場合は`voicevox-caler.ps1`と同じフォルダの`last_error.txt`を確認してみてください。最後に発生したエラーが出力されています
-* 調整パラメータを [ユーザ定義音声連携] の引数として渡せます。利用できるパラメータはVOICEVOXのドキュメント (http://127.0.0.1:50021/docs) を参照してください
+* 調整パラメータを [ユーザ定義音声連携] の引数として渡せます。利用できるパラメータはVOICEVOXのドキュメント (<http://127.0.0.1:50021/docs>) を参照してください
 * このスクリプトはWindowsに最初からインストールされてるWindows PowerShell ISEで変更・動作確認できます。好みに合わせてカスタマイズして使ってください
+
+----
+
+## aivos-userdef
+
+Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するためのユーザー定義音声連携ファイルです。
+
+* インストール手順
+  1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
+  1. Recotte Studioのユーザー定義音声連携として`aivos-userdef\aivos-userdef.rvls`をインポートする
+
+----
 
 ### 利用規約
 
