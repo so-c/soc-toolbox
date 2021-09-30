@@ -5,10 +5,9 @@ function Expand-MacZip {
         $zipPath
     )
     $archive = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
-    foreach($e in $archive.Entries) {
+    foreach ($e in $archive.Entries) {
         if ($e.FullName.EndsWith('/')) {
             $dirName = "wav\" + $e.FullName.TrimEnd('/') + "\"
-            
             New-Item -Path $dirName -ItemType Directory > $null
             continue
         }
@@ -22,10 +21,10 @@ function Expand-MacZip {
         $dest = [System.IO.Path]::Combine((Resolve-Path ".\wav"), $entryName)
         try {
             [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, $dest, $true)
-        } catch [System.NotSupportedException] {
+        }
+        catch [System.NotSupportedException] {
             Write-Error ”パス：$dest”
             Write-Error $PSItem
         }
     }
-
 }

@@ -29,7 +29,7 @@ class PitagoeRecord {
         [string]$s,
         [string]$y,
         [string]$c
-    ){
+    ) {
         $this.FilePath = $f
         $this.DisplayName = $dn
         $this.Serifu = $s
@@ -42,7 +42,8 @@ Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
 
     $displayName = if ($_.BaseName.StartsWith('116 ')) {
         ($_.BaseName -replace '116 ', '')
-    } else {
+    }
+    else {
         $_.BaseName
     }
 
@@ -71,7 +72,7 @@ $replaceTable.Add('&#x2042;', '⁂')
 
 foreach ($key in $replaceTable.keys) {
     Get-ChildItem .\wav\ -Recurse -Include *.wav |
-        Rename-Item -NewName {$_.name -replace $key, $replaceTable[$key]}
+        Rename-Item -NewName { $_.name -replace $key, $replaceTable[$key] }
 }
 
 Pop-Location
