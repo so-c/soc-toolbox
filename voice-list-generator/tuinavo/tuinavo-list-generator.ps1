@@ -10,7 +10,7 @@ Set-Location $PSScriptRoot
 if (Test-Path .\wav) {
     Remove-Item .\wav -Force -Confirm:$false -Recurse
 }
-New-Item .\wav -ItemType Directory
+New-Item .\wav -ItemType Directory > $null
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 function Expand-MacZip($zipPath) {
@@ -19,7 +19,7 @@ function Expand-MacZip($zipPath) {
         if ($e.FullName.EndsWith('/')) {
             $dirName = "wav\" + $e.FullName.TrimEnd('/') + "\"
             
-            New-Item -Path $dirName -ItemType Directory
+            New-Item -Path $dirName -ItemType Directory > $null
             continue
         }
         $entryName = $e.FullName.Normalize() -replace '/', '\'
