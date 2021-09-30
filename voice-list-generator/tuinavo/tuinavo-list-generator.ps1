@@ -39,19 +39,39 @@ class PitagoeRecord {
 }
 
 Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
+
+    $displayName = if ($_.BaseName.StartsWith('116 ')) {
+        ($_.BaseName -replace '116 ', '')
+    } else {
+        $_.BaseName
+    }
+
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new(
         (Resolve-Path $_.FullName -Relative),
-        $_.BaseName,
+        $displayName,
         "",
         "",
         $tmp.Directory.Name
     )
-    $pitagoe
+    # $pitagoe
 }
 
 # ファイル名置換は止めて表示名だけ置換する
 # ファイル名に使えない文字があるので（例：'/'）
-Get-ChildItem .\wav\ -Recurse -Include *.wav | Rename-Item -NewName {$_.name -replace '&#x2c7;', 'ˇ'}
-Get-ChildItem .\wav\ -Recurse -Include *.wav | Rename-Item -NewName { $_.name -replace '#x2661;', '♡' }
+
+$replaceTable = @{}
+$replaceTable.Add('&#x2c7;', 'ˇ')
+$replaceTable.Add('&#x2661;', '♡')
+$replaceTable.Add('&#x266b;', '♫')
+$replaceTable.Add('&#x2665;', '♥')
+$replaceTable.Add('&#xff5e;', '～') # Windows IMEで変換できる波ダッシュ
+$replaceTable.Add('&#xff0d;', 'ー') # Windows IMEで「ダッシュ」で変換できる文字
+$replaceTable.Add('&#x25aa;', '▪')
+$replaceTable.Add('&#x2042;', '⁂')
+
+foreach ($key in $replaceTable.keys) {
+    Get-ChildItem .\wav\ -Recurse -Include *.wav |
+        Rename-Item -NewName {$_.name -replace $key, $replaceTable[$key]}
+}
 
 Pop-Location
