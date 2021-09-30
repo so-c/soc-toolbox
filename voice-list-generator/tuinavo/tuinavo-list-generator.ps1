@@ -68,7 +68,7 @@ Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new(
         (Resolve-Path $_.FullName -Relative),
         $displayName,
-        "",
+        $displayName,
         "",
         $_.Directory.Name
     )
