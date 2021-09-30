@@ -14,6 +14,7 @@ function Expand-MacZip {
         $entryName = $e.FullName.Normalize() -replace '/', '\'
         # Windowsのファイルシステムでは使えない文字の置換
         $entryName = $entryName -replace ':', '_'
+        $entryName = $entryName -replace "!\?", "！？" # !？[半角・全角]は表示が乱れるのでペアで置換
         # 濁音、半濁音の置換
         # TODO：
         # ad-hocなファイル名誤り修正
@@ -24,6 +25,11 @@ function Expand-MacZip {
         }
         catch [System.NotSupportedException] {
             Write-Error ”パス：$dest”
+            Write-Error $PSItem
+        }
+        catch {
+            Set-Content "log.txt" -Value  $e -Encoding UTF8 
+            Set-Content "log2.txt" -Value  ”パス：$dest” -Encoding UTF8
             Write-Error $PSItem
         }
     }
