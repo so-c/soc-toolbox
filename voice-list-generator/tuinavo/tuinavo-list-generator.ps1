@@ -16,6 +16,39 @@ Get-ChildItem .\zip-archives\*.zip | ForEach-Object {
     Expand-MacZip($_.FullName)
 }
 
+class PitagoeRecord {
+    $FilePath
+    [string]$DisplayName
+    [string]$Serifu
+    [string]$Yomigana
+    [string]$Category
+
+    PitagoeRecord(
+        $f,
+        [string]$dn,
+        [string]$s,
+        [string]$y,
+        [string]$c
+    ){
+        $this.FilePath = $f
+        $this.DisplayName = $dn
+        $this.Serifu = $s
+        $this.Yomigana = $y
+        $this.Category = $c
+    }
+}
+
+Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
+    [PitagoeRecord]$pitagoe = [PitagoeRecord]::new(
+        (Resolve-Path $_.FullName -Relative),
+        $_.BaseName,
+        "",
+        "",
+        $tmp.Directory.Name
+    )
+    $pitagoe
+}
+
 # ファイル名置換は止めて表示名だけ置換する
 # ファイル名に使えない文字があるので（例：'/'）
 Get-ChildItem .\wav\ -Recurse -Include *.wav | Rename-Item -NewName {$_.name -replace '&#x2c7;', 'ˇ'}
