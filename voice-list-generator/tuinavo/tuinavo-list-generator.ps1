@@ -38,6 +38,7 @@ class PitagoeRecord {
     }
 }
 
+$pitagoes = @()
 Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
 
     $displayName = if ($_.BaseName.StartsWith('116 ')) {
@@ -47,32 +48,35 @@ Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
         $_.BaseName
     }
 
+    $replaceTable = @{}
+    $replaceTable.Add('&#x2c7;', 'ˇ')
+    $replaceTable.Add('&#x2661;', '♡')
+    $replaceTable.Add('&#x266b;', '♫')
+    $replaceTable.Add('&#x2665;', '♥')
+    $replaceTable.Add('&#xff5e;', '～') # Windows IMEで変換できる波ダッシュ
+    $replaceTable.Add('&#xff0d;', 'ー') # Windows IMEで「ダッシュ」で変換できる文字
+    $replaceTable.Add('&#x25aa;', '▪')
+    $replaceTable.Add('&#x2042;', '⁂')
+    $replaceTable.Add('_', '/')         # ファイル名に使えないため置換された文字を戻す
+
+    foreach ($key in $replaceTable.keys) {
+        $displayName = $displayName -replace $key, $replaceTable[$key]
+    }
+
+    Push-Location
+    Set-Location ".\wav\"
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new(
         (Resolve-Path $_.FullName -Relative),
         $displayName,
         "",
         "",
-        $tmp.Directory.Name
+        $_.Directory.Name
     )
-    # $pitagoe
+    Pop-Location
+    $pitagoes += $pitagoe
 }
 
-# ファイル名置換は止めて表示名だけ置換する
-# ファイル名に使えない文字があるので（例：'/'）
-
-$replaceTable = @{}
-$replaceTable.Add('&#x2c7;', 'ˇ')
-$replaceTable.Add('&#x2661;', '♡')
-$replaceTable.Add('&#x266b;', '♫')
-$replaceTable.Add('&#x2665;', '♥')
-$replaceTable.Add('&#xff5e;', '～') # Windows IMEで変換できる波ダッシュ
-$replaceTable.Add('&#xff0d;', 'ー') # Windows IMEで「ダッシュ」で変換できる文字
-$replaceTable.Add('&#x25aa;', '▪')
-$replaceTable.Add('&#x2042;', '⁂')
-
-foreach ($key in $replaceTable.keys) {
-    Get-ChildItem .\wav\ -Recurse -Include *.wav |
-        Rename-Item -NewName { $_.name -replace $key, $replaceTable[$key] }
-}
+$pitagoes | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
+    Set-Content ".\wav\ついなちゃんサンプルボイス.csv" -Encoding UTF8
 
 Pop-Location
