@@ -73,10 +73,12 @@ Get-ChildItem '.\wav\*.wav' -Recurse | ForEach-Object {
     $replaceTable.Add('3_ついなちゃん啓蒙動画_手洗い', '手を洗う時は、蛇口から流れる水で手を濡らして、まず石鹸で丁寧に手のひらをこすり洗い。手の甲、指先、爪の間と順番に、念入りにこすること！　指と指の間もしっかり洗うてな☆　親指や手のひらをねじるように洗うのもポイント！　そうそう、手首も忘れずに洗うてな〜！　──そして手洗いの時間は１分くらい。洗った後は、 濡れた手はペーパータオルか清潔なタオルで拭いてね♡')
     $replaceTable.Add('4_ついなちゃん啓蒙動画_マスク', '疫病が流行しとる時は、忘れずにしっかりマスクするのがマナーやで〜。マスクを着けるときは、鼻と口の両方を覆って、隙間がないようにしっかりと装着してな！　マスクない時は、ティッシュやハンカチで口・鼻を覆ってね！　とっさの時は他の人のいない方を向いて、お洋服の袖で口・鼻をカバーしてな！　これぞ、必殺技「肘ブロック」やで☆')
     $replaceTable.Add('_', '/')         # ファイル名に使えないため置換された文字を戻す
+    $replaceTable.Add('(/ /////////` )', '(́ _________` )')
+    $replaceTable.Add('( ｰ`дｰ/)', '( ｰ`дｰ´)')
     $replaceTable.Add('え/ち', 'えっち')  # Workaround
 
     foreach ($key in $replaceTable.keys) {
-        $displayName = $displayName -replace $key, $replaceTable[$key]
+        $displayName = $displayName.Replace($key, $replaceTable[$key])
     }
 
     Push-Location
