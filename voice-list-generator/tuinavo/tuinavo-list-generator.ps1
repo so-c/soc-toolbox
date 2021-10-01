@@ -7,7 +7,7 @@ Push-Location
 Set-Location $PSScriptRoot
 
 . ".\lib\Expand-MacZip.ps1"
-. ".\lib\Pitagoe.ps1"
+. ".\lib\PitagoeRecord.ps1"
 
 if (Test-Path .\wav) {
     Remove-Item .\wav\* -Force -Confirm:$false -Exclude *第5回*,*第8回*,*第21回* -Recurse
