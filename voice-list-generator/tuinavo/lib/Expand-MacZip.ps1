@@ -27,7 +27,7 @@ function Expand-MacZip {
             if (-not (NeedsSubDirectory($e.FullName))) {
                 continue
             }
-            $dirName = 'wav\' + ($e.FullName -replace '/', '\')
+            $dirName = "$workDir\wav\" + ($e.FullName -replace '/', '\')
             New-Item -Path $dirName -ItemType Directory > $null
             continue
         }
@@ -39,11 +39,11 @@ function Expand-MacZip {
         # 濁音、半濁音の置換
         # TODO：
         $entryName = $entryName -replace '\\wav', '' # 第43回以降のフォルダ構造を第42回以前に合わせる
-        $dest = [System.IO.Path]::Combine((Resolve-Path '.\wav'), $entryName)
+        $dest = [System.IO.Path]::Combine("$PSScriptRoot\..\wav", $entryName)
         try {
             [System.IO.Compression.ZipFileExtensions]::ExtractToFile($e, $dest, $true)
         }
-        catch [System.NotSupportedException] {
+        catch {
             Write-Host "$e to $dest"
             Write-Error ”パス：$dest”
             throw $PSItem

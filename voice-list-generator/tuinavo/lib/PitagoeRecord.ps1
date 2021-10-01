@@ -65,4 +65,14 @@
         $this.Yomigana = $y
         $this.Category = $c
     }
+
+    PitagoeRecord(
+        $fsi
+    ) {
+        $this.FilePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
+        $this.DisplayName = $this.GetDisplayName($fsi.BaseName)
+        $this.Serifu = $this.GetDisplayName($fsi.BaseName)
+        $this.Yomigana = ""
+        $this.Category = $fsi.Directory.Name
+    }
 }
