@@ -7,9 +7,8 @@ Push-Location
 Set-Location $PSScriptRoot
 
 if (Test-Path .\wav) {
-    Remove-Item .\wav -Force -Confirm:$false -Recurse
+    Remove-Item .\wav\* -Force -Confirm:$false -Exclude *第5回*,*第8回*,*第21回* -Recurse
 }
-New-Item .\wav -ItemType Directory > $null
 
 . .\lib\Expand-MacZip.ps1
 Get-ChildItem .\zip-archives\*.zip | ForEach-Object {
