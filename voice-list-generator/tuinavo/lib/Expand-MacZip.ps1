@@ -39,7 +39,7 @@ function Expand-MacZip {
         # 濁音、半濁音の置換
         # TODO：
         # ad-hocなファイル名誤り修正
-        $entryName = $entryName -replace '116 ウチが主催しとる妖怪系オンリー', 'ウチが主催しとる妖怪系オンリー'
+        # $entryName = $entryName -replace '116 ウチが主催しとる妖怪系オンリー', 'ウチが主催しとる妖怪系オンリー'
         $entryName = $entryName -replace '\\wav', '' # 第43回以降のフォルダ構造を第42回以前に合わせる
         $dest = [System.IO.Path]::Combine((Resolve-Path '.\wav'), $entryName)
         try {
