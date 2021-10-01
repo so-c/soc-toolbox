@@ -20,7 +20,7 @@ Get-ChildItem $workDir\zip-archives\*.zip | ForEach-Object {
 $pitagoes = @()
 Get-ChildItem "$workDir\wav\*.wav" -Recurse | ForEach-Object {
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
-    $pitagoes += $pitagoe
+     $pitagoes += $pitagoe
 }
 
 $pitagoes | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |

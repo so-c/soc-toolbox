@@ -47,7 +47,7 @@
 
         $dic = [PitagoeRecord]::replaceTable
         foreach ($key in $dic.keys) {
-            $ret = $ret.Replace($key, $dic[$key])
+            $ret = ($ret -replace $key, $dic[$key])
         }
 
         return $ret
