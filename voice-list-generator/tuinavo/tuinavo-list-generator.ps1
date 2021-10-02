@@ -43,7 +43,7 @@ if ($Expand) {
     else {
         New-Item $workDir\wav -ItemType Directory > $null
     }
-    Get-ChildItem $workDir\zip-archives\*.zip | ForEach-Object {
+    Get-ChildItem $workDir\zip\*.zip | ForEach-Object {
         Expand-MacZip($_.FullName)
     }
 }
