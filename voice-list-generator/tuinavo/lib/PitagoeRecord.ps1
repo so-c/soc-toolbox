@@ -44,14 +44,17 @@
         'え/ち'            = 'えっち'
         '(/ /)'           = '(> <)'
         'ω/-)'            = 'ω´-)'
+        '( ´∀｀)人(´∀｀ )' = '( ´∀｀)人(´∀｀ )ﾅｶｰﾏ'
     }
 
     static $categories
+    static $displayNumbers
     static PitagoeRecord() {
         [PitagoeRecord]::categories = (Get-Content $PSScriptRoot\category.json | ConvertFrom-Json)
+        [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers.json | ConvertFrom-Json)
     }
 
-    [string] GetDisplayName([string]$baseName) {
+    [string] GetSerif([string]$baseName) {
 
         # ファイル名が一貫していないケースの前処理
         $ret = $baseName -replace '^(116|859|860|861|862|863|864) ', ''
@@ -77,18 +80,20 @@
     }
 
     [string] GetCategory($fsi) {
-        $relPath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
+        $relativePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
 
         $cats = [PitagoeRecord]::categories.PSObject.Properties
         foreach ($c in $cats) {
             foreach ($item in $c.Value) {
-                if ($item.Contains($relPath)) {
+                if ($item.Contains($relativePath)) {
                     return $c.Name
                 }
             }
         }
         return $fsi.Directory.Name
     }
+
+    
 
     PitagoeRecord(
         $f,
@@ -97,8 +102,8 @@
         [string]$c
     ) {
         $this.FilePath = $f
-        $this.DisplayName = $this.GetDisplayName($bn)
-        $this.Serifu = $this.GetDisplayName($bn)
+        $this.DisplayName = $this.GetSerif($bn)
+        $this.Serifu = $this.GetSerif($bn)
         $this.Yomigana = $y
         $this.Category = $c
     }
@@ -106,9 +111,10 @@
     PitagoeRecord(
         $fsi
     ) {
-        $this.FilePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
-        $this.DisplayName = $this.GetDisplayName($fsi.BaseName)
-        $this.Serifu = $this.GetDisplayName($fsi.BaseName)
+        $relativePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
+        $this.FilePath = $relativePath
+        $this.DisplayName = [PitagoeRecord]::displayNumbers.$relativePath + " " + $this.GetSerif($fsi.BaseName)
+        $this.Serifu = $this.GetSerif($fsi.BaseName)
         $this.Yomigana = ""
         $this.Category = $this.GetCategory($fsi)
     }
