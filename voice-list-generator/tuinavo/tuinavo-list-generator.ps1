@@ -11,13 +11,31 @@ $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 
+function NewPitagoeList {
+    param (
+        [string]$pathToWavs
+    )
+
+    if (-not $pathToWavs.EndsWith('\')) {
+        $pathToWavs += '\'
+    }
+
+    $pitagoes = @()
+    Get-ChildItem "${pathToWavs}*.wav" -Recurse | ForEach-Object {
+        [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
+        $pitagoes += $pitagoe
+    }
+    return $pitagoes
+}
+
 if ($Expand) {
     if (Test-Path $workDir\wav) {
         Get-ChildItem $workDir\wav\* -Recurse |
         ForEach-Object {
             if ($_.FullName.Contains("第5回") -or $_.FullName.Contains("第8回") -or $_.FullName.Contains("第21回")) {
                 
-            } else {
+            }
+            else {
                 Remove-Item $_.FullName -Recurse -Force -Confirm:$false
             }
         }
@@ -30,11 +48,8 @@ if ($Expand) {
     }
 }
 
-$pitagoes = @()
-Get-ChildItem "$workDir\wav\*.wav" -Recurse | ForEach-Object {
-    [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
-    $pitagoes += $pitagoe
-}
+$pitagoes = NewPitagoeList("$workDir\wav\")
 
-$pitagoes | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
+# ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
+$pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
 Set-Content "$workDir\wav\ついなちゃんサンプルボイス.csv" -Encoding UTF8
