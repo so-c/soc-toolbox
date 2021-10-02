@@ -2,8 +2,10 @@
 
 主に動画編集に使うちょっとしたツール類
 
-1. [voicevox-caller](#voicevox-caller)
-1. [aivos-userdef](#aivos-userdef)
+1. [voicevox-caller](#voicevox-caller)：VOICEVOXの音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
+1. [aivos-userdef](#aivos-userdef)：Recotte StudioのA.I.VOICE用ユーザー定義音声連携ファイル
+1. voice-list-generator
+   * [tuinavo-list-generator](#tuinavo-list-generator)：ついなちゃんの配布ボイスをぴた声アプリやRecotte Studioから便利に使えるようにするためのスクリプト
 
 ----
 
@@ -57,6 +59,12 @@ Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するた�
 
 ----
 
+## tuinavo-list-generator
+
+[Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開してください
+
+使い方は同梱の「使い方.txt」を参照してください
+
 ### 利用規約
 
 * ユーザ向け
@@ -64,4 +72,4 @@ Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するた�
   * Recotte StudioやVOICEVOX、各キャラクターにはそれぞれ利用規約があるのでそちらに従ってください
   * （任意）ニコニコ動画で使う際は[voicevox\-caller \- ニコニ･コモンズ](https://commons.nicovideo.jp/material/nc252957)をコンテンツツリーに登録してもらえると作者が喜びます
 * 開発者向け
-  * [MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
+  * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です

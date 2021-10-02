@@ -1,0 +1,83 @@
+# 使い方
+
+## このスクリプトについて
+
+ついなちゃんのサンプルボイス、追加ボイスを
+「ぴた声」、「Recotte Studio」で使いやすくするためのスクリプトです
+
+現バージョンでは下記ボイスに対応しています
+
+* サンプルボイス第1回～第51回
+* 
+* Synthesizer Vクラウドファンディング追加ボイス
+
+
+## 準備
+
+0. Fantiaに登録してついなちゃんを支援する
+   → Fantiaのついなちゃんのページ https://fantia.jp/posts/8751
+   
+   セリフ集に関する特典
+   * 支援しなくてもサンプルボイス15種をダウンロードできますが……
+   * 無料プランで正式に二次創作権をGETできます
+     → キャラクター使用のガイドライン https://fantia.jp/posts/485684
+   * 500円プランでボイス配布時にボーナスボイスが5種つきます
+   * 1000円プランでボーナスボイスがさらに5種つきます
+
+1. サンプルボイス、ボーナスボイスをダウンロードして"zip"フォルダに保存する
+   * ダウンロード元はFantiaのページです
+     → Fantiaの「サンプルボイス」タグ付きページ
+        https://fantia.jp/fanclubs/326/posts?page=3&tag=%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%9C%E3%82%A4%E3%82%B9
+     第39回と第49回はタグが付いていないのでこちらから
+     → 第39回 https://fantia.jp/posts/361904
+     → 第49回 https://fantia.jp/posts/777271
+   * 第1回～第42回はwav版とmp3版が分かれているのでwav版を
+     ダウンロードしてください
+   * 第43回からはwavとmp3が1つのzipファイルにまとまりました
+   * TIPS: アイコン用画像もダウンロードして
+          「thumbnail.png」と言う名前で保存しておくとサムネにできます
+
+2. 第5回、第8回、第21回の3つは解凍してwavフォルダに保存する
+   * zipファイルの解凍エラーをスクリプトで処理できませんでした……
+   * wavファイルの下に「ついなちゃんサンプルボイス 第N回（wav）」が来るようにします
+     * 例：wav\ついなちゃんサンプルボイス 第5回（wav）\
+
+## 実行
+
+Windows PowerShellでスクリプトを実行します
+
+1. スタートメニューから「Windows PowerShell ISE」を起動します
+2. まず今開いているウィンドウでスクリプトを実行できるようにします
+  ↓
+  Set-ExecutionPolicy RemoteSigned -Scope Process
+  ↑
+  これをコピペしてEnterを押してください
+3. メッセージを確認してこのスクリプトを信用して動かすなら
+  「Y」を入力してEnterを押してください
+4. スクリプトをShiftを押しながら右クリックして
+  「パスのコピー」を選択します
+5. 先頭に". "を入力してペーストし、下記のようにしてEnterを押します
+  ↓
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1"
+  ↑
+6. 「ついなちゃんセリフ集.csv」を作成した旨が表示されるまで待ちます
+   無事に表示されたら実行成功です
+   エラーが出たらGitHubのIssueとして報告してもらえると助かります
+   Twitterに連絡いただいても善処します
+   → GitHub https://github.com/so-c/soc-toolbox/issues
+   → Twitter ＠SO_C
+
+## ぴた声アプリ、Recotte Studioへの登録
+
+「ぴた声アプリの使い方」と「Recotte Studio 機能マニュアル」を参照してください
+→ぴた声 https://www.ah-soft.com/pitagoe/app/guide/02_setup.html#2-1
+→レコスタ https://www.ah-soft.com/rs/manual/voice_lib.html
+
+TIPS: ダウンロードしておいた"thumbnail.png"を
+      wavファイルに入れておくとサムネイルとして表示されます
+
+## 利用条件
+
+スクリプト本体(ps1)のライセンスはMIT LICENSEです
+設定ファイル(json, ini)内のキャラクター名、セリフなどはついなちゃんのキャラクター仕様ガイドラインに基づき利用してください
+→ついなちゃん キャラクター使用のガイドライン https://fantia.jp/posts/485684
