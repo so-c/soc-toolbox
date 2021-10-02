@@ -52,4 +52,4 @@ $pitagoes = NewPitagoeList("$workDir\wav\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 $pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
-Set-Content "$workDir\wav\ついなちゃんサンプルボイス.csv" -Encoding UTF8
+Set-Content "$workDir\wav\ついなちゃんセリフ集.csv" -Encoding UTF8
