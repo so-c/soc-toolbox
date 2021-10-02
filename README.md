@@ -63,7 +63,7 @@ Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するた�
 
 [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開してください
 
-使い方は同梱の「使い方.txt」を参照してください
+使い方は`voice-list-generator\tuinavo\`フォルダの「使い方.txt」を参照してください
 
 ### 利用規約
 
