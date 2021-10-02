@@ -1,5 +1,5 @@
 ﻿Param(
-    [switch]$expand
+    [switch]$Expand
 )
 # usage: 下記のように配置して実行
 # .\
@@ -11,9 +11,16 @@ $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 
-if ($expand) {
+if ($Expand) {
     if (Test-Path $workDir\wav) {
-        Remove-Item $workDir\wav\* -Force -Confirm:$false -Exclude "*第5回*", "*第8回*", "*第21回*" -Recurse
+        Get-ChildItem $workDir\wav\* -Recurse |
+        ForEach-Object {
+            if ($_.FullName.Contains("第5回") -or $_.FullName.Contains("第8回") -or $_.FullName.Contains("第21回")) {
+                
+            } else {
+                Remove-Item $_.FullName -Recurse -Force -Confirm:$false
+            }
+        }
     }
     else {
         New-Item $workDir\wav -ItemType Directory > $null
@@ -31,5 +38,3 @@ Get-ChildItem "$workDir\wav\*.wav" -Recurse | ForEach-Object {
 
 $pitagoes | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
 Set-Content "$workDir\wav\ついなちゃんサンプルボイス.csv" -Encoding UTF8
-
-Pop-Location
