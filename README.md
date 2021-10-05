@@ -3,7 +3,7 @@
 主に動画編集に使うちょっとしたツール類
 
 1. [voicevox-caller](#voicevox-caller)：VOICEVOXの音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
-1. [aivos-userdef](#aivos-userdef)：Recotte StudioのA.I.VOICE用ユーザー定義音声連携ファイル
+1. [aivos-userdef](#aivos-userdef)：Recotte Studioのユーザー定義音声連携にインポートするためのA.I.VOICE向け設定ファイル
 1. voice-list-generator
    * [tuinavo-list-generator](#tuinavo-list-generator)：ついなちゃんの配布ボイスをぴた声アプリやRecotte Studioから便利に使えるようにするためのスクリプト
 
@@ -11,7 +11,7 @@
 
 ## voicevox-caller
 
-PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エンジンを呼ぶためのスクリプトです。
+PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エンジンを呼ぶためのスクリプトです
 
 ### Recotte Studioの「ユーザー定義音声連携」での使い方
 
@@ -51,25 +51,31 @@ VOICEVOXを起動した状態で [音声の同期] をしてください
 
 ## aivos-userdef
 
-Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するためのユーザー定義音声連携ファイルです。
+Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するためのユーザー定義音声連携ファイルです
 
 * インストール手順
   1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
   1. Recotte Studioのユーザー定義音声連携として`aivos-userdef\aivos-userdef.rvls`をインポートする
 
+使い方はRecotte Studioのマニュアルでご確認ください
+
 ----
 
 ## tuinavo-list-generator
 
+ついなちゃんが[Fantia](https://fantia.jp/fanclubs/326)で配布しているサンプルボイスを、ぴた声アプリやRecotte Studioから便利に使えるようにするスクリプトです
+
 [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開してください
 
-使い方は`voice-list-generator\tuinavo\`フォルダの「使い方.txt」を参照してください
+使い方は`voice-list-generator\tuinavo\`フォルダの[「使い方.txt」](https://github.com/so-c/soc-toolbox/blob/main/voice-list-generator/tuinavo/%E4%BD%BF%E3%81%84%E6%96%B9.txt)を参照してください
+
+----
 
 ### 利用規約
 
 * ユーザ向け
   * このリポジトリで公開しているスクリプトなどはインターネット全般で非商用・商用問わず利用できます
-  * Recotte StudioやVOICEVOX、各キャラクターにはそれぞれ利用規約があるのでそちらに従ってください
+  * Recotte StudioやVOICEVOX、各キャラクターなどそれぞれの利用規約に従ってください
   * （任意）ニコニコ動画で使う際は[voicevox\-caller \- ニコニ･コモンズ](https://commons.nicovideo.jp/material/nc252957)をコンテンツツリーに登録してもらえると作者が喜びます
 * 開発者向け
   * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
