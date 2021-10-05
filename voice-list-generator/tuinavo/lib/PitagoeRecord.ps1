@@ -49,9 +49,11 @@
 
     static $categories
     static $displayNumbers
+    static $yomiganaDic
     static PitagoeRecord() {
         [PitagoeRecord]::categories = (Get-Content $PSScriptRoot\category.json | ConvertFrom-Json)
         [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers.json | ConvertFrom-Json)
+        [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana.json | ConvertFrom-Json)
     }
 
     [string] GetSerif([string]$baseName) {
@@ -93,8 +95,6 @@
         return $fsi.Directory.Name
     }
 
-    
-
     PitagoeRecord(
         $f,
         [string]$bn,
@@ -115,7 +115,7 @@
         $this.FilePath = $relativePath
         $this.DisplayName = [PitagoeRecord]::displayNumbers.$relativePath + " " + $this.GetSerif($fsi.BaseName)
         $this.Serifu = $this.GetSerif($fsi.BaseName)
-        $this.Yomigana = ""
+        $this.Yomigana = [PitagoeRecord]::yomiganaDic.$relativePath
         $this.Category = $this.GetCategory($fsi)
     }
 }
