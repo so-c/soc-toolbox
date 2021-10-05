@@ -59,10 +59,20 @@ if (-not $NoExpand) {
 $pitagoes = NewPitagoeList("$workDir\wav\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
-$pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 |
-Set-Content "$workDir\wav\ついなちゃんセリフ集.csv" -Encoding UTF8
+# XXX：下記対応が不完全
+# ・必ず引用符がつく
+#   → ※マニュアルに規定なし。動いているように見える
+# ・文字列の引用符はエスケープされて "" になる
+#   → "" のまま表示されてしまうのでデータパッチ
+# ・UTF8withBOMオンリー
+#   → マニュアル上BOMなしだが読み込んでくれる
+# ・1行目に空行
+#   → スキップする
+$pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
+ForEach-Object { $_.Replace('‹""', '‹"') } |
+Select-Object -Skip 1 | Set-Content "$workDir\wav\ついなちゃんセリフ集.csv" -Encoding UTF8
 
-Copy-Item $workDir\resource\character.ini .\wav -Force
+Copy-Item $workDir\resource\character.ini $workDir\wav -Force
 
 Write-Host "wavフォルダに「ついなちゃんセリフ集.csv」を作成しました"
 Write-Host "wavフォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
