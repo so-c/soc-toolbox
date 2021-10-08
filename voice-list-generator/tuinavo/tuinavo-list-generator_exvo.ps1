@@ -9,24 +9,7 @@ $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 
-function NewPitagoeList {
-    param (
-        [string]$pathToWavs
-    )
-
-    if (-not $pathToWavs.EndsWith('\')) {
-        $pathToWavs += '\'
-    }
-
-    $pitagoes = @()
-    Get-ChildItem "${pathToWavs}*.wav" -Recurse | ForEach-Object {
-        [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
-        $pitagoes += $pitagoe
-    }
-    return $pitagoes
-}
-
-$pitagoes = NewPitagoeList("$workDir\exVOICE\")
+$pitagoes = [PitagoeRecord]::newPitagoeList("$workDir\exVOICE\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 # XXX：下記対応が不完全
@@ -41,5 +24,5 @@ Select-Object -Skip 1 | Set-Content "$workDir\exVOICE\ついなちゃん exVOICE
 
 Copy-Item $workDir\resource\character.ini $workDir\exVOICE -Force
 
-Write-Host "exVOICEフォルダに「ついなちゃんセリフ集.csv」を作成しました"
+Write-Host "exVOICEフォルダに「ついなちゃん exVOICE.csv」を作成しました"
 Write-Host "exVOICEフォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
