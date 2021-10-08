@@ -4,7 +4,7 @@
 # usage: 下記のように配置して実行
 # .\
 #   + tuinavo-list-generator.ps1
-#   + zip-archives\
+#   + zip\
 #       + [a-z0-9]+_Sample_voice_[0-9]{2}_wav_.zip
 $workDir = $PSScriptRoot
 

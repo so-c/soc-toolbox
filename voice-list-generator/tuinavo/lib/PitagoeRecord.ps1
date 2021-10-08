@@ -52,8 +52,8 @@
     static $yomiganaDic
     static PitagoeRecord() {
         [PitagoeRecord]::categories = (Get-Content $PSScriptRoot\category.json | ConvertFrom-Json)
-        [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers.json | ConvertFrom-Json)
-        [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana.json | ConvertFrom-Json)
+        [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers_exvo.json | ConvertFrom-Json)
+        [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana_exvo.json | ConvertFrom-Json)
     }
 
     [string] GetSerif([string]$baseName) {
