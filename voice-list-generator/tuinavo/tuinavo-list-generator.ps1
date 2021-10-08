@@ -5,28 +5,12 @@
 # .\
 #   + tuinavo-list-generator.ps1
 #   + zip\
-#       + [a-z0-9]+_Sample_voice_[0-9]{2}_wav_.zip
+#       + abcd1234_Sample_voice_050.zip
 $workDir = $PSScriptRoot
 
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 
-function NewPitagoeList {
-    param (
-        [string]$pathToWavs
-    )
-
-    if (-not $pathToWavs.EndsWith('\')) {
-        $pathToWavs += '\'
-    }
-
-    $pitagoes = @()
-    Get-ChildItem "${pathToWavs}*.wav" -Recurse | ForEach-Object {
-        [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
-        $pitagoes += $pitagoe
-    }
-    return $pitagoes
-}
 
 if (-not $NoExpand) {
     Write-Host "zipフォルダ内のzipファイルを展開します"
@@ -56,7 +40,7 @@ if (-not $NoExpand) {
     Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"
 }
 
-$pitagoes = NewPitagoeList("$workDir\wav\")
+$pitagoes = [PitagoeRecord]::newPitagoeList("$workDir\wav\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 # XXX：下記対応が不完全

@@ -52,8 +52,8 @@
     static $yomiganaDic
     static PitagoeRecord() {
         [PitagoeRecord]::categories = (Get-Content $PSScriptRoot\category.json | ConvertFrom-Json)
-        [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers_exvo.json | ConvertFrom-Json)
-        [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana_exvo.json | ConvertFrom-Json)
+        [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers.json | ConvertFrom-Json)
+        [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana.json | ConvertFrom-Json)
     }
 
     [string] GetSerif([string]$baseName) {
@@ -117,5 +117,18 @@
         $this.Serifu = $this.GetSerif($fsi.BaseName)
         $this.Yomigana = [PitagoeRecord]::yomiganaDic.$relativePath
         $this.Category = $this.GetCategory($fsi)
+    }
+
+    static [PitagoeRecord[]] newPitagoeList([string]$pathToWavs) {
+        if (-not $pathToWavs.EndsWith('\')) {
+            $pathToWavs += '\'
+        }
+
+        $pitagoes = @()
+        Get-ChildItem "${pathToWavs}*.wav" -Recurse | ForEach-Object {
+            [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
+            $pitagoes += $pitagoe
+        }
+        return $pitagoes
     }
 }
