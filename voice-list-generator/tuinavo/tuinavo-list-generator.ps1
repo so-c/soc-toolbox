@@ -1,4 +1,8 @@
 ﻿Param(
+    [Parameter(Mandatory)]
+    [ValidateSet("Sample", "ex")]
+    [String[]]
+    $Voice,
     [switch]$NoExpand
 )
 # usage: 下記のように配置して実行
@@ -7,19 +11,35 @@
 #   + zip\
 #       + abcd1234_Sample_voice_050.zip
 $workDir = $PSScriptRoot
-
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 
+$destDir
+$csvFileName
 
-if (-not $NoExpand) {
+switch ($Voice) {
+    "Sample" {
+        $destDir = "$workDir\wav"
+        $csvFileName = "ついなちゃん セリフ集.csv"
+    }
+    "ex" {
+        $destDir = "$workDir\exVOICE"
+        $csvFileName = "ついなちゃん exVOICE.csv"
+    }
+    Default {
+        Write-Error "到達不能コード"
+    }
+}
+
+if ($Voice -eq "Sample" -and -not $NoExpand) {
     Write-Host "zipフォルダ内のzipファイルを展開します"
-    if (Test-Path $workDir\wav) {
-        Get-ChildItem $workDir\wav\* -Recurse |
+    if (Test-Path $destDir) {
+        Get-ChildItem $destDir\* -Recurse |
         ForEach-Object {
             if ($_.FullName.Contains("第5回") -or $_.FullName.Contains("第8回") -or $_.FullName.Contains("第21回")) {
                 # zipエラーで展開できないので同期しない
-            } elseif ($_.Name -eq "thumbnail.png") {
+            }
+            elseif ($_.Name -eq "thumbnail.png") {
                 # zip外から持ってくるファイルなので同期しない
             }
             else {
@@ -28,7 +48,7 @@ if (-not $NoExpand) {
         }
     }
     else {
-        New-Item $workDir\wav -ItemType Directory > $null
+        New-Item $destDir -ItemType Directory > $null
     }
     
     Get-ChildItem $workDir\zip\*.zip | ForEach-Object {
@@ -40,7 +60,7 @@ if (-not $NoExpand) {
     Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"
 }
 
-$pitagoes = [PitagoeRecord]::newPitagoeList("$workDir\wav\")
+$pitagoes = [PitagoeRecord]::newPitagoeList("$destDir\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 # XXX：下記対応が不完全
@@ -53,10 +73,10 @@ $pitagoes = [PitagoeRecord]::newPitagoeList("$workDir\wav\")
 # ・1行目に空行
 #   → スキップする
 $pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
-ForEach-Object { $_.Replace('‹""', '‹"') } |
-Select-Object -Skip 1 | Set-Content "$workDir\wav\ついなちゃんセリフ集.csv" -Encoding UTF8
+ForEach-Object { $_.Replace('‹" ', "‹''") } |
+Select-Object -Skip 1 | Set-Content "$destDir\$csvFileName" -Encoding UTF8
 
-Copy-Item $workDir\resource\character.ini $workDir\wav -Force
+Copy-Item $workDir\resource\character.ini $destDir -Force
 
-Write-Host "wavフォルダに「ついなちゃんセリフ集.csv」を作成しました"
-Write-Host "wavフォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
+Write-Host "${Split-Path $destDir -Leaf}フォルダに「$csvFileName」を作成しました"
+Write-Host "${Split-Path $destDir -Leaf}フォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
