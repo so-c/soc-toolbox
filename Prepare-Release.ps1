@@ -23,6 +23,11 @@ New-Item -Path $PSScriptRoot\release\$tuinavo\ex, `
                $PSScriptRoot\release\$tuinavo\zip `
          -ItemType Directory >$null
 Compress-Archive -Path $PSScriptRoot\release\$tuinavo -DestinationPath $PSScriptRoot\release\$tuinavo.zip
+Compress-Archive -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Update -DestinationPath $PSScriptRoot\release\$tuinavo.zip
+
 
 Compress-Archive -Path $PSScriptRoot\voicevox-caller -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
+Compress-Archive -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Update -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
+
 Compress-Archive -Path $PSScriptRoot\aivos-userdef -DestinationPath $PSScriptRoot\release\$aivosUserDef.zip
+Compress-Archive -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Update -DestinationPath $PSScriptRoot\release\$aivosUserDef.zip
