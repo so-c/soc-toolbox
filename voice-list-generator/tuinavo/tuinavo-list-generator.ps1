@@ -1,6 +1,6 @@
 ﻿Param(
     [Parameter(Mandatory)]
-    [ValidateSet("Sample", "ex")]
+    [ValidateSet("Sample", "Ex")]
     [String[]]
     $Voice,
     [switch]$NoExpand
@@ -13,6 +13,7 @@
 $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
+. "$workDir\lib\PitagoeRecordExvo.ps1"
 
 $destDir
 $csvFileName
@@ -22,7 +23,7 @@ switch ($Voice) {
         $destDir = "$workDir\wav"
         $csvFileName = "ついなちゃん セリフ集.csv"
     }
-    "ex" {
+    "Ex" {
         $destDir = "$workDir\exVOICE"
         $csvFileName = "ついなちゃん exVOICE.csv"
     }
@@ -60,7 +61,11 @@ if ($Voice -eq "Sample" -and -not $NoExpand) {
     Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"
 }
 
-$pitagoes = [PitagoeRecord]::newPitagoeList("$destDir\")
+$pitagoes = switch ($Voice) {
+    "Sample" { [PitagoeRecord]::newPitagoeList("$destDir\") }
+    "Ex" { [PitagoeRecordExvo]::newPitagoeList("$destDir\") }
+    Default {}
+}
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 # XXX：下記対応が不完全

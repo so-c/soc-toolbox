@@ -50,15 +50,10 @@
     static $categories
     static $displayNumbers
     static $yomiganaDic
-    static $displayNumbersExvo
-    static $yomiganaDicExvo
     static PitagoeRecord() {
         [PitagoeRecord]::categories = (Get-Content $PSScriptRoot\category.json | ConvertFrom-Json)
         [PitagoeRecord]::displayNumbers = (Get-Content $PSScriptRoot\displayNumbers.json | ConvertFrom-Json)
         [PitagoeRecord]::yomiganaDic = (Get-Content $PSScriptRoot\yomigana.json | ConvertFrom-Json)
-
-        [PitagoeRecord]::displayNumbersExvo = (Get-Content $PSScriptRoot\displayNumbersExvo.json | ConvertFrom-Json)
-        [PitagoeRecord]::yomiganaDicExvo = (Get-Content $PSScriptRoot\yomiganaExvo.json | ConvertFrom-Json)
     }
 
     [string] GetSerif([string]$baseName) {
@@ -77,7 +72,7 @@
         }
         $ret = $ret -replace '/([0-9]+)', '_$1'
         
-        $ret = $ret.Replace("（うめき声_4）/", "うめき声_4）")
+        $ret = $ret.Replace("（うめき声_4）/", "（うめき声_4）")
         $ret = $ret.Replace("おっ！ ？/", "おっ！？")
         $ret = $ret.Replace("（笑い_14）/", "（笑い_14）")
         $ret = $ret.Replace("（声にならない声_1）/", "（声にならない声_1）")
@@ -86,9 +81,7 @@
         return $ret
     }
 
-    [string] GetCategory($fsi) {
-        $relativePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
-
+    [string] GetCategory($relativePath) {
         $cats = [PitagoeRecord]::categories.PSObject.Properties
         foreach ($c in $cats) {
             foreach ($item in $c.Value) {
@@ -97,12 +90,15 @@
                 }
             }
         }
-        return $fsi.Directory.Name
+        return (Split-Path $relativePath -Parent | Split-Path -Leaf)
     }
 
-    [string] GetDisplayNumber($fsi) {
-        $relativePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
-        return [PitagoeRecord]::displayNumbers.$relativePath + " " + $this.GetSerif($fsi.BaseName)
+    [string] GetDisplayName($relativePath, $baseName) {
+        return [PitagoeRecord]::displayNumbers.$relativePath + " " + $this.GetSerif($BaseName)
+    }
+
+    [string] GetYomigana($relativePath) {
+        return [PitagoeRecord]::yomiganaDic.$relativePath
     }
 
     PitagoeRecord(
@@ -122,10 +118,11 @@
         $fsi
     ) {
         $relativePath = ((Split-Path $fsi.DirectoryName -Leaf) + "\" + $fsi.Name)
+
         $this.FilePath = $relativePath
-        $this.DisplayName = $this.GetDisplayNumber($fsi)
+        $this.DisplayName = $this.GetDisplayName($relativePath, $fsi.BaseName)
         $this.Serifu = $this.GetSerif($fsi.BaseName)
-        $this.Yomigana = [PitagoeRecord]::yomiganaDic.$relativePath
+        $this.Yomigana = $this.GetYomigana($relativePath)
         $this.Category = $this.GetCategory($fsi)
     }
 
