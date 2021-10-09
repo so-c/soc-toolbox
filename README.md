@@ -17,7 +17,7 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エン�
 
 #### インストール手順
 
-1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
+1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`voicecox-caller-vX.Y.Z.zip`をダウンロードして展開する
 1. `voicevox-caller`フォルダーにある`voicevox-caller.ps1`と`VOICEVOX(PowerShell 5.x).rvls`を好きな場所に保存する
 1. Recotte Studioの [環境設定 > ユーザー定義音声連携の設定] を開く
 1. インポートボタンを押して`VOICEVOX(PowerShell 5.x).rvls`を読み込む
@@ -57,7 +57,7 @@ VOICEVOXを起動した状態で [音声の同期] をしてください
 Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するためのユーザー定義音声連携ファイルです
 
 * インストール手順
-  1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開する
+  1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`aivos-userdef-vX.Y.Z.zip`をダウンロードして展開する
   1. Recotte Studioのユーザー定義音声連携として`aivos-userdef\aivos-userdef.rvls`をインポートする
 
 使い方はRecotte Studioのマニュアルでご確認ください
@@ -68,7 +68,7 @@ Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するた�
 
 ついなちゃんが[Fantia](https://fantia.jp/fanclubs/326)で配布しているサンプルボイスを、ぴた声アプリやRecotte Studioから便利に使えるようにするスクリプトです
 
-[Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`Source Code (zip)`をダウンロードして展開してください
+[Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`tuinavo-list-generator-vX.Y.Z.zip`をダウンロードして展開してください
 
 使い方は`voice-list-generator\tuinavo\`フォルダの[「使い方.txt」](https://github.com/so-c/soc-toolbox/blob/main/voice-list-generator/tuinavo/%E4%BD%BF%E3%81%84%E6%96%B9.txt)を参照してください
 
