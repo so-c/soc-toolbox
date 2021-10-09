@@ -77,9 +77,11 @@ $pitagoes = switch ($Voice) {
 #   → マニュアル上BOMなしだが読み込んでくれる
 # ・1行目に空行
 #   → スキップする
-$pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
+$UTF8noBOM = [System.Text.UTF8Encoding]::new($false, $true)
+$CsvContents = ($pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
 ForEach-Object { $_.Replace('‹" ', "‹''") } |
-Select-Object -Skip 1 | Set-Content "$destDir\$csvFileName" -Encoding UTF8
+Select-Object -Skip 1)
+[System.IO.File]::WriteAllLines("$destDir\$csvFileName", $CsvContents, $UTF8noBOM)
 
 Copy-Item $workDir\resource\character.ini $destDir -Force
 
