@@ -42,6 +42,7 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エン�
 VOICEVOXを起動した状態で [音声の同期] をしてください
 
 参考動画：[Recotte Studio（レコスタ）ユーザー定義音声連携 \- YouTube](https://www.youtube.com/watch?v=N_VCF2ABKA8)
+
 [![参考動画](https://img.youtube.com/vi/N_VCF2ABKA8/0.jpg)](https://www.youtube.com/watch?v=N_VCF2ABKA8)
 
 #### ヒント
