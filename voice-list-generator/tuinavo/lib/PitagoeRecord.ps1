@@ -123,7 +123,7 @@
         $this.DisplayName = $this.GetDisplayName($relativePath, $fsi.BaseName)
         $this.Serifu = $this.GetSerif($fsi.BaseName)
         $this.Yomigana = $this.GetYomigana($relativePath)
-        $this.Category = $this.GetCategory($fsi)
+        $this.Category = $this.GetCategory($relativePath)
     }
 
     static [PitagoeRecord[]] newPitagoeList([string]$pathToWavs) {
