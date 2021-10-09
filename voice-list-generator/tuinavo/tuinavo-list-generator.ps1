@@ -24,7 +24,7 @@ switch ($Voice) {
         $csvFileName = "ついなちゃん セリフ集.csv"
     }
     "Ex" {
-        $destDir = "$workDir\exVOICE"
+        $destDir = "$workDir\ex"
         $csvFileName = "ついなちゃん exVOICE.csv"
     }
     Default {
