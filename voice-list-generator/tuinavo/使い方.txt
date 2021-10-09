@@ -2,7 +2,7 @@
 
 ## このスクリプトについて
 
-ついなちゃんのサンプルボイス、追加ボイスを
+ついなちゃんのサンプルボイス・追加ボイスを
 「ぴた声」、「Recotte Studio」で使いやすくするためのスクリプトです
 
 現バージョンでは下記ボイスに対応しています
@@ -10,6 +10,7 @@
 * サンプルボイス第1回～第51回
 * 病気予防のサンプルボイス（基本・うがい・手洗い・マスク）
 * Synthesizer Vクラウドファンディング支援者限定追加ボイス
+* VOICEROID2 ついなちゃん同梱のexVOICE
 
 ## 使いやすさ
 
@@ -22,13 +23,13 @@
 * ファイルに使えない文字（"/"など）を復元してセリフ登録されます
 * ぴた声ついなちゃん vol.1と横断検索できるようになります
 
-## 準備
+## サンプルボイスの準備
 
 0. Fantiaに登録してついなちゃんを支援する
    → Fantiaのついなちゃんのページ https://fantia.jp/posts/8751
    
    セリフ集に関する特典
-   * 支援しなくてもサンプルボイス15種をダウンロードできますが……
+   * 支援しなくてもサンプルボイス15種はダウンロードできますが……
    * 無料プランで正式に二次創作権をGETできます
      → キャラクター使用のガイドライン https://fantia.jp/posts/485684
    * 500円プランでボイス配布時にボーナスボイスが5種つきます
@@ -45,8 +46,8 @@
      ダウンロードしてください
    * 第43回からはwavとmp3が1つのzipファイルなので
      それをダウンロードしてください
-   * TIPS: アイコン用画像もダウンロードして
-          「thumbnail.png」と言う名前で保存しておくとサムネにできます
+   * TIPS: あとでサムネに使えるようにアイコン用画像もダウンロードして
+          「thumbnail.png」と言う名前で保存しておくとよいです
 
 2. 第5回、第8回、第21回の3つは解凍してwavフォルダに保存する
    * zipファイルの解凍エラーをスクリプトで処理できませんでした……
@@ -70,29 +71,46 @@ Windows PowerShellでスクリプトを実行します
   「パスのコピー」を選択します
 5. 先頭に". "を入力してペーストし、下記のようにしてEnterを押します
   ↓
-  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1"
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1 -Voice Sample"
   ↑
-6. 「ついなちゃんセリフ集.csv」を作成した旨が表示されるまで待ちます
+6. 「ついなちゃん セリフ集.csv」を作成した旨が表示されるまで待ちます
    無事に表示されたら実行成功です
    エラーが出たらGitHubのIssueとして報告してもらえると助かります
    Twitterに連絡いただいても善処します
-   → GitHub https://github.com/so-c/soc-toolbox/issues
-   → Twitter ＠SO_C
+
+## exVOICEでの利用方法
+
+基本的にはサンプルボイスと同じ方法です違いは次の2箇所です
+
+1. サンプルボイスを準備する代わりに、
+  「ex」フォルダにexVOICEをコピーしてください
+
+2. 実行するコマンドの末尾を"Sample"から"Ex"に変えてください
+  ↓
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1 -Voice Ex"
+  ↑
 
 ## ぴた声アプリ、Recotte Studioへの登録
 
-wavフォルダを好きな場所に移動・名前変更して
-そのフォルダをぴた声アプリに追加してください
+フォルダを好きな場所に移動・名前変更して
+そのフォルダをぴた声アプリ／Recotte Studioに追加してください
 
 TIPS: ダウンロードしておいた"thumbnail.png"を
-      そのフォルダに入れておくとサムネイルとして表示されます
+      フォルダに入れておくとサムネイルとして表示されます
 
-「ぴた声アプリの使い方」と「Recotte Studio 機能マニュアル」を参照してください
+追加方法は「ぴた声アプリの使い方」と「Recotte Studio 機能マニュアル」を参照してください
 →ぴた声 https://www.ah-soft.com/pitagoe/app/guide/02_setup.html#2-1
 →レコスタ https://www.ah-soft.com/rs/manual/voice_lib.html
 
 ## 利用条件
 
 スクリプト本体(ps1)のライセンスはMIT LICENSEです
-設定ファイル(json, ini)内のキャラクター名、セリフなどはついなちゃんのキャラクター仕様ガイドラインに基づき利用してください
+設定ファイル(json, ini)内のキャラクター名、セリフなどは
+ついなちゃんのキャラクター仕様ガイドラインに基づき利用してください
 →ついなちゃん キャラクター使用のガイドライン https://fantia.jp/posts/485684
+
+## 作者
+
+鏡双司
+→ GitHub https://github.com/so-c/soc-toolbox/issues
+→ Twitter ＠SO_C
