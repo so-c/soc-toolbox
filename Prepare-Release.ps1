@@ -1,5 +1,7 @@
 ﻿Param(
-    [Parameter(Mandatory)]$version
+    [Parameter(Mandatory)]
+    [ValidatePattern("^v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]*$")]
+    $version
 )
 
 $tuinavo = "tuinavo-list-generator-$version"
