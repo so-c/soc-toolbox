@@ -1,4 +1,5 @@
-﻿Param($text, $speaker, $output,
+﻿Param($text, 
+    [string]$speaker, $output,
     # パラメータの意味は VOICEVOXを起動して
     # http://127.0.0.1:50021/docs にアクセスして確認
     $speedScale         = 1.0,
@@ -32,6 +33,25 @@ if ($speaker -Like "四国めたん*") {
 } else {
     Write-Log("話者名(≠レイヤー名）を「四国めたん」か「ずんだもん」で始めてください")
     return
+}
+
+switch -Wildcard ($speaker) {
+    '*あまあま*' {
+        $speaker_param += 0 # do nothing
+        break
+    }
+    '*ノーマル*' {
+        $speaker_param += 2
+        break
+    }
+    '*セクシー*' {
+        $speaker_param += 4
+        break
+    }
+    '*ツンツン*' {
+        $speaker_param += 6
+        break
+    }
 }
 
 if (-not $output) {
