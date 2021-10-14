@@ -38,7 +38,7 @@
 1. サンプルボイス、ボーナスボイスをダウンロードして"zip"フォルダに保存する
    * ダウンロード元はFantiaのページです
      → Fantiaの「サンプルボイス」タグ付きページ
-        https://fantia.jp/fanclubs/326/posts?page=3&tag=%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%9C%E3%82%A4%E3%82%B9
+        https://fantia.jp/fanclubs/326/posts?tag=サンプルボイス
      第39回と第49回はタグが付いていないのでこちらから
      → 第39回 https://fantia.jp/posts/361904
      → 第49回 https://fantia.jp/posts/777271
