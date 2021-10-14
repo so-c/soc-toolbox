@@ -65,6 +65,7 @@ Windows PowerShellでスクリプトを実行します
   Set-ExecutionPolicy RemoteSigned -Scope Process
   ↑
   これをコピペしてEnterを押してください
+  注）ダウンロードフォルダで実行する場合は"RemoteSigned"の代わりに"Bypass"としてください
 3. メッセージを確認してこのスクリプトを信用して動かすなら
   「Y」を入力してEnterを押してください
 4. スクリプトをShiftを押しながら右クリックして
