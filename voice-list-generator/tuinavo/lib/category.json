@@ -929,7 +929,7 @@
         "ついなちゃん啓蒙動画ボイス\\3_ついなちゃん啓蒙動画_手洗い.wav",
         "ついなちゃん啓蒙動画ボイス\\4_ついなちゃん啓蒙動画_マスク.wav"
     ],
-    "051": [
+    "051-052": [
         "Sample_voice_051_for1000\\出口は左側です、やで&#x2661;.wav",
         "Sample_voice_051_for1000\\本日、傘のお忘れ物がたいへん多くなっております、やで&#x2661;.wav",
         "Sample_voice_051_for1000\\毎度ご乗車ありがとうございました、やで&#x2661;.wav",
@@ -954,7 +954,32 @@
         "Sample_voice_051_free\\間もなく、電車がまいりま～す、やで&#x2661;.wav",
         "Sample_voice_051_free\\間もなく発車いたします、やで&#x2661;.wav",
         "Sample_voice_051_free\\駆け込み乗車・割り込み乗車はご遠慮ください、やで&#x2661;.wav",
-        "Sample_voice_051_free\\黄色い点字ブロックの内側までお下がりください、やで&#x2661;.wav"
+        "Sample_voice_051_free\\黄色い点字ブロックの内側までお下がりください、やで&#x2661;.wav",
+        "Sample_voice_052_for1000\\一閃！.wav",
+        "Sample_voice_052_for1000\\仏説.wav",
+        "Sample_voice_052_for1000\\六連！！.wav",
+        "Sample_voice_052_for1000\\摩訶般若波羅蜜多心経.wav",
+        "Sample_voice_052_for1000\\観自在菩薩行深般若波羅蜜多時.wav",
+        "Sample_voice_052_for500\\奥義っ！.wav",
+        "Sample_voice_052_for500\\方相閃・霹靂！.wav",
+        "Sample_voice_052_for500\\最終奥義っっ！！！.wav",
+        "Sample_voice_052_for500\\秘奥義っ！！.wav",
+        "Sample_voice_052_for500\\誰が妖怪つるべ落としやねん～～っ！！！！(怒ろり).wav",
+        "Sample_voice_052_free\\Ayo, ayo!.wav",
+        "Sample_voice_052_free\\Go for it !.wav",
+        "Sample_voice_052_free\\あんたって人はー！.wav",
+        "Sample_voice_052_free\\おこっついなちゃん！.wav",
+        "Sample_voice_052_free\\どっきゅん☆.wav",
+        "Sample_voice_052_free\\な、何を見せられているんだろうか……？.wav",
+        "Sample_voice_052_free\\わんわんおっ！.wav",
+        "Sample_voice_052_free\\ウチの本気、見てみるか……？.wav",
+        "Sample_voice_052_free\\パヤパヤー.wav",
+        "Sample_voice_052_free\\ブチ上がるで！.wav",
+        "Sample_voice_052_free\\四つ目を見るたび思い出せ.wav",
+        "Sample_voice_052_free\\持ってる～！.wav",
+        "Sample_voice_052_free\\絶許！！！！！.wav",
+        "Sample_voice_052_free\\豆を見るたび思い出せ.wav",
+        "Sample_voice_052_free\\鬼を見るたび思い出せ.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
