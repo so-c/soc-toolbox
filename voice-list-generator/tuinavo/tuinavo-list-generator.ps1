@@ -1,6 +1,6 @@
 ﻿Param(
     [Parameter(Mandatory)]
-    [ValidateSet("Sample", "Ex")]
+    [ValidateSet("Sample", "SampleCF", "Ex")]
     [String[]]
     $Voice,
     [switch]$NoExpand
@@ -18,8 +18,8 @@ $workDir = $PSScriptRoot
 $destDir
 $csvFileName
 
-switch ($Voice) {
-    "Sample" {
+switch -Wildcard ($Voice) {
+    "Sample*" {
         $destDir = "$workDir\wav"
         $csvFileName = "ついなちゃん セリフ集.csv"
     }
@@ -32,7 +32,7 @@ switch ($Voice) {
     }
 }
 
-if ($Voice -eq "Sample" -and -not $NoExpand) {
+if ($Voice -like "Sample*" -and -not $NoExpand) {
     Write-Host "zipフォルダ内のzipファイルを展開します"
     if (Test-Path $destDir) {
         Get-ChildItem $destDir\* -Recurse |
@@ -64,11 +64,32 @@ if ($Voice -eq "Sample" -and -not $NoExpand) {
 if ($Voice -eq "SampleCF" -and -not $NoExpand) {
     Write-Host 'SynthV CFリターンとして配信されたzipファイルのうち、第43～52回はFantiaでの配布とフォルダ構成が違うのでFantiaの構成に合わせます'
     # TODO 1階層上げる
+    @('043', '044', '045', '046', '048') | ForEach-Object {
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for500円プラン" `
+            -Destination "$destDir\Sample_voice_${_}_for500"
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for1000円プラン" `
+            -Destination "$destDir\Sample_voice_${_}_for1000"
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_free" `
+            -Destination "$destDir\Sample_voice_${_}_free"
+        Remove-Item -Path "$destDir\Sample_voice_${_}_wav"
+    }
+
+    @('047', '049', '050', '051', '052') | ForEach-Object {
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for500" `
+            -Destination "$destDir\Sample_voice_${_}_for500"
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for1000" `
+            -Destination "$destDir\Sample_voice_${_}_for1000"
+        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_free" `
+            -Destination "$destDir\Sample_voice_${_}_free"
+        Remove-Item -Path "$destDir\Sample_voice_${_}_wav"
+    }
+
     # TODO 空フォルダ"wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"が作成されるので削除する
+    Remove-Item -Path "$destDir\wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"
 }
 
-$pitagoes = switch ($Voice) {
-    "Sample" { [PitagoeRecord]::newPitagoeList("$destDir\") }
+$pitagoes = switch -Wildcard ($Voice) {
+    "Sample*" { [PitagoeRecord]::newPitagoeList("$destDir\") }
     "Ex" { [PitagoeRecordExvo]::newPitagoeList("$destDir\") }
     Default {}
 }
@@ -85,8 +106,8 @@ $pitagoes = switch ($Voice) {
 #   → スキップする
 $UTF8noBOM = [System.Text.UTF8Encoding]::new($false, $true)
 $CsvContents = ($pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
-ForEach-Object { $_.Replace('‹" ', "‹''") } |
-Select-Object -Skip 1)
+    ForEach-Object { $_.Replace('‹" ', "‹''") } |
+    Select-Object -Skip 1)
 [System.IO.File]::WriteAllLines("$destDir\$csvFileName", $CsvContents, $UTF8noBOM)
 
 Copy-Item $workDir\resource\character.ini $destDir -Force
