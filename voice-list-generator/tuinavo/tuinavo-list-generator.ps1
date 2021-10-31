@@ -61,6 +61,12 @@ if ($Voice -eq "Sample" -and -not $NoExpand) {
     Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"
 }
 
+if ($Voice -eq "SampleCF" -and -not $NoExpand) {
+    Write-Host 'SynthV CFリターンとして配信されたzipファイルのうち、第43～52回はFantiaでの配布とフォルダ構成が違うのでFantiaの構成に合わせます'
+    # TODO 1階層上げる
+    # TODO 空フォルダ"wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"が作成されるので削除する
+}
+
 $pitagoes = switch ($Voice) {
     "Sample" { [PitagoeRecord]::newPitagoeList("$destDir\") }
     "Ex" { [PitagoeRecordExvo]::newPitagoeList("$destDir\") }
