@@ -14,6 +14,7 @@ $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
 . "$workDir\lib\PitagoeRecordExvo.ps1"
+. "$workDir\lib\Rename-SVCFFolders.ps1"
 
 $destDir
 $csvFileName
@@ -62,30 +63,7 @@ if ($Voice -like "Sample*" -and -not $NoExpand) {
 }
 
 if ($Voice -eq "SampleCF" -and -not $NoExpand) {
-    Write-Host 'SynthV CFリターンとして配信されたzipファイルのうち、第43～52回はFantiaでの配布とフォルダ構成が違うのでFantiaの構成に合わせます'
-    # TODO 1階層上げる
-    @('043', '044', '045', '046', '048') | ForEach-Object {
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for500円プラン" `
-            -Destination "$destDir\Sample_voice_${_}_for500"
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for1000円プラン" `
-            -Destination "$destDir\Sample_voice_${_}_for1000"
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_free" `
-            -Destination "$destDir\Sample_voice_${_}_free"
-        Remove-Item -Path "$destDir\Sample_voice_${_}_wav"
-    }
-
-    @('047', '049', '050', '051', '052') | ForEach-Object {
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for500" `
-            -Destination "$destDir\Sample_voice_${_}_for500"
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_for1000" `
-            -Destination "$destDir\Sample_voice_${_}_for1000"
-        Move-Item -Pass "$destDir\Sample_voice_${_}_wav\Sample_voice_${_}_free" `
-            -Destination "$destDir\Sample_voice_${_}_free"
-        Remove-Item -Path "$destDir\Sample_voice_${_}_wav"
-    }
-
-    # TODO 空フォルダ"wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"が作成されるので削除する
-    Remove-Item -Path "$destDir\wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"
+    Rename-SVCFFolders
 }
 
 $pitagoes = switch -Wildcard ($Voice) {
