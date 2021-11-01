@@ -20,6 +20,7 @@ New-Item "$PSScriptRoot\release\$tuinavo" -ItemType Directory > $null
 Copy-Item $PSScriptRoot\voice-list-generator\tuinavo\*.* $PSScriptRoot\release\$tuinavo\
 Copy-Item $PSScriptRoot\voice-list-generator\tuinavo\lib $PSScriptRoot\release\$tuinavo\ -Recurse
 Copy-Item $PSScriptRoot\voice-list-generator\tuinavo\resource $PSScriptRoot\release\$tuinavo\ -Recurse
+Copy-Item $PSScriptRoot\voice-list-generator\tuinavo\omake $PSScriptRoot\release\$tuinavo\ -Recurse
 New-Item -Path $PSScriptRoot\release\$tuinavo\ex, `
                $PSScriptRoot\release\$tuinavo\wav, `
                $PSScriptRoot\release\$tuinavo\zip `
