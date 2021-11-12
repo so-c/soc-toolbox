@@ -116,7 +116,6 @@ Get-ChildItem "..\琴葉茜・葵 exVOICE2\琴葉$($KanjiName[$Voice]) A.I.VOICE
             $pitagoe.Serifu = "マジ！？"
         }
     }
-
     $dName = ($pitagoe.DisplayName -replace "[0-9]+(-[0-9])?").Trim()
     $id = $displayNumbers.$($pitagoe.FilePath)
     $pitagoe.DisplayName = "$id $dName"
@@ -124,7 +123,7 @@ Get-ChildItem "..\琴葉茜・葵 exVOICE2\琴葉$($KanjiName[$Voice]) A.I.VOICE
     $pitagoe.Yomigana = New-Yomigana($pitagoe.Serifu)
     $pitagoes += $pitagoe
 }
-$i = 1
+
 Get-ChildItem "..\琴葉茜・葵 exVOICE3\$($KanjiName[$Voice])\*.wav" -Recurse | ForEach-Object {
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
     $pitagoe.FilePath = (Resolve-Path $_ -Relative)
