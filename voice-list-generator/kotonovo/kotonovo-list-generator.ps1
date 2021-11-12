@@ -24,7 +24,6 @@ function New-Yomigana($displayName) {
     return $yomigana
 }
 
-
 $displayNumbers = (Get-Content $PSScriptRoot\resource\displayNumbers.json | ConvertFrom-Json)
 
 $pitagoes = @()
