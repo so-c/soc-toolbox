@@ -87,6 +87,12 @@ Get-ChildItem "..\琴葉茜・葵 exVOICE2\琴葉$($KanjiName[$Voice]) A.I.VOICE
         if ($pitagoe.FilePath.EndsWith("10_謎\7.wav")) {
             $pitagoe.DisplayName = $pitagoe.Serifu = "ん～～～？"
         }
+        if ($pitagoe.FilePath.EndsWith("25_創作系\1.wav")) {
+            $pitagoe.DisplayName = $pitagoe.Serifu = "進捗どう？"
+        }
+        if ($pitagoe.FilePath.EndsWith("25_創作系\1-1 進捗どう？.wav")) {
+            $pitagoe.DisplayName = $pitagoe.Serifu = "進捗どうですか？"
+        }
         if ($pitagoe.FilePath.EndsWith("25_創作系\7.wav")) {
             $pitagoe.DisplayName = $pitagoe.Serifu = "もっと…もっと作るんやで！！！！"
         }
