@@ -50,70 +50,57 @@ Get-ChildItem "..\琴葉茜・葵 exVOICE2\琴葉$($KanjiName[$Voice]) A.I.VOICE
     $pitagoe.FilePath = (Resolve-Path $_ -Relative)
     if ("Aoi".Equals($Voice)) {
         if ($pitagoe.FilePath.EndsWith("13_悪\18.wav")) {
-            $pitagoe.DisplayName = "頂点は私たちだ！"
-            $pitagoe.Serifu = "頂点は私たちだ！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "頂点は私たちだ！"
+        }
+        if ($pitagoe.FilePath.EndsWith("19_自慢\5.wav")) {
+            $pitagoe.DisplayName = $pitagoe.Serifu = "どうだ！"
         }
         if ($pitagoe.FilePath.EndsWith("25_創作系\9.wav")) {
-            $pitagoe.DisplayName = "それはお前が作るんだよ！！"
-            $pitagoe.Serifu = "それはお前が作るんだよ！！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "それはお前が作るんだよ！！"
         }
         if ($pitagoe.FilePath.EndsWith("27_汎用型\32.wav")) {
-            $pitagoe.DisplayName = "なぜ角を取らない！"
-            $pitagoe.Serifu = "なぜ角を取らない！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "なぜ角を取らない！"
         }
         if ($pitagoe.FilePath.EndsWith("28_煽り\47.wav")) {
-            $pitagoe.DisplayName = "わくわく"
-            $pitagoe.Serifu = "わくわく"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "わくわく"
         }
     }
     if ("Akane".Equals($Voice)) {
         if ($pitagoe.FilePath.EndsWith("10_謎\1.wav")) {
-            $pitagoe.DisplayName = "なぞ…"
-            $pitagoe.Serifu = "なぞ…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "なぞ…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\2.wav")) {
-            $pitagoe.DisplayName = "なんで…"
-            $pitagoe.Serifu = "なんで…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "なんで…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\3.wav")) {
-            $pitagoe.DisplayName = "ハテ…"
-            $pitagoe.Serifu = "ハテ…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "ハテ…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\4.wav")) {
-            $pitagoe.DisplayName = "な、なんで…"
-            $pitagoe.Serifu = "な、なんで…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "な、なんで…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\5.wav")) {
-            $pitagoe.DisplayName = "な…"
-            $pitagoe.Serifu = "な…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "な…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\6.wav")) {
-            $pitagoe.DisplayName = "ん～…"
-            $pitagoe.Serifu = "ん～…"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "ん～…"
         }
         if ($pitagoe.FilePath.EndsWith("10_謎\7.wav")) {
-            $pitagoe.DisplayName = "ん～～～？"
-            $pitagoe.Serifu = "ん～～～？"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "ん～～～？"
         }
         if ($pitagoe.FilePath.EndsWith("25_創作系\7.wav")) {
-            $pitagoe.DisplayName = "もっと…もっと作るんやで！！！！"
-            $pitagoe.Serifu = "もっと…もっと作るんやで！！！！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "もっと…もっと作るんやで！！！！"
         }
         if ($pitagoe.FilePath.EndsWith("27_汎用型\29.wav")) {
-            $pitagoe.DisplayName = "閑話休題"
-            $pitagoe.Serifu = "閑話休題"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "閑話休題"
         }
         if ($pitagoe.FilePath.EndsWith("28_汎用型\36.wav")) {
-            $pitagoe.DisplayName = "みんな～！"
-            $pitagoe.Serifu = "みんな～！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "みんな～！"
         }
         if ($pitagoe.FilePath.EndsWith("28_汎用型\9.wav")) {
-            $pitagoe.DisplayName = "ありがと～う！"
-            $pitagoe.Serifu = "ありがと～う！"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "ありがと～う！"
         }
         if ($pitagoe.FilePath.EndsWith("8_期待\5.wav")) {
-            $pitagoe.DisplayName = "マジ！？"
-            $pitagoe.Serifu = "マジ！？"
+            $pitagoe.DisplayName = $pitagoe.Serifu = "マジ！？"
         }
     }
     $dName = ($pitagoe.DisplayName -replace "[0-9]+(-[0-9])?").Trim()
