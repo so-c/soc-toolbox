@@ -78,8 +78,6 @@ $pitagoes = switch -Wildcard ($Voice) {
 #   → ※マニュアルに規定なし。動いているように見える
 # ・文字列の引用符はエスケープされて "" になる
 #   → "" のまま表示されてしまうのでデータパッチ
-# ・UTF8withBOMオンリー
-#   → マニュアル上BOMなしだが読み込んでくれる
 # ・1行目に空行
 #   → スキップする
 $UTF8noBOM = [System.Text.UTF8Encoding]::new($false, $true)
