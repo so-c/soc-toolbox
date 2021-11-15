@@ -22,6 +22,7 @@ Get-ChildItem "*.wav" -Recurse | ForEach-Object {
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
     $pitagoe.FilePath = (Resolve-Path $_ -Relative)
     $pitagoe.DisplayName = "{0:D3} {1}" -f $id++, $pitagoe.DisplayName.Trim()
+    $pitagoe.Serifu = $pitagoe.Serifu -replace '[0-9]+$', ''
     $pitagoe.Yomigana = New-Yomigana($pitagoe.Serifu)
     $pitagoe.Category = (Split-Path $pitagoe.FilePath -Parent | Split-Path -Parent | Split-Path -Leaf)
     $pitagoes += $pitagoe
