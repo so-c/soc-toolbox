@@ -1,11 +1,11 @@
 ﻿Param(
 )
 
-# XXX: 共通スクリプトがtuinavoに入っている
-. "..\tuinavo\lib\PitagoeRecord.ps1"
-
 $workDir = $PSScriptRoot
 Set-Location $workDir
+
+# XXX: 共通スクリプトがtuinavoに入っている
+. "..\tuinavo\lib\PitagoeRecord.ps1"
 
 function New-Yomigana($displayName) {
     $yomigana = [Windows.Globalization.JapanesePhoneticAnalyzer, Windows.Globalization, ContentType = WindowsRuntime]::GetWords($displayName)
@@ -15,16 +15,36 @@ function New-Yomigana($displayName) {
     return $yomigana
 }
 
+function Get-Category($FilePath) {
+    if ($FilePath -eq '') {
+        Write-Error 'exVOICEフォルダが見つかりませんでした'
+        return
+    }
+
+    $c = Split-Path $FilePath -Parent
+
+    if ($c.EndsWith('exVOICE')) {
+        return Split-Path $FilePath -Leaf
+        break
+    }
+    else {
+        Get-Category($c)
+    }
+}
+
 $id = 1
 $pitagoes = @()
 Push-Location ".\wav\紲星あかり exVOICE Vol.1"
-Get-ChildItem "*.wav" -Recurse | ForEach-Object {
+Get-ChildItem "*.wav" -Recurse | Sort-Object {
+    $_.Directory,
+    [regex]::Replace($_.BaseName, '\d+', { $args[0].Value.PadLeft(2) })
+} | ForEach-Object {
     [PitagoeRecord]$pitagoe = [PitagoeRecord]::new($_)
     $pitagoe.FilePath = (Resolve-Path $_ -Relative)
-    $pitagoe.DisplayName = "{0:D3} {1}" -f $id++, $pitagoe.DisplayName.Trim()
+    $pitagoe.DisplayName = "{0:D4} {1}" -f $id++, $pitagoe.DisplayName.Trim()
     $pitagoe.Serifu = $pitagoe.Serifu -replace '[0-9]+$', ''
     $pitagoe.Yomigana = New-Yomigana($pitagoe.Serifu)
-    $pitagoe.Category = (Split-Path $pitagoe.FilePath -Parent | Split-Path -Parent | Split-Path -Leaf)
+    $pitagoe.Category = Get-Category($pitagoe.FilePath)
     $pitagoes += $pitagoe
 }
 Pop-Location
