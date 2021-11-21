@@ -24,7 +24,7 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://
 1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caller.ps1`のフルパスを書き足す
 1. [適用] ボタンを押す
 
-[引数] の設定例１
+[引数] の設定例
 
 ```ps1
 -ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
