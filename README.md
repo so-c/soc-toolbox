@@ -11,7 +11,7 @@
 
 ## voicevox-caller
 
-PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エンジンを呼ぶためのスクリプトです
+PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶためのスクリプトです
 
 ### Recotte Studioの「ユーザー定義音声連携」での使い方
 
@@ -24,7 +24,7 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エン�
 1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caller.ps1`のフルパスを書き足す
 1. [適用] ボタンを押す
 
-[引数] の設定例
+[引数] の設定例１
 
 ```ps1
 -ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
@@ -33,8 +33,8 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/)の音声合成エン�
 #### 準備
 
 1. 話者レイヤーを追加してプロパティーを開く
-1. [話者名] (≠名前) を「四国めたん」か「ずんだもん」で始まるようにする
-   * 「ずんだもん クール」のようにスタイル名（`あまあま`,`ノーマル`, `ツンツン`, `クール`)を含めておくとそのスタイルで音声を作成します
+1. [話者名] (≠名前) を「四国めたん」、「ずんだもん」、「つくよみちゃん」で始まるようにする
+   * 「四国めたん」、「ずんだもん」のスタイルにも対応しています。話者名にスタイル名（`あまあま`,`ノーマル`, `ツンツン`, `クール`)が含まれていると、そのスタイルで音声を作成します
 1. [音声連携] でインストールした"VOICEVOX(PoerShell 5.x)" を選ぶ
 1. [OK] ボタンを押す
 
