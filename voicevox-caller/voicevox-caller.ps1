@@ -44,8 +44,7 @@ elseif ($speaker -Like "つくよみちゃん*") {
     $speaker_param = 0
 }
 else {
-    Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」か「ずんだもん」で始めてください")
-    Write-Log("COEIROINKの場合、「つくよみちゃん」で始めてください")
+    Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」か「ずんだもん」で始めてください。COEIROINKの場合、「つくよみちゃん」で始めてください")
     return
 }
 
