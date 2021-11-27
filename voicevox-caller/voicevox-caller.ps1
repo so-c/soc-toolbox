@@ -15,11 +15,6 @@
     $outputStereo       = $false
 )
 
-# 環境パラメータ
-# VOICEVOX/COEIROINKの.env参照
-$VOICEVOX_URL  = "http://127.0.0.1:50021"
-$COEIROINK_URL = "http://127.0.0.1:50031"
-
 # ロガー定義
 $logFile = "$PSScriptRoot\last_error.txt"
 function Write-Log($msg) {
@@ -29,46 +24,10 @@ function Write-Log($msg) {
 
 # パラメータ変換
 ## エンジン・話者・スタイル
-
-$baseUrl = $null
-if ($speaker -Like "四国めたん*") {
-    $baseUrl = $VOICEVOX_URL
-    $speaker_param = 0
-}
-elseif ($speaker -Like "ずんだもん*") {
-    $baseUrl = $VOICEVOX_URL
-    $speaker_param = 1
-}
-elseif ($speaker -Like "つくよみちゃん*") {
-    $baseUrl = $COEIROINK_URL
-    $speaker_param = 0
-}
-else {
-    Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」か「ずんだもん」で始めてください。COEIROINKの場合、「つくよみちゃん」で始めてください")
-    return
-}
-
-# VOICEVOXのスタイル設定
-if ($baseUrl -eq $VOICEVOX_URL) {
-    switch -Wildcard ($speaker) {
-        '*あまあま*' {
-            $speaker_param += 0 # do nothing
-            break
-        }
-        '*ノーマル*' {
-            $speaker_param += 2
-            break
-        }
-        '*セクシー*' {
-            $speaker_param += 4
-            break
-        }
-        '*ツンツン*' {
-            $speaker_param += 6
-            break
-        }
-    }
-}
+. $PSScriptRoot\Find-SpeakerParam.ps1
+$speaker_param = Find-SpeakerParam($speaker)
+$baseUrl = $speaker_param.baseURL
+$speaker_id = $speaker_param.id
 
 ## セリフ
 if (-not $text) {
@@ -89,9 +48,10 @@ if (-not $output) {
 try {
     $query = Invoke-RestMethod `
         -Method POST `
-        -Uri "$baseUrl/audio_query?text=$encoded_text&speaker=$speaker_param"
+        -Uri "$baseUrl/audio_query?text=$encoded_text&speaker=$speaker_id"
 }
 catch {
+    Write-Host "$baseUrl/audio_query?text=$encoded_text&speaker=$speaker_id"
     Write-Log($PSItem)
     return
 }
@@ -112,7 +72,7 @@ $configured_query = ConvertTo-Json $query -Depth 8
 try {
     Invoke-RestMethod `
         -Method POST `
-        -Uri "$baseUrl/synthesis?speaker=$speaker_param" `
+        -Uri "$baseUrl/synthesis?speaker=$speaker_id" `
         -ContentType "application/json" `
         -Body $configured_query `
         -OutFile $output
