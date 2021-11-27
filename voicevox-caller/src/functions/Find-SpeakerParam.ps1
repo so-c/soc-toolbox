@@ -5,31 +5,31 @@ $COEIROINK_URL = "http://127.0.0.1:50031"
 
 function Find-SpeakerParam($speaker) {
     if ($speaker -Like "四国めたん*") {
-        return　$speaker_param = @{
+        return　@{
             baseUrl = $VOICEVOX_URL
             id      = (0 + (Get-StyleIndex($speaker)))
         }
     }
     elseif ($speaker -Like "ずんだもん*") {
-        return　$speaker_param = @{
+        return　@{
             baseUrl = $VOICEVOX_URL
             id      = (1 + (Get-StyleIndex($speaker)))
         }
     }
     elseif ($speaker -Like "春日部つむぎ*") {
-        return　$speaker_param = @{
+        return　@{
             baseUrl = $VOICEVOX_URL
             id      = 8
         }
     }
     elseif ($speaker -Like "波音リツ*") {
-        return $speaker_param = @{
+        return @{
             baseUrl = $VOICEVOX_URL
             id      = 9
         }
     }
     elseif ($speaker -Like "つくよみちゃん*") {
-        return $speaker_param = @{
+        return @{
             baseUrl = $COEIROINK_URL
             id      = 0
         }
