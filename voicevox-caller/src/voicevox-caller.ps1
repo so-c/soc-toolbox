@@ -24,7 +24,7 @@ function Write-Log($msg) {
 
 # パラメータ変換
 ## エンジン・話者・スタイル
-. $PSScriptRoot\Find-SpeakerParam.ps1
+. $PSScriptRoot\functions\Find-SpeakerParam.ps1
 $speaker_param = Find-SpeakerParam($speaker)
 $baseUrl = $speaker_param.baseURL
 $speaker_id = $speaker_param.id
@@ -51,7 +51,6 @@ try {
         -Uri "$baseUrl/audio_query?text=$encoded_text&speaker=$speaker_id"
 }
 catch {
-    Write-Host "$baseUrl/audio_query?text=$encoded_text&speaker=$speaker_id"
     Write-Log($PSItem)
     return
 }
