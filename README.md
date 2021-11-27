@@ -2,26 +2,27 @@
 
 主に動画編集に使うちょっとしたツール類
 
-1. [voicevox-caller](#voicevox-caller)：VOICEVOXの音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
-1. [aivos-userdef](#aivos-userdef)：Recotte Studioのユーザー定義音声連携にインポートするためのA.I.VOICE向け設定ファイル
+1. [voicevox-caller](#voicevox-caller)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
+1. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
 1. voice-list-generator
-   * [tuinavo-list-generator](#tuinavo-list-generator)：ついなちゃんの配布ボイスをぴた声アプリやRecotte Studioから便利に使えるようにするためのスクリプト
+   * [tuinavo-list-generator](#tuinavo-list-generator)：[ついなちゃん](https://ついなちゃん.com)の配布ボイスをぴた声アプリやRecotte Studioから使いやすくするためのスクリプト
 
 ----
 
 ## voicevox-caller
 
-PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶためのスクリプトです
+VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです
 
 ### Recotte Studioの「ユーザー定義音声連携」での使い方
 
 #### インストール手順
 
-1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`voicecox-caller-vX.Y.Z.zip`をダウンロードして展開する
-1. `voicevox-caller`フォルダーにある`voicevox-caller.ps1`と`VOICEVOX(PowerShell 5.x).rvls`を好きな場所に保存する
+※「ユーザー定義音声連携」の使い方は[Recotte Studioのマニュアル](https://www.ah-soft.com/rs/manual/tips/user-def.html)も参照してください
+
+1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`voicecox-caller-vA.B.C.D.zip`をダウンロードして好きな場所に展開する
 1. Recotte Studioの [環境設定 > ユーザー定義音声連携の設定] を開く
-1. インポートボタンを押して`VOICEVOX(PowerShell 5.x).rvls`を読み込む
-1. [引数] で `-File ""` のダブルクォーテーションの中に`voicevox-caller.ps1`のフルパスを書き足す
+1. インポートボタンを押して展開したフォルダにある`VOICEVOX(PowerShell 5.x).rvls`を選ぶ
+1. [引数] で `-File ""` のダブルクォーテーションの中に展開したフォルダにある`voicevox-caller.ps1`へのフルパスを書き足す
 1. [適用] ボタンを押す
 
 [引数] の設定例
@@ -30,33 +31,34 @@ PowerShellから[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://
 -ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
 ```
 
-#### 準備
+#### 使用準備
 
 1. 話者レイヤーを追加してプロパティーを開く
-1. [話者名] (≠名前) を「四国めたん」、「ずんだもん」、「つくよみちゃん」で始まるようにする
-   * 「四国めたん」、「ずんだもん」のスタイルにも対応しています。話者名にスタイル名（`あまあま`,`ノーマル`, `ツンツン`, `クール`)が含まれていると、そのスタイルで音声を作成します
+1. [話者名] (≠名前) を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「波音リツ」、「つくよみちゃん」で始まるようにする
+   * 「四国めたん」、「ずんだもん」はスタイルにも対応しています。話者名にスタイル名（`あまあま`,`ノーマル`, `ツンツン`, `クール`)が含まれていると、そのスタイルで音声を作成します
 1. [音声連携] でインストールした"VOICEVOX(PoerShell 5.x)" を選ぶ
 1. [OK] ボタンを押す
 
-#### 使い方
+#### 使用方法
 
-VOICEVOXを起動した状態で [音声の同期] をしてください
+VOICEVOX, COEIROINKを起動した状態で [音声の同期] をしてください。
 
-参考動画：[Recotte Studio（レコスタ）ユーザー定義音声連携 \- YouTube](https://www.youtube.com/watch?v=N_VCF2ABKA8)
-
+#### 参考動画
 [![参考動画](https://img.youtube.com/vi/N_VCF2ABKA8/0.jpg)](https://www.youtube.com/watch?v=N_VCF2ABKA8)
+
+[Recotte Studio（レコスタ）ユーザー定義音声連携 \- YouTube](https://www.youtube.com/watch?v=N_VCF2ABKA8)
 
 #### ヒント
 
 * 音声が作成されない場合は`voicevox-caler.ps1`と同じフォルダの`last_error.txt`を確認してみてください。最後に発生したエラーが出力されています
-* 調整パラメータを [ユーザ定義音声連携] の引数として渡せます。利用できるパラメータはVOICEVOXのドキュメント (<http://127.0.0.1:50021/docs>) を参照してください
-* このスクリプトはWindowsに最初からインストールされてるWindows PowerShell ISEで変更・動作確認できます。好みに合わせてカスタマイズして使ってください
+* 調整パラメータを [ユーザ定義音声連携] の引数として渡せます。利用できるパラメータVOICEVOX, COEIROINKのドキュメント (<http://127.0.0.1:50021/docs>またはhttp://127.0.0.1:50031/docs>) を参照してください
+* このスクリプトはWindowsに最初からインストールされてるWindows PowerShell ISEで変更・動作確認できます。好みに合わせてカスタマイズしてください
 
 ----
 
 ## aivos-userdef
 
-Recotte StudioでVOICEROID2連携と同じようにA.I.VOICEを起動するためのユーザー定義音声連携ファイルです
+Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
 
 * インストール手順
   1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`aivos-userdef-vX.Y.Z.zip`をダウンロードして展開する
