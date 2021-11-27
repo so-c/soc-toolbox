@@ -1,0 +1,60 @@
+﻿# 環境パラメータ
+# VOICEVOX/COEIROINKの.env参照
+$VOICEVOX_URL = "http://127.0.0.1:50021"
+$COEIROINK_URL = "http://127.0.0.1:50031"
+
+function Find-SpeakerParam($speaker) {
+    if ($speaker -Like "四国めたん*") {
+        return　$speaker_param = @{
+            baseUrl = $VOICEVOX_URL
+            id      = (0 + (Get-StyleIndex($speaker)))
+        }
+    }
+    elseif ($speaker -Like "ずんだもん*") {
+        return　$speaker_param = @{
+            baseUrl = $VOICEVOX_URL
+            id      = (1 + (Get-StyleIndex($speaker)))
+        }
+    }
+    elseif ($speaker -Like "春日部つむぎ*") {
+        return　$speaker_param = @{
+            baseUrl = $VOICEVOX_URL
+            id      = 8
+        }
+    }
+    elseif ($speaker -Like "波音リツ*") {
+        return $speaker_param = @{
+            baseUrl = $VOICEVOX_URL
+            id      = 9
+        }
+    }
+    elseif ($speaker -Like "つくよみちゃん*") {
+        return $speaker_param = @{
+            baseUrl = $COEIROINK_URL
+            id      = 0
+        }
+    }
+    else {
+        Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「波音リツ」で始めてください。COEIROINKの場合、「つくよみちゃん」で始めてください")
+        return
+    }
+}
+
+# VOICEVOXのスタイル設定
+function Get-StyleIndex($speaker) {
+    switch -Wildcard ($speaker) {
+        '*あまあま*' {
+            return 0 # do nothing
+        }
+        '*ノーマル*' {
+            return 2
+        }
+        '*セクシー*' {
+            return 4
+        }
+        '*ツンツン*' {
+            return 6
+        } 
+    }
+    return 0 # 該当しなければずらさない
+}
