@@ -34,6 +34,12 @@ function Find-SpeakerParam($speaker) {
             id      = 0
         }
     }
+    elseif ($speaker -Like "MANA*" -or $speaker -Like "ＭＡＮＡ*") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 1
+        }
+    }
     else {
         Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「波音リツ」で始めてください。COEIROINKの場合、「つくよみちゃん」で始めてください")
         return
