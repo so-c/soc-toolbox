@@ -86,27 +86,11 @@ Describe "Find-SpeakerParam" {
         }
 
         Context "MANA" {
-            It "MANA (半角大文字) はCOEIROINKのid=0" {
-                $actual = Find-SpeakerParam("MANA")
-                $actual.baseUrl | Should -Be $COEIROINK_URL
-                $actual.id | Should -Be 1
-            }
-            It "mana (半角小文字) はCOEIROINKのid=0" {
-                $actual = Find-SpeakerParam("mana")
-                $actual.baseUrl | Should -Be $COEIROINK_URL
-                $actual.id | Should -Be 1
-            }
-            It "ＭＡＮＡ (全角大文字) はCOEIROINKのid=0" {
-                $actual = Find-SpeakerParam("ＭＡＮＡ")
-                $actual.baseUrl | Should -Be $COEIROINK_URL
-                $actual.id | Should -Be 1
-            }
-            It "ｍａｎａ (全角小文字) はCOEIROINKのid=0" {
-                $actual = Find-SpeakerParam("ｍａｎａ")
+            It "<_>はCOEIROINKのid=1" -ForEach @("MANA", "mana", "Mana", "ＭＡＮＡ", "ｍａｎａ", "Ｍａｎａ") {
+                $actual = Find-SpeakerParam($_)
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 1
             }
         }
     }
-
 }
