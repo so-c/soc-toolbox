@@ -32,13 +32,14 @@
         $leafDirectory = (Split-Path $relativePath -Parent | Split-Path -Leaf)
         if ($leafDirectory -eq "ついなちゃんCF特典追加ボイス：追加300種") {
             return "追加300種"
-        } else {
+        }
+        else {
             return $leafDirectory
         }
     }
 
     [string] GetDisplayName($relativePath, $baseName) {
-        return [PitagoeRecordExvo]::displayNumbers.$relativePath + " " + $this.GetSerif($BaseName)
+        return [PitagoeRecordExvo]::displayNumbers.$relativePath + " " + $this.GetSerif($BaseName).Normalize()
     }
 
     [string] GetYomigana($relativePath) {
