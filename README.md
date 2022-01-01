@@ -13,6 +13,11 @@
 
 VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです
 
+使用例
+```ps1
+.\voicevox-caller.ps1 "ずんだもん（あまあま）" "ずんだもんなのだ" zundamon.wav
+```
+
 ### Recotte Studioの「ユーザー定義音声連携」での使い方
 
 #### インストール手順
