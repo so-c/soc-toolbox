@@ -29,7 +29,12 @@
     }
 
     [string] GetCategory($relativePath) {
-        return (Split-Path $relativePath -Parent | Split-Path -Leaf)
+        $leafDirectory = (Split-Path $relativePath -Parent | Split-Path -Leaf)
+        if ($leafDirectory -eq "ついなちゃんCF特典追加ボイス：追加300種") {
+            return "追加300種"
+        } else {
+            return $leafDirectory
+        }
     }
 
     [string] GetDisplayName($relativePath, $baseName) {
