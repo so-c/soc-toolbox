@@ -33,7 +33,7 @@ switch -Wildcard ($Voice) {
     }
 }
 
-if ($Voice -like "Sample*" -and -not $NoExpand) {
+function Expand-SampeZips {
     Write-Host "zipフォルダ内のzipファイルを展開します"
     if (Test-Path $destDir) {
         Get-ChildItem $destDir\* -Recurse |
@@ -59,7 +59,11 @@ if ($Voice -like "Sample*" -and -not $NoExpand) {
     
     Write-Host "展開を完了しました"
     Write-Host "第5, 8, 21回は展開できないので、まだなら手動で展開したあと、実行し直してください"
-    Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"
+    Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"    
+}
+
+if ($Voice -like "Sample*" -and -not $NoExpand) {
+    Expand-SampeZips
 }
 
 if ($Voice -eq "SampleCF" -and -not $NoExpand) {
