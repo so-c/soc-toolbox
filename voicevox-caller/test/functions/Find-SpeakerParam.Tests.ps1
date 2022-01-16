@@ -101,5 +101,13 @@ Describe "Find-SpeakerParam" {
                 $actual.id | Should -Be 1
             }
         }
+
+        Context "おふとんP" {
+            It "<_>はCOEIROINKのid=2" -ForEach @("おふとんｐ", "おふとんＰ", "おふとんp", "おふとんP") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 2
+            }
+        }
     }
 }

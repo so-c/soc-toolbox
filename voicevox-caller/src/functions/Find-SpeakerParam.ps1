@@ -46,8 +46,14 @@ function Find-SpeakerParam($speaker) {
             id      = 1
         }
     }
+    elseif ($speaker -match "おふとん(P|Ｐ).*") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 2
+        }
+    }
     else {
-        Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「雨晴はう」、「波音リツ」で始めてください。COEIROINKの場合、「つくよみちゃん」または「MANA」（大文字小文字全角半角問わず）で始めてください")
+        Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「雨晴はう」、「波音リツ」で始めてください。COEIROINKの場合、「つくよみちゃん」、「MANA」、「おふとんP」（大文字小文字全角半角問わず）で始めてください")
         return
     }
 }
