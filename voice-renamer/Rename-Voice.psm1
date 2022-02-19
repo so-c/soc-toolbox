@@ -11,13 +11,14 @@
     Param(
         [Parameter(Mandatory,
             ValueFromPipeline)]
-        $folder
+        $Folder,
+        $Encoding = [System.Text.Encoding]::GetEncoding("shift_jis")
     )
 
     PROCESS {
         Get-ChildItem "$folder\*.wav" | ForEach-Object {
             $textFilePath = "$folder\$($_.BaseName).txt"
-            $firstLine = Get-Content $textFilePath -Head 1
+            $firstLine = Get-Content $textFilePath -Head 1 -Encoding $Encoding
             $suffix = $firstLine.Substring(0, [Math]::Min(20, $firstLine.Length))
 
             Rename-Item -Path $_ -NewName ('{0}_{1}.wav' -f $_.BaseName, $suffix) -WhatIf:$WhatIfPreference
