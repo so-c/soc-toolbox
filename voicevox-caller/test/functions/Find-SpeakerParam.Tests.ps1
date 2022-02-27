@@ -88,10 +88,25 @@ Describe "Find-SpeakerParam" {
 
     Context "COEIROINK" {
         Context "つくよみちゃん" {
-            It "つくよみちゃんはCOEIROINKのid=0" {
+            It "つくよみちゃんはCOEIROINKのid=5" {
                 $actual = Find-SpeakerParam("つくよみちゃん")
                 $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 5
+            }
+            It "つくよみちゃん（れいせい）はCOEIROINKのid=0" {
+                $actual = Find-SpeakerParam("つくよみちゃん（れいせい）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 0
+            }
+            It "つくよみちゃん（おしとやか）はCOEIROINKのid=5" {
+                $actual = Find-SpeakerParam("つくよみちゃん（おしとやか）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 5
+            }
+            It "つくよみちゃん（げんき）はCOEIROINKのid=6" {
+                $actual = Find-SpeakerParam("つくよみちゃん（げんき）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 6
             }
         }
 
