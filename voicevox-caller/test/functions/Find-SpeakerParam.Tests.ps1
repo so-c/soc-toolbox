@@ -3,6 +3,7 @@
 }
 
 Describe "Find-SpeakerParam" {
+
     # 期待値は http://127.0.0.1:50021/speakers で取得する
     $VOICEVOX_URL = "http://127.0.0.1:50021"
     $COEIROINK_URL = "http://127.0.0.1:50031"
@@ -109,5 +110,22 @@ Describe "Find-SpeakerParam" {
                 $actual.id | Should -Be 2
             }
         }
+
+        Context "ディアちゃん" {
+            It "<_>はCOEIROINKのid=3" -ForEach @("ディアちゃん") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 3
+            }
+        }
+
+        Context "アルマちゃん" {
+            It "<_>はCOEIROINKのid=4" -ForEach @("アルマちゃん") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 4
+            }
+        }
+
     }
 }
