@@ -936,7 +936,7 @@
         "ついなちゃん啓蒙動画ボイス\\3_ついなちゃん啓蒙動画_手洗い.wav",
         "ついなちゃん啓蒙動画ボイス\\4_ついなちゃん啓蒙動画_マスク.wav"
     ],
-    "051-054": [
+    "051-054,056": [
         "Sample_voice_051_for1000\\出口は左側です、やで&#x2661;.wav",
         "Sample_voice_051_for1000\\本日、傘のお忘れ物がたいへん多くなっております、やで&#x2661;.wav",
         "Sample_voice_051_for1000\\毎度ご乗車ありがとうございました、やで&#x2661;.wav",
@@ -1036,7 +1036,32 @@
         "Sample_voice_054_free\\セ・ボ～ン！！.wav",
         "Sample_voice_054_free\\ボン・ジュール！！.wav",
         "Sample_voice_054_free\\ボン・ボヤージ！！.wav",
-        "Sample_voice_054_free\\咲！.wav"
+        "Sample_voice_054_free\\咲！.wav",
+        "Sample_voice_056_free\\2-42 お疲れモーモでねむねむ…….wav",
+        "Sample_voice_056_free\\パンが無いなら、フライパンをお食べ！.wav",
+        "Sample_voice_056_free\\この香りだあーっ!!.wav",
+        "Sample_voice_056_free\\違う、そうじゃない…….wav",
+        "Sample_voice_056_free\\なにもそんな……。ウチは軽い気持ちで……。.wav",
+        "Sample_voice_056_free\\ヘイトスピーチやっ……！.wav",
+        "Sample_voice_056_free\\〇〇の仕業や！.wav",
+        "Sample_voice_056_free\\おっそろしぃなぁ.wav",
+        "Sample_voice_056_free\\生きとったんかワレ.wav",
+        "Sample_voice_056_free\\ありがたい！.wav",
+        "Sample_voice_056_free\\サンキューガッツ！.wav",
+        "Sample_voice_056_free\\激あついなちゃん！.wav",
+        "Sample_voice_056_free\\………こ…こわい……….wav",
+        "Sample_voice_056_free\\ふつくしい…….wav",
+        "Sample_voice_056_free\\ふとましい…….wav",
+        "Sample_voice_056_for500\\うつし世はゆめ　夜の夢こそまこと.wav",
+        "Sample_voice_056_for500\\わきわき.wav",
+        "Sample_voice_056_for500\\わくわく.wav",
+        "Sample_voice_056_for500\\てくてく…….wav",
+        "Sample_voice_056_for500\\テケテケ.wav",
+        "Sample_voice_056_for1000\\テケリ・リ、テケリ・リ.wav",
+        "Sample_voice_056_for1000\\めけめけ…….wav",
+        "Sample_voice_056_for1000\\めきょめきょ…….wav",
+        "Sample_voice_056_for1000\\無無明亦 無無明尽.wav",
+        "Sample_voice_056_for1000\\乃至無老死 亦無老死尽.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
