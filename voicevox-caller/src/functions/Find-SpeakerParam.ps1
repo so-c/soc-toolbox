@@ -34,6 +34,30 @@ function Find-SpeakerParam($speaker) {
             id      = 10
         }
     }
+    elseif ($speaker -match "玄野武宏*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 11
+        }
+    }
+    elseif ($speaker -match "白上虎太郎*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 12
+        }
+    }
+    elseif ($speaker -match "青山龍星*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 13
+        }
+    }
+    elseif ($speaker -match "冥鳴ひまり*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 14
+        }
+    }
     elseif ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
