@@ -84,6 +84,37 @@ Describe "Find-SpeakerParam" {
                 $actual.id | Should -Be 9
             }
         }
+
+        Context "玄野武宏" {
+            It "玄野武宏は、VOICEVOXのid=10" {
+                $actual = Find-SpeakerParam("玄野武宏")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 11
+            }
+        }
+        Context "白上虎太郎" {
+            It "白上虎太郎は、VOICEVOXのid=11" {
+                $actual = Find-SpeakerParam("白上虎太郎")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 12
+            }
+        }
+        Context "青山龍星" {
+            It "青山龍星は、VOICEVOXのid=12" {
+                $actual = Find-SpeakerParam("青山龍星")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 13
+            }
+        }
+        Context "冥鳴ひまり" {
+            It "冥鳴ひまりは、VOICEVOXのid=13" {
+                $actual = Find-SpeakerParam("冥鳴ひまり")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 14
+            }
+        }
+
+
     }
 
     Context "COEIROINK" {
