@@ -114,7 +114,35 @@ Describe "Find-SpeakerParam" {
             }
         }
 
-
+        Context "九州そら" {
+            It "あまあまは、VOICEVOXのid=15" {
+                $actual = Find-SpeakerParam("九州そら（あまあま）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 15
+            }
+    
+            It "ノーマルは、VOICEVOXのid=16" {
+                $actual = Find-SpeakerParam("九州そら（ノーマル）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 16
+            }
+    
+            It "セクシーは、VOICEVOXのid=17" {
+                $actual = Find-SpeakerParam("九州そら（セクシー）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 17
+            }
+            It "ツンツンは、VOICEVOXのid=18" {
+                $actual = Find-SpeakerParam("九州そら（ツンツン）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 18
+            }
+            It "ささやきは、VOICEVOXのid=19" {
+                $actual = Find-SpeakerParam("九州そら（ささやき）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 19
+            }
+        }
     }
 
     Context "COEIROINK" {
