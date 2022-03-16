@@ -129,6 +129,8 @@ function Find-SpeakerParam($speaker) {
     else {
         Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
+このウィンドウを終了させるには何かキーを押してください
+
 VOICEVOX
 ・四国めたん
 ・ずんだもん
@@ -147,7 +149,7 @@ COEIROINK
 ・アルマちゃん
 '@
         )
-        return
+        Read-Host
     }
 }
 
