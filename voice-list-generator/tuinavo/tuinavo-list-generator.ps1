@@ -52,8 +52,23 @@ function Expand-SampeZips {
     else {
         New-Item $destDir -ItemType Directory > $null
     }
-    
+
     Get-ChildItem $workDir\zip\*.zip | ForEach-Object {
+        $specialDirs = @(
+            "Sample_voice_055_free",
+            "Sample_voice_055_for500",
+            "Sample_voice_055_for1000"
+        )
+        foreach ($d in $specialDirs) {
+            if ($_.FullName.Contains($d)) {
+                if ($Voice[0].Equals("Sample")) {
+                    if(-not (Test-Path $destDir\$d)){
+                        New-Item "$destDir\$d" -ItemType Directory > $null
+                    }
+                }
+            }
+        }
+
         Expand-MacZip($_.FullName)
     }
     
