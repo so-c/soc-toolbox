@@ -32,12 +32,14 @@ Compress-Archive -Path $PSScriptRoot\release\$tuinavo -DestinationPath $PSScript
 # voicevox-caller
 New-Item "$PSScriptRoot\release\$voivoxCaller" -ItemType Directory > $null
 
+if(Test-Path $PSScriptRoot\voicevox-caller\src\last_error.txt) {
+    Remove-Item $PSScriptRoot\voicevox-caller\src\last_error.txt
+}
 Copy-Item $PSScriptRoot\voicevox-caller\src\*.* $PSScriptRoot\release\$voivoxCaller\
 Copy-Item $PSScriptRoot\voicevox-caller\src\functions -Recurse $PSScriptRoot\release\$voivoxCaller\
 Copy-Item "$PSScriptRoot\voicevox-caller\VOICEVOX(PowerShell 5.x).rvls" $PSScriptRoot\release\$voivoxCaller\
 Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$voivoxCaller
 Compress-Archive -Path $PSScriptRoot\release\$voivoxCaller -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
-# Compress-Archive -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Update -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
 
 # aivos-userdef
 Compress-Archive -Path $PSScriptRoot\aivos-userdef -DestinationPath $PSScriptRoot\release\$aivosUserDef.zip
