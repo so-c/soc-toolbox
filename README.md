@@ -33,7 +33,7 @@ VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShe
 [引数] の設定例
 
 ```ps1
--ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"`
+-ExecutionPolicy RemoteSigned -File "C:\Users\YourName\Documents\voicevox-caller\voicevox-caller.ps1" -text "%c" -speaker "%s" -output "%o"
 ```
 
 #### 使用準備
