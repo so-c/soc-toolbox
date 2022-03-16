@@ -58,6 +58,31 @@ function Find-SpeakerParam($speaker) {
             id      = 14
         }
     }
+    elseif ($speaker -Like "九州そら*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    16
+                }
+                '*あまあま*' {
+                    15
+                }
+                '*ツンツン*' {
+                    18
+                }
+                '*セクシー*' {
+                    17
+                }
+                '*ささやき*' {
+                    19
+                }
+                default {
+                    16
+                }
+            }
+        }
+    }
     elseif ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
@@ -102,7 +127,26 @@ function Find-SpeakerParam($speaker) {
         }
     }
     else {
-        Write-Log("VOICEVOXの場合、話者名(≠レイヤー名）を「四国めたん」、「ずんだもん」、「春日部つむぎ」、「雨晴はう」、「波音リツ」で始めてください。COEIROINKの場合、「つくよみちゃん」、「MANA」、「おふとんP」（大文字小文字全角半角問わず）、「ディアちゃん」、「アルマちゃん」で始めてください")
+        Write-Error(@'
+話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
+VOICEVOX
+・四国めたん
+・ずんだもん
+・春日部つむぎ
+・雨晴はう
+・波音リツ
+・玄野武宏
+・白上虎太郎
+・青山龍星
+・九州そら
+COEIROINK
+・つくよみちゃん
+・MANA
+・おふとんP
+・ディアちゃん
+・アルマちゃん
+'@
+        )
         return
     }
 }

@@ -11,7 +11,7 @@
     $volumeScale        = 1.0,
     $prePhonemeLength   = 0.1,
     $postPhonemeLength  = 0.1,
-    $outputSamplingRate = 24000,
+    $outputSamplingRate = 48000,
     $outputStereo       = $false
 )
 
