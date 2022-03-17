@@ -104,9 +104,14 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
 
 使い方は`voice-list-generator\tuinavo\`フォルダの[「使い方.txt」](https://github.com/so-c/soc-toolbox/blob/main/voice-list-generator/tuinavo/%E4%BD%BF%E3%81%84%E6%96%B9.txt)を参照してください
 
-参考動画：[第9回「ぴた声アプリで音声素材の管理」 \- YouTube](https://www.youtube.com/watch?v=KfCVTM4OaZA)
+### 参考動画
+* [第9回「ぴた声アプリで音声素材の管理」 \- YouTube](https://www.youtube.com/watch?v=KfCVTM4OaZA)
+* [【2分で教えてついなちゃん♡】ぴた声アプリで音声素材を管理＋ついなボリストジェネレータの紹介【レコスタ・ぴた声】 - ニコニコ動画](https://www.nicovideo.jp/watch/sm39480301)
 
 [![参考動画](https://img.youtube.com/vi/KfCVTM4OaZA/0.jpg)](https://www.youtube.com/watch?v=KfCVTM4OaZA)
+
+### 謝辞
+[マスコットアプリ文化祭2021の咲ちゃん賞をいただきました。ありがとうございます](https://fantia.jp/posts/1150646)
 
 ----
 
