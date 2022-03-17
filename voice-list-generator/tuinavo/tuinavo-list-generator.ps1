@@ -54,25 +54,6 @@ function Expand-SampeZips {
     }
 
     Get-ChildItem $workDir\zip\*.zip | ForEach-Object {
-        # Zip内エントリー順の問題？
-        # 存在しないディレクトリに
-        # Extractしようとして失敗するので
-        # 予め作成しておく
-        $specialDirs = @(
-            "Sample_voice_055_free",
-            "Sample_voice_055_for500",
-            "Sample_voice_055_for1000"
-        )
-        foreach ($d in $specialDirs) {
-            if ($_.FullName.Contains($d)) {
-                if ($Voice[0].Equals("Sample")) {
-                    if(-not (Test-Path $destDir\$d)){
-                        New-Item "$destDir\$d" -ItemType Directory > $null
-                    }
-                }
-            }
-        }
-
         Expand-MacZip($_.FullName)
     }
     

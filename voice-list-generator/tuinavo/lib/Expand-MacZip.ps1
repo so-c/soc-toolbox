@@ -29,12 +29,32 @@ function Expand-MacZip {
         }
     }
 
+    # 第55回のZipはディレクトリより先にファイルを抽出しようとしてエラーになる
+    # 対策として予め必要なディレクトリを作っておく。Zipファイルのエントリー順の問題か？
+    $specialDirs = @(
+        "Sample_voice_055_free",
+        "Sample_voice_055_for500",
+        "Sample_voice_055_for1000"
+    )
+    foreach ($d in $specialDirs) {
+        if ($_.FullName.Contains($d)) {
+            if (-not (Test-Path "$destDir\$d")) {
+                New-Item "$destDir\$d" -ItemType Directory > $null
+            }
+        }
+    }
+
     $archive = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
     foreach ($e in $archive.Entries) {
 
         if ($e.FullName.Contains("/mp3") `
                 -or $e.FullName.Contains("（mp3）/") `
                 -or $e.FullName.Contains(".pdf")) {
+            continue
+        }
+
+        # アドホック対応で作成済みなのでスキップ
+        if ($specialDirs.Contains(($e.FullName -replace '/', ''))) {
             continue
         }
 
