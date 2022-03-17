@@ -54,6 +54,10 @@ function Expand-SampeZips {
     }
 
     Get-ChildItem $workDir\zip\*.zip | ForEach-Object {
+        # Zip内エントリー順の問題？
+        # 存在しないディレクトリに
+        # Extractしようとして失敗するので
+        # 予め作成しておく
         $specialDirs = @(
             "Sample_voice_055_free",
             "Sample_voice_055_for500",
@@ -76,6 +80,8 @@ function Expand-SampeZips {
     Write-Host "第5, 8, 21回は展開できないので、まだなら手動で展開したあと、実行し直してください"
     Write-Host "-NoExpandオプションをつけると再展開しないので気持ち速くなります"    
 }
+
+######## ここからmain相当 ########
 
 if ($Voice -like "Sample*" -and -not $NoExpand) {
     Expand-SampeZips
