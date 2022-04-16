@@ -1,6 +1,7 @@
 ﻿Param(
     [switch]$NoExpand
 )
+
 # usage: 下記のように配置して実行
 # .\
 #   + sakivo-list-generator.ps1
@@ -15,7 +16,8 @@ function Expand-SampeZips {
     param (
         $WorkDir
     )
-        
+    
+    Add-Type -AssemblyName System.IO.Compression.FileSystem        
     Get-ChildItem $WorkDir\Saki_zip\*.zip | ForEach-Object {
         $DirPath = New-Directory $_
 
