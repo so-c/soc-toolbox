@@ -9,21 +9,16 @@
 $WorkDir = $PSScriptRoot
 $LibDir = "$WorkDir\..\tuinavo\lib"
 . $LibDir\PitagoeRecord.ps1
-
 $DestDir = "$WorkDir\wav"
-$csvFileName = "咲ちゃん セリフ集.csv"
 
 function Expand-SampeZips {
     [CmdletBinding()]
     param (
         $WorkDir
     )
-    # 個別にアドホックな処理が必要ならここで
-    
+        
     Get-ChildItem $WorkDir\zip\*.zip | ForEach-Object {
-        $DirName = $_.BaseName -replace "^[a-z0-9]{8}_", ""
-        New-Item ".\wav\$DirName" -ItemType Directory > $null
-        $DirPath = (Resolve-Path ".\wav\$DirName").Path
+        $DirPath = New-Directory $_
 
         $Archive = [System.IO.Compression.ZipFile]::OpenRead($_.FullName)
         $Archive.Entries | Where-Object { $_.Name -like "*.wav" } | ForEach-Object {
@@ -31,6 +26,20 @@ function Expand-SampeZips {
             [System.IO.Compression.ZipFileExtensions]::ExtractToFile($_, "$DirPath\$NewName", $true)
         }
     }
+}
+
+function New-Directory {
+    # Zipファイルの名前に基づいて展開先のディレクトリを作る
+    [CmdletBinding()]
+    param (
+        $ZipFile
+    )
+
+    $DirName = $ZipFile.BaseName -replace "^[a-z0-9]{8}_", ""
+    New-Item "$DestDir\$DirName" -ItemType Directory > $null
+    $DirPath = "$DestDir\$DirName"
+
+    return $DirPath
 }
 
 function Rename-Entry {
@@ -44,16 +53,28 @@ function Rename-Entry {
     $ret = $ret -replace '!\?', '！？' # !？[半角・全角]は表示が乱れるのでペアで置換    
 
     return $ret
+}
 
+function Clear-Destination {
+    if (Test-Path $DestDir) {
+        Get-ChildItem $DestDir\* -Recurse | Where-Object { $_.Name -ne "thumbnail.png" } |
+        ForEach-Object {
+            Remove-Item $_.FullName -Recurse -Force -Confirm:$false
+        }
+    }
+    else {
+        New-Item $DestDir -ItemType Directory > $null
+    }
 }
 
 ######## ここからmain相当 ########
 
 if (-not $NoExpand) {
+    Clear-Destination
     Expand-SampeZips $WorkDir
 }
 
-[PitagoeRecord]::newPitagoeList("$DestDir\")
+$Pitagoes = [PitagoeRecord]::newPitagoeList("$DestDir\")
 
 # ぴた声アプリが表示名ではなくCSVでの登場順に表示するのでソートを挟む
 # XXX：下記対応が不完全
@@ -63,13 +84,15 @@ if (-not $NoExpand) {
 #   → "" のまま表示されてしまうのでデータパッチ
 # ・1行目に空行
 #   → スキップする
+$CsvFileName = "咲ちゃん セリフ集.csv"
+
 $UTF8noBOM = [System.Text.UTF8Encoding]::new($false, $true)
-$CsvContents = ($pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
+$CsvContents = ($Pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
     ForEach-Object { $_.Replace('‹" ', "‹''") } |
     Select-Object -Skip 1)
-[System.IO.File]::WriteAllLines("$destDir\$csvFileName", $CsvContents, $UTF8noBOM)
+[System.IO.File]::WriteAllLines("$DestDir\$CsvFileName", $CsvContents, $UTF8noBOM)
 
-Copy-Item $workDir\resource\character.ini $destDir -Force
+Copy-Item $WorkDir\resource\character.ini $DestDir -Force
 
-Write-Host "${Split-Path $destDir -Leaf}フォルダに「$csvFileName」を作成しました"
+Write-Host "${Split-Path $destDir -Leaf}フォルダに「$CsvFileName」を作成しました"
 Write-Host "${Split-Path $destDir -Leaf}フォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
