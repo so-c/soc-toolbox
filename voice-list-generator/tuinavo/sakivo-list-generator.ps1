@@ -7,9 +7,8 @@
 #   + zip\
 #       + c4c81a16_Saki_Sample_voice_001_free.zip
 $WorkDir = $PSScriptRoot
-$LibDir = "$WorkDir\..\tuinavo\lib"
-. $LibDir\PitagoeRecord.ps1
-$DestDir = "$WorkDir\wav"
+. $WorkDir\lib\PitagoeRecord.ps1
+$DestDir = "$WorkDir\Saki_wav"
 
 function Expand-SampeZips {
     [CmdletBinding()]
@@ -17,7 +16,7 @@ function Expand-SampeZips {
         $WorkDir
     )
         
-    Get-ChildItem $WorkDir\zip\*.zip | ForEach-Object {
+    Get-ChildItem $WorkDir\Saki_zip\*.zip | ForEach-Object {
         $DirPath = New-Directory $_
 
         $Archive = [System.IO.Compression.ZipFile]::OpenRead($_.FullName)
@@ -85,14 +84,13 @@ $Pitagoes = [PitagoeRecord]::newPitagoeList("$DestDir\")
 # ・1行目に空行
 #   → スキップする
 $CsvFileName = "咲ちゃん セリフ集.csv"
-
 $UTF8noBOM = [System.Text.UTF8Encoding]::new($false, $true)
 $CsvContents = ($Pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -NoTypeInformation |
     ForEach-Object { $_.Replace('‹" ', "‹''") } |
     Select-Object -Skip 1)
 [System.IO.File]::WriteAllLines("$DestDir\$CsvFileName", $CsvContents, $UTF8noBOM)
 
-Copy-Item $WorkDir\resource\character.ini $DestDir -Force
+Copy-Item $WorkDir\resource\Saki_character.ini -Destination "$DestDir\character.ini" -Force
 
 Write-Host "${Split-Path $destDir -Leaf}フォルダに「$CsvFileName」を作成しました"
 Write-Host "${Split-Path $destDir -Leaf}フォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"

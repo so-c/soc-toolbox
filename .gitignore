@@ -1,7 +1,8 @@
 .vscode/
 /voicevox-caller/src/last_error.txt
 /voice-list-generator/tuinavo/zip/*.zip
-/voice-list-generator/sakivo/zip/*.zip
+/voice-list-generator/tuinavo/Saki_zip/*.zip
+/voice-list-generator/tuinavo/Saki_wav/
 /voice-list-generator//wav
 /voice-list-generator/*/wav
 /voice-list-generator/tuinavo/ex
