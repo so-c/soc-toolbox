@@ -1,6 +1,13 @@
 # 『ついなボリストジェネレータ』使い方
 
+ここではついなちゃんのボイスリストを作る
+`tuinavo-list-generator.ps1`
+の使い方を書いています
 
+咲ちゃんのボイスリストを作る
+`sakivo-list-generator.ps1`
+の使い方は同じフォルダにある
+`咲_使い方.txt`をご覧ください
 
 ## このスクリプトについて
 
@@ -92,7 +99,7 @@
 
 Windows PowerShellでスクリプトを実行します
 
-1. スタートメニューから「Windows PowerShell ISE」を起動します
+1. スタートメニューから「Windows PowerShell ISE」または「Windows PowerShell」を起動します
 2. まず今開いているウィンドウでスクリプトを実行できるようにします
   ↓
   Set-ExecutionPolicy RemoteSigned -Scope Process
@@ -154,7 +161,7 @@ TIPS: ダウンロードしておいた"thumbnail.png"を
 ## 作者
 
 鏡双司
-→ GitHub https://github.com/so-c/soc-toolbox/issues
+→ GitHub https://github.com/so-c/soc-toolbox/
 → Twitter ＠SO_C
 
 
