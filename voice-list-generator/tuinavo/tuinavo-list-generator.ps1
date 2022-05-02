@@ -1,8 +1,8 @@
 ﻿Param(
     [Parameter(Mandatory)]
     [ValidateSet("Sample", "SampleCF", "Ex")]
-    [String[]]
-    $Voice,
+    [String]
+    $Voice = "Sample",
     [switch]$NoExpand
 )
 # usage: 下記のように配置して実行
