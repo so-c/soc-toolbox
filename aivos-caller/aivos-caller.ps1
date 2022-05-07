@@ -13,7 +13,7 @@ Function Get-TTS($Path) {
 
 Function Connect-TTS($TTS) {
     if ($TTS.GetAvailableHostNames().Length -eq 0) {
-        Write-Error "A.I.VOICE Editorが未インストールです" -ErrorAction Stop
+        Write-Error "$(Get-Date -Format "yyyy-MM-dd hh:mm:ss") A.I.VOICE Editorが未インストールです" -ErrorAction Stop
     }
     
     try {
@@ -22,18 +22,18 @@ Function Connect-TTS($TTS) {
         }
     }
     catch {
-        Write-Error "A.I.Editor APIの初期化に失敗しました。" -ErrorAction Stop # 発生条件がよくわからない
+        Write-Error "$(Get-Date -Format "yyyy-MM-dd hh:mm:ss") A.I.Editor APIの初期化に失敗しました。" -ErrorAction Stop # 発生条件がよくわからない
     }
     
     if ($TTS.Status -eq [AI.Talk.Editor.Api.HostStatus]::NotRunning) {
-        Write-Error "起動中のA.I.VOICE Editorが見つかりません。起動後に再実行してください。" -ErrorAction Stop
+        Write-Error "$(Get-Date -Format "yyyy-MM-dd hh:mm:ss") 起動中のA.I.VOICE Editorが見つかりません。起動後に再実行してください。" -ErrorAction Stop
     }
     
     try {
         $TTS.Connect()
     }
     catch {
-        Write-Error "A.I.VOICE Editorと接続できませんでした。" -ErrorAction Stop
+        Write-Error "$(Get-Date -Format "yyyy-MM-dd hh:mm:ss") A.I.VOICE Editorと接続できませんでした。" -ErrorAction Stop
     }
 }
 
@@ -45,22 +45,24 @@ Function Add-ItemOnTop($TTS, $speaker, $text) {
     }
     catch [InvalidOperationException] {
         $TTS.AddListItem($speaker, $text)
+        $TTS.SetListSelectionIndex(0)
         return
     }
 
     $TTS.SetListSelectionIndex(0)
     $TTS.InsertListItem($speaker, $text)
+    $TTS.SetListSelectionIndex(0)
 }
 
-$TTS = Get-TTS $PSScriptRoot
-Connect-TTS $TTS
-
 try {
+    $TTS = Get-TTS $PSScriptRoot
+    Connect-TTS $TTS
+
     Add-ItemOnTop -TTS $TTS -speaker $speaker -text $text
     $TTS.SaveAudioToFile($output)
 }
 catch {
-    Write-Error "何かしらのエラーが発生しました。"
+    $_ 2>&1 >> $PSScriptRoot\error_log.txt
 }
 finally {
     $TTS.Disconnect();
