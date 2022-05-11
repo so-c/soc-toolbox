@@ -1,0 +1,1 @@
+{"name":"VOICEVOX(PowerShell 5.1x)","d-name":"VOICEVOX(PowerShell 5.x)","mode":1,"exe-path":"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe","arg":"-ExecutionPolicy Bypass -File \"\" -text \"%c\" -speaker \"%s\" -output \"%o\"","splitter":"","split-break":true,"kakeai":true,"voice-match-mode":0,"out-ext":"wav"}

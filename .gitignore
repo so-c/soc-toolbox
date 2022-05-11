@@ -1,6 +1,7 @@
 .vscode/
 release
 voicevox-caller/src/last_error.txt
+voicevox-caller/VOICEVOX(PowerShell 5.x).rvls
 voice-list-generator/tuinavo/zip/*.zip
 voice-list-generator/tuinavo/Saki_zip/*.zip
 voice-list-generator/tuinavo/Saki_wav/
