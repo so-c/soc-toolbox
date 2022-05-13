@@ -40,7 +40,8 @@ if (Test-Path $PSScriptRoot\voicevox-caller\src\last_error.txt) {
 }
 Copy-Item $PSScriptRoot\voicevox-caller\src\*.* $PSScriptRoot\release\$voivoxCaller\
 Copy-Item $PSScriptRoot\voicevox-caller\src\functions -Recurse $PSScriptRoot\release\$voivoxCaller\
-Copy-Item "$PSScriptRoot\voicevox-caller\VOICEVOX(PowerShell 5.x).rvls" $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voicevox-caller\create-rvls.bat $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voicevox-caller\template -Recurse $PSScriptRoot\release\$voivoxCaller\
 Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$voivoxCaller
 Compress-Archive -Path $PSScriptRoot\release\$voivoxCaller -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
 
