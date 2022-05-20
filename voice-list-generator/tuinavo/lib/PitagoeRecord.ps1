@@ -60,7 +60,7 @@
     [string] GetSerif([string]$baseName) {
 
         # ファイル名が一貫していないケースの前処理
-        $ret = $baseName -replace '^(116|859|860|861|862|863|864|2-42) ', ''
+        $ret = $baseName -replace '^(116|859|860|861|862|863|864|2-42|92) ', ''
 
         $dic = [PitagoeRecord]::replaceTable
         foreach ($key in $dic.keys) {
