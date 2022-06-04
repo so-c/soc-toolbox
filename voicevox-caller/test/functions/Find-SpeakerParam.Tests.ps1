@@ -175,6 +175,16 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 1
             }
+            It "MANA（のーまる）はCOEIROINKのid=1" {
+                $actual = Find-SpeakerParam("MANA（のーまる）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 1
+            }
+            It "MANA（いっしょうけんめい）はCOEIROINKのid=7" {
+                $actual = Find-SpeakerParam("MANA（いっしょうけんめい）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 7
+            }
         }
 
         Context "おふとんP" {
@@ -182,6 +192,16 @@ Describe "Find-SpeakerParam" {
                 $actual = Find-SpeakerParam($_)
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 2
+            }
+            It "おふとんP（のーまる）はCOEIROINKのid=2" {
+                $actual = Find-SpeakerParam("おふとんP（のーまる）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 2
+            }
+            It "おふとんP（ナレーション）はCOEIROINKのid=8" {
+                $actual = Find-SpeakerParam("おふとんP（ナレーション）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 8
             }
         }
 

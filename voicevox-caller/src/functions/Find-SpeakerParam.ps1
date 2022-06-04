@@ -105,13 +105,33 @@ function Find-SpeakerParam($speaker) {
     elseif ($speaker -Like "MANA*" -or $speaker -Like "ＭＡＮＡ*") {
         return @{
             baseUrl = $COEIROINK_URL
-            id      = 1
+            id      = switch -Wildcard ($speaker) {
+                '*のーまる*' {
+                    1
+                }
+                '*いっしょうけんめい*' {
+                    7
+                }
+                default {
+                    1
+                }
+            }
         }
     }
     elseif ($speaker -match "おふとん(P|Ｐ).*") {
         return @{
             baseUrl = $COEIROINK_URL
-            id      = 2
+            id      = switch -Wildcard ($speaker) {
+                '*のーまる*' {
+                    2
+                }
+                '*ナレーション*' {
+                    8
+                }
+                default {
+                    2
+                }
+            }
         }
     }
     elseif ($speaker -match "ディアちゃん.*") {
