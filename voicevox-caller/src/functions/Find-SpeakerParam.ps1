@@ -10,55 +10,64 @@ function Find-SpeakerParam($speaker) {
             id      = (0 + (Get-StyleIndex($speaker)))
         }
     }
-    elseif ($speaker -Like "ずんだもん*") {
+
+    if ($speaker -Like "ずんだもん*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = (1 + (Get-StyleIndex($speaker)))
         }
     }
-    elseif ($speaker -Like "春日部つむぎ*") {
+    
+    if ($speaker -Like "春日部つむぎ*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 8
         }
     }
-    elseif ($speaker -Like "波音リツ*") {
+    
+    if ($speaker -Like "波音リツ*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 9
         }
     }
-    elseif ($speaker -Like "雨晴はう*") {
+    
+    if ($speaker -Like "雨晴はう*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 10
         }
     }
-    elseif ($speaker -match "玄野武宏*") {
+    
+    if ($speaker -Like "玄野武宏*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 11
         }
     }
-    elseif ($speaker -match "白上虎太郎*") {
+    
+    if ($speaker -Like "白上虎太郎*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 12
         }
     }
-    elseif ($speaker -match "青山龍星*") {
+    
+    if ($speaker -Like "青山龍星*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 13
         }
     }
-    elseif ($speaker -match "冥鳴ひまり*") {
+    
+    if ($speaker -Like "冥鳴ひまり*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 14
         }
     }
-    elseif ($speaker -Like "九州そら*") {
+    
+    if ($speaker -Like "九州そら*") {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = switch -Wildcard ($speaker) {
@@ -83,7 +92,8 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
-    elseif ($speaker -Like "つくよみちゃん*") {
+
+    if ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
@@ -102,7 +112,8 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
-    elseif ($speaker -Like "MANA*" -or $speaker -Like "ＭＡＮＡ*") {
+    
+    if ($speaker -Like "MANA*" -or $speaker -Like "ＭＡＮＡ*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
@@ -118,7 +129,8 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
-    elseif ($speaker -match "おふとん(P|Ｐ).*") {
+    
+    if ($speaker -match "おふとん(P|Ｐ).*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
@@ -134,20 +146,22 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
-    elseif ($speaker -match "ディアちゃん.*") {
+    
+    if ($speaker -Like "ディアちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = 3
         }
     }
-    elseif ($speaker -match "アルマちゃん.*") {
+    
+    if ($speaker -Like "アルマちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = 4
         }
     }
-    else {
-        Write-Error(@'
+
+    Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
 このウィンドウを終了させるには何かキーを押してください
 
@@ -168,9 +182,8 @@ COEIROINK
 ・ディアちゃん
 ・アルマちゃん
 '@
-        )
-        Read-Host
-    }
+    )
+    Read-Host
 }
 
 # VOICEVOXのスタイル設定
