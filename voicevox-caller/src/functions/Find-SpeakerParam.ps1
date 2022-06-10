@@ -93,6 +93,13 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -match "モチノ・キョウコ|もち子(さん)?.*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 20
+        }
+    }
+
     if ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
