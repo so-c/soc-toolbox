@@ -75,11 +75,12 @@
    * ダウンロード元はFantiaのページです
      → Fantiaの「サンプルボイス」タグ付きページ
         https://fantia.jp/fanclubs/326/posts?tag=サンプルボイス
-     第39回と第49回はタグが付いていないのでこちらから
+     タグが付いていない回はこちらから
      → 第39回 https://fantia.jp/posts/361904
      → 第49回 https://fantia.jp/posts/777271
      → 第55回 https://fantia.jp/posts/1176521
      → 第56回 https://fantia.jp/posts/1148480
+     → 第57回 https://fantia.jp/posts/1230812
    * 第1回～第42回はwav版とmp3版が分かれているのでwav版を
      ダウンロードしてください
    * 第43回からはwavとmp3が1つのzipファイルなので
