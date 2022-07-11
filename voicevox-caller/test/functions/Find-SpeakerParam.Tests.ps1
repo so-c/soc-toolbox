@@ -145,10 +145,18 @@ Describe "Find-SpeakerParam" {
         }
 
         Context "モチノ・キョウコ" {
-            It "<_>はVOICEVOXのid=1" -ForEach @("モチノ・キョウコ", "もち子さん", "もち子") {
+            It "<_>はVOICEVOXのid=20" -ForEach @("モチノ・キョウコ", "もち子さん", "もち子") {
                 $actual = Find-SpeakerParam($_)
                 $actual.baseUrl | Should -Be $VOICEVOX_URL
                 $actual.id | Should -Be 20
+            }
+        }
+
+        Context "剣崎雌雄" {
+            It "<_>はVOICEVOXのid=21" -ForEach @("剣崎雌雄") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 21
             }
         }
     }
