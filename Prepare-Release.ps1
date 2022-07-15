@@ -1,10 +1,10 @@
 ﻿Param(
     [Parameter(Mandatory)]
-    [ValidatePattern("^v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]*$")]
+    [ValidatePattern("^v[0-9]+\.[0-9]+\.[0-9]+$")]
     $version
 )
 
-$voivoxCaller = "voicecox-caller-$version"
+$voivoxCaller = "voivoca-$version"
 $aivosUserDef = "aivos-userdef-$version"
 
 if (-not (Test-Path $PSScriptRoot\release)) {
@@ -32,16 +32,16 @@ function Zip-Tuinavo($tuinavo) {
 
 Zip-Tuinavo("tuinavo-list-generator-$version")
 
-# voicevox-caller
+# voivoca
 New-Item "$PSScriptRoot\release\$voivoxCaller" -ItemType Directory > $null
 
-if (Test-Path $PSScriptRoot\voicevox-caller\src\last_error.txt) {
-    Remove-Item $PSScriptRoot\voicevox-caller\src\last_error.txt
+if (Test-Path $PSScriptRoot\voivoca\src\last_error.txt) {
+    Remove-Item $PSScriptRoot\voivoca\src\last_error.txt
 }
-Copy-Item $PSScriptRoot\voicevox-caller\src\*.* $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voicevox-caller\src\functions -Recurse $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voicevox-caller\create-rvls.bat $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voicevox-caller\template -Recurse $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voivoca\src\*.* $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voivoca\src\functions -Recurse $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voivoca\create-rvls.bat $PSScriptRoot\release\$voivoxCaller\
+Copy-Item $PSScriptRoot\voivoca\template -Recurse $PSScriptRoot\release\$voivoxCaller\
 Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$voivoxCaller
 Compress-Archive -Path $PSScriptRoot\release\$voivoxCaller -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
 

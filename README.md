@@ -2,14 +2,14 @@
 
 主に動画編集に使うちょっとしたツール類
 
-1. [voicevox-caller](#voicevox-caller)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
+1. [voivoca](#voivoca)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
 1. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
 1. voice-list-generator
    * [tuinavo-list-generator](#tuinavo-list-generator)：[ついなちゃん](https://ついなちゃん.com)の配布ボイスをぴた声アプリやRecotte Studioから使いやすくするためのスクリプト
 
 ----
 
-## voicevox-caller
+## voivoca
 
 VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます
 
