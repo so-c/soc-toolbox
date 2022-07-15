@@ -100,6 +100,13 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -match "剣崎雌雄.*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 21
+        }
+    }
+
     if ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
@@ -170,7 +177,6 @@ function Find-SpeakerParam($speaker) {
 
     Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
-このウィンドウを終了させるには何かキーを押してください
 
 VOICEVOX
 ・四国めたん
@@ -182,6 +188,8 @@ VOICEVOX
 ・白上虎太郎
 ・青山龍星
 ・九州そら
+・モチノ・キョウコ
+・剣崎雌雄
 COEIROINK
 ・つくよみちゃん
 ・MANA
@@ -190,7 +198,6 @@ COEIROINK
 ・アルマちゃん
 '@
     )
-    Read-Host
 }
 
 # VOICEVOXのスタイル設定
