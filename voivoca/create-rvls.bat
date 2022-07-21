@@ -6,7 +6,7 @@ pushd %~dp0
 set CUR_DIR=%~dp0
 set CUR_DIR2=%CUR_DIR:\=\\%
 set BEFORE=-File \"\"
-set  AFTER=-File \"%CUR_DIR2%voicevox-caller.ps1\"
+set  AFTER=-File \"%CUR_DIR2%voivoca.ps1\"
 
 setlocal enabledelayedexpansion
 cd .\template

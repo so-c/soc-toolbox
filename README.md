@@ -2,14 +2,14 @@
 
 主に動画編集に使うちょっとしたツール類
 
-1. [voicevox-caller](#voicevox-caller)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
+1. [voivoca](#voivoca)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
 1. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
 1. voice-list-generator
    * [tuinavo-list-generator](#tuinavo-list-generator)：[ついなちゃん](https://ついなちゃん.com)の配布ボイスをぴた声アプリやRecotte Studioから使いやすくするためのスクリプト
 
 ----
 
-## voicevox-caller
+## voivoca
 
 VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます
 
@@ -54,7 +54,7 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
   * このリポジトリで公開しているスクリプトなどはインターネット全般で非商用・商用問わず利用できます
   * Recotte StudioやVOICEVOX、各キャラクターなどそれぞれの利用規約に従ってください
   * （任意）ニコニコ動画で使う際はニコニ･コモンズをコンテンツツリーに登録してもらえると作者が喜びます
-    * [voicevox\-caller](https://commons.nicovideo.jp/material/nc252957)
+    * [voivoca](https://commons.nicovideo.jp/material/nc252957)
     * [tuinavo\-list\-generator（ついなボリストジェネレータ）](https://commons.nicovideo.jp/material/nc254607)
 * 開発者向け
   * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
