@@ -54,7 +54,7 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
   * このリポジトリで公開しているスクリプトなどはインターネット全般で非商用・商用問わず利用できます
   * Recotte StudioやVOICEVOX、各キャラクターなどそれぞれの利用規約に従ってください
   * （任意）ニコニコ動画で使う際はニコニ･コモンズをコンテンツツリーに登録してもらえると作者が喜びます
-    * [voicevox\-caller](https://commons.nicovideo.jp/material/nc252957)
+    * [voivoca](https://commons.nicovideo.jp/material/nc252957)
     * [tuinavo\-list\-generator（ついなボリストジェネレータ）](https://commons.nicovideo.jp/material/nc254607)
 * 開発者向け
   * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
