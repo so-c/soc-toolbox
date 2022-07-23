@@ -1,0 +1,11 @@
+name: zip-release-files
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  check-bats-version:
+    runs-on: windows-latest
+    steps: 
+      - uses: actions/checkout@v3
+      
