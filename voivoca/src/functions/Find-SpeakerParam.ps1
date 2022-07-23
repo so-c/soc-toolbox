@@ -154,6 +154,9 @@ function Find-SpeakerParam($speaker) {
                 '*ナレーション*' {
                     8
                 }
+                '*かなしみ*' {
+                    9
+                }
                 default {
                     2
                 }
