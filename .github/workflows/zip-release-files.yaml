@@ -7,8 +7,17 @@ jobs:
   zip-release-files:
     runs-on: windows-latest
     steps: 
-      - name: Check out repository code
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Zip release files
         run: .\Prepare-Release.ps1 ${{ github.ref_name }}
         shell: powershell
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: |
+            release/aivos-userdef-${{ github.ref_name }}.zip
+            tuinavo-list-generator-${{ github.ref_name }}.zip
+            voivoca-${{ github.ref_name }}.zip
+          
