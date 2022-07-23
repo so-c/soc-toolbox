@@ -18,6 +18,6 @@ jobs:
           draft: true
           files: |
             release/aivos-userdef-${{ github.ref_name }}.zip
-            tuinavo-list-generator-${{ github.ref_name }}.zip
-            voivoca-${{ github.ref_name }}.zip
+            release/tuinavo-list-generator-${{ github.ref_name }}.zip
+            release/voivoca-${{ github.ref_name }}.zip
           
