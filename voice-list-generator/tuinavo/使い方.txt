@@ -103,10 +103,9 @@ Windows PowerShellでスクリプトを実行します
 1. スタートメニューから「Windows PowerShell ISE」または「Windows PowerShell」を起動します
 2. まず今開いているウィンドウでスクリプトを実行できるようにします
   ↓
-  Set-ExecutionPolicy RemoteSigned -Scope Process
+  Set-ExecutionPolicy Bypass -Scope Process
   ↑
   これをコピペしてEnterを押してください
-  注）ダウンロードフォルダで実行する場合は"RemoteSigned"の代わりに"Bypass"としてください
 3. メッセージを確認してこのスクリプトを信用して動かすなら
   「Y」を入力してEnterを押してください
 4. スクリプトをShiftを押しながら右クリックして
