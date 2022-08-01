@@ -14,7 +14,26 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "ずんだもん*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = (1 + (Get-StyleIndex($speaker)))
+            id = switch -Wildcard ($speaker) {
+                '*あまあま*' {
+                    1
+                }
+                '*ノーマル*' {
+                    3
+                }
+                '*セクシー*' {
+                    5
+                }
+                '*ツンツン*' {
+                    7
+                } 
+                '*ささやき*'{
+                    22
+                }
+                default {
+                    3
+                }
+            }
         }
     }
     
