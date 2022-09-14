@@ -214,6 +214,32 @@ Describe "Find-SpeakerParam" {
             }
         }
 
+        Context "MANA+" {
+            It "<_>はCOEIROINKのid=41" -ForEach @("MANA+", "mana+", "Mana+", "ＭＡＮＡ＋", "ｍａｎａ＋", "Ｍａｎａ＋") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 41
+            }
+        }
+
+        Context "KANA" {
+            It "<_>はCOEIROINKのid=30" -ForEach @("KANA", "kana", "Kana+", "ＫＡＮＡ", "ｋａｎａ", "Ｋａｎａ") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 30
+            }
+            It "KANA（のーまる）はCOEIROINKのid=30" {
+                $actual = Find-SpeakerParam("KANA（のーまる）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 30
+            }
+            It "KANA（えんげき）はCOEIROINKのid=31" {
+                $actual = Find-SpeakerParam("KANA（えんげき）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 31
+            }
+        }
+
         Context "おふとんP" {
             It "<_>はCOEIROINKのid=2" -ForEach @("おふとんｐ", "おふとんＰ", "おふとんp", "おふとんP") {
                 $actual = Find-SpeakerParam($_)
