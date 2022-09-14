@@ -238,7 +238,7 @@ function Find-SpeakerParam($speaker) {
                     11
                 }
                 '*表-v2*' {
-                    9
+                    10
                 }
                 default {
                     4
