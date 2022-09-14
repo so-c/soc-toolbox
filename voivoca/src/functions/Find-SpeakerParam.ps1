@@ -14,7 +14,7 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "ずんだもん*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id = switch -Wildcard ($speaker) {
+            id      = switch -Wildcard ($speaker) {
                 '*あまあま*' {
                     1
                 }
@@ -27,7 +27,7 @@ function Find-SpeakerParam($speaker) {
                 '*ツンツン*' {
                     7
                 } 
-                '*ささやき*'{
+                '*ささやき*' {
                     22
                 }
                 default {
@@ -146,7 +146,7 @@ function Find-SpeakerParam($speaker) {
         }
     }
     
-    if ($speaker -Like "MANA*" -or $speaker -Like "ＭＡＮＡ*") {
+    if ($speaker -match "MANA[^+＋]*" -or $speaker -match "ＭＡＮＡ[^+＋]*") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
@@ -156,8 +156,36 @@ function Find-SpeakerParam($speaker) {
                 '*いっしょうけんめい*' {
                     7
                 }
+                '*ごきげん*' {
+                    40
+                }
                 default {
                     1
+                }
+            }
+        }
+    }
+
+    if ($speaker -Like "MANA(+|＋)*" -or $speaker -Like "ＭＡＮＡ(+|＋)*") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 41 # ふくれっつら
+        }
+    }
+
+
+    if ($speaker -match "KANA*" -or $speaker -match "ＫＡＮＡ*") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = switch -Wildcard ($speaker) {
+                '*のーまる*' {
+                    30
+                }
+                '*えんげき*' {
+                    41
+                }
+                default {
+                    30
                 }
             }
         }
@@ -176,6 +204,15 @@ function Find-SpeakerParam($speaker) {
                 '*かなしみ*' {
                     9
                 }
+                '*あせり*' {
+                    20
+                }
+                '*よろこび*' {
+                    21
+                }
+                '*ささやき*' {
+                    22
+                }
                 default {
                     2
                 }
@@ -193,7 +230,20 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "アルマちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
-            id      = 4
+            id      = switch -Wildcard ($speaker) {
+                '*表-v1*' {
+                    4
+                }
+                '*裏*' {
+                    11
+                }
+                '*表-v2*' {
+                    9
+                }
+                default {
+                    4
+                }
+            }
         }
     }
 
@@ -215,6 +265,8 @@ VOICEVOX
 COEIROINK
 ・つくよみちゃん
 ・MANA
+・MANA+
+・KANA
 ・おふとんP
 ・ディアちゃん
 ・アルマちゃん
