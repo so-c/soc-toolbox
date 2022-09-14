@@ -7,7 +7,23 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "四国めたん*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = (0 + (Get-StyleIndex($speaker)))
+            id      = switch -Wildcard ($speaker) {
+                '*あまあま*' {
+                    0 # do nothing
+                }
+                '*ノーマル*' {
+                    2
+                }
+                '*セクシー*' {
+                    4
+                }
+                '*ツンツン*' {
+                    6
+                } 
+                default {
+                    2
+                }
+            }
         }
     }
 
@@ -272,23 +288,4 @@ COEIROINK
 ・アルマちゃん
 '@
     )
-}
-
-# VOICEVOXのスタイル設定
-function Get-StyleIndex($speaker) {
-    switch -Wildcard ($speaker) {
-        '*あまあま*' {
-            return 0 # do nothing
-        }
-        '*ノーマル*' {
-            return 2
-        }
-        '*セクシー*' {
-            return 4
-        }
-        '*ツンツン*' {
-            return 6
-        } 
-    }
-    return 2 # 該当しなければノーマル
 }
