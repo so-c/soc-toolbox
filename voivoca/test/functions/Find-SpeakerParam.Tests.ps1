@@ -207,6 +207,11 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 7
             }
+            It "MANA（ごきげん）はCOEIROINKのid=40" {
+                $actual = Find-SpeakerParam("MANA（ごきげん）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 40
+            }
         }
 
         Context "おふとんP" {
@@ -220,15 +225,35 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 2
             }
-            It "おふとんP（ナレーション）はCOEIROINKのid=8" {
-                $actual = Find-SpeakerParam("おふとんP（ナレーション）")
+            It "おふとんP（のーまるv2）はCOEIROINKのid=2" {
+                $actual = Find-SpeakerParam("おふとんP（のーまるv2）")
                 $actual.baseUrl | Should -Be $COEIROINK_URL
-                $actual.id | Should -Be 8
+                $actual.id | Should -Be 2
+            }
+            It "おふとんP（よろこび）はCOEIROINKのid=21" {
+                $actual = Find-SpeakerParam("おふとんP（よろこび）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 21
             }
             It "おふとんP（かなしみ）はCOEIROINKのid=9" {
                 $actual = Find-SpeakerParam("おふとんP（かなしみ）")
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 9
+            }
+            It "おふとんP（あせり）はCOEIROINKのid=20" {
+                $actual = Find-SpeakerParam("おふとんP（あせり）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 20
+            }
+            It "おふとんP（ささやき）はCOEIROINKのid=22" {
+                $actual = Find-SpeakerParam("おふとんP（ささやき）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 22
+            }
+            It "おふとんP（ナレーション）はCOEIROINKのid=8" {
+                $actual = Find-SpeakerParam("おふとんP（ナレーション）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 8
             }
         }
 
@@ -241,10 +266,20 @@ Describe "Find-SpeakerParam" {
         }
 
         Context "アルマちゃん" {
-            It "<_>はCOEIROINKのid=4" -ForEach @("アルマちゃん") {
+            It "<_>はCOEIROINKのid=4" -ForEach @("アルマちゃん", "アルマちゃん（表-v1）") {
                 $actual = Find-SpeakerParam($_)
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 4
+            }
+            It "アルマちゃん（表-v2）はCOEIROINKのid=10" {
+                $actual = Find-SpeakerParam("アルマちゃん（表-v2）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 10
+            }
+            It "アルマちゃん（裏）はCOEIROINKのid=11" {
+                $actual = Find-SpeakerParam("アルマちゃん（裏）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 11
             }
         }
 
