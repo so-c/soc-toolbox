@@ -169,7 +169,7 @@ function Find-SpeakerParam($speaker) {
                 id      = 41 # ふくれっつら
             }
         }
-        
+
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
@@ -188,7 +188,6 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
-
 
     if ($speaker -match "KANA*" -or $speaker -match "ＫＡＮＡ*") {
         return @{

@@ -212,6 +212,7 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 40
             }
+
         }
 
         Context "MANA+" {
@@ -238,6 +239,7 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 31
             }
+
         }
 
         Context "おふとんP" {

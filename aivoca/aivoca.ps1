@@ -37,32 +37,22 @@ Function Connect-TTS($TTS) {
     }
 }
 
-Function Add-ItemOnTop($TTS, $speaker, $text) {
+Function Add-ItemToLast($TTS, $speaker, $text) {
     if ($text -eq '') {
         Write-Error "$(Get-Date -Format "yyyy-MM-dd hh:mm:ss")`tコメントには1文字以上のテキストを設定してください" -ErrorAction Stop
     }
 
     $TTS.TextEditMode = [AI.Talk.Editor.Api.TextEditMode]::List
-
-    try {
-        $TTS.SetListSelectionIndex(0)
-    }
-    catch [InvalidOperationException] {
-        $TTS.AddListItem($speaker, $text)
-        $TTS.SetListSelectionIndex(0)
-        return
-    }
-
-    $TTS.SetListSelectionIndex(0)
-    $TTS.InsertListItem($speaker, $text)
-    $TTS.SetListSelectionIndex(0)
+ 
+    $TTS.AddListItem($speaker, $text)
+    $TTS.SetListSelectionIndex($TTS.GetListCount() - 1)
 }
 
 try {
     $TTS = Get-TTS $PSScriptRoot
     Connect-TTS $TTS
 
-    Add-ItemOnTop -TTS $TTS -speaker $speaker -text $text
+    Add-ItemToLast -TTS $TTS -speaker $speaker -text $text
     $TTS.SaveAudioToFile($output)
 }
 catch {
