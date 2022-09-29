@@ -34,7 +34,10 @@ function Expand-MacZip {
     $specialDirs = @(
         "Sample_voice_055_free",
         "Sample_voice_055_for500",
-        "Sample_voice_055_for1000"
+        "Sample_voice_055_for1000",
+        "Sample_voice_062_free",
+        "Sample_voice_062_for500",
+        "Sample_voice_062_for1000"
     )
     foreach ($d in $specialDirs) {
         if ($_.FullName.Contains($d)) {
