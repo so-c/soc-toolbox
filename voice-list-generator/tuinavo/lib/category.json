@@ -1213,7 +1213,7 @@
         "Sample_voice_060_for1000\\得阿耨多羅三藐三菩提.wav",
         "Sample_voice_060_for1000\\故知般若波羅蜜多.wav"
     ],
-    "61": [
+    "61-62": [
         "Sample_voice_061_free\\事故ならしょうがないやね…….wav",
         "Sample_voice_061_free\\如月と書いて鬼と読む…….wav",
         "Sample_voice_061_free\\なんで疑問系やねん！？.wav",
@@ -1238,7 +1238,32 @@
         "Sample_voice_061_for1000\\おりほー.wav",
         "Sample_voice_061_for1000\\横浜優勝.wav",
         "Sample_voice_061_for1000\\是大神呪是無上呪是無等等呪.wav",
-        "Sample_voice_061_for1000\\能除一切苦真実不虚.wav"
+        "Sample_voice_061_for1000\\能除一切苦真実不虚.wav",
+        "Sample_voice_062_free\\あまり詮索はするな.wav",
+        "Sample_voice_062_free\\消されるゾ.wav",
+        "Sample_voice_062_free\\ひ、人の心とかないんか？.wav",
+        "Sample_voice_062_free\\はちぇまれぇ！.wav",
+        "Sample_voice_062_free\\これ、恵方巻きだー！？.wav",
+        "Sample_voice_062_free\\今日も一日.wav",
+        "Sample_voice_062_free\\ほいっ、お弁当やで～_.wav",
+        "Sample_voice_062_free\\ヒック（しゃっくり）.wav",
+        "Sample_voice_062_free\\ヒックヒック（しゃっくり）.wav",
+        "Sample_voice_062_free\\ゲホゲホ（咳）.wav",
+        "Sample_voice_062_free\\ウゥッ、オエェ……！.wav",
+        "Sample_voice_062_free\\回復しまーす.wav",
+        "Sample_voice_062_free\\ロード長っ！.wav",
+        "Sample_voice_062_free\\草生えるわ～.wav",
+        "Sample_voice_062_free\\世界よ、これが.wav",
+        "Sample_voice_062_for500\\愛と青春の旅立ち.wav",
+        "Sample_voice_062_for500\\選ばれし者……！.wav",
+        "Sample_voice_062_for500\\ファンタジー.wav",
+        "Sample_voice_062_for500\\ファンタジー！.wav",
+        "Sample_voice_062_for500\\デスティニー.wav",
+        "Sample_voice_062_for1000\\デスティニー！.wav",
+        "Sample_voice_062_for1000\\インフェルノ！.wav",
+        "Sample_voice_062_for1000\\クライシス！.wav",
+        "Sample_voice_062_for1000\\故説般若波羅蜜多呪.wav",
+        "Sample_voice_062_for1000\\即説呪曰羯帝羯帝波羅羯帝.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
