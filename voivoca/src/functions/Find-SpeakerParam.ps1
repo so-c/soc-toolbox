@@ -84,7 +84,26 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "白上虎太郎*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = 12
+            id      = switch -Wildcard ($speaker) {
+                '*ふつう*' {
+                    12
+                }
+                '*わーい*' {
+                    32
+                }
+                '*びくびく*' {
+                    33
+                }
+                '*おこ*' {
+                    34
+                }
+                '*びえーん*' {
+                    35
+                }
+                default {
+                    12
+                }
+            }
         }
     }
     
@@ -139,6 +158,66 @@ function Find-SpeakerParam($speaker) {
         return @{
             baseUrl = $VOICEVOX_URL
             id      = 21
+        }
+    }
+
+    if ($speaker -match "WhiteCUL*" -or $speaker -match "ＷｈｉｔｅＣＵＬ*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    23
+                }
+                '*たのしい*' {
+                    24
+                }
+                '*かなしい*' {
+                    25
+                }
+                '*びえーん*' {
+                    26
+                }
+                default {
+                    23
+                }
+            }
+        }
+    }
+
+    if ($speaker -match "後鬼*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*人間*' {
+                    27
+                }
+                '*ぬいぐるみ*' {
+                    28
+                }
+                default {
+                    27
+                }
+            }
+        }
+    }
+
+    if ($speaker -match "No.7*" -or $speaker -match "Ｎｏ．７*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    29
+                }
+                '*アナウンス*' {
+                    30
+                }
+                '*読み聞かせ*' {
+                    31
+                }
+                default {
+                    29
+                }
+            }
         }
     }
 
