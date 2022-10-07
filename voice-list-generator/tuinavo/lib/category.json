@@ -1213,7 +1213,7 @@
         "Sample_voice_060_for1000\\得阿耨多羅三藐三菩提.wav",
         "Sample_voice_060_for1000\\故知般若波羅蜜多.wav"
     ],
-    "061-062": [
+    "061-063": [
         "Sample_voice_061_free\\事故ならしょうがないやね…….wav",
         "Sample_voice_061_free\\如月と書いて鬼と読む…….wav",
         "Sample_voice_061_free\\なんで疑問系やねん！？.wav",
@@ -1263,7 +1263,32 @@
         "Sample_voice_062_for1000\\インフェルノ！.wav",
         "Sample_voice_062_for1000\\クライシス！.wav",
         "Sample_voice_062_for1000\\故説般若波羅蜜多呪.wav",
-        "Sample_voice_062_for1000\\即説呪曰羯帝羯帝波羅羯帝.wav"
+        "Sample_voice_062_for1000\\即説呪曰羯帝羯帝波羅羯帝.wav",
+        "Sample_voice_063_free\\えんがちょ！.wav",
+        "Sample_voice_063_free\\実を言うと.wav",
+        "Sample_voice_063_free\\はもうだめです。.wav",
+        "Sample_voice_063_free\\突然こんなこと言ってごめんね。.wav",
+        "Sample_voice_063_free\\おかわりいただけるだろうか.wav",
+        "Sample_voice_063_free\\そんなことより！.wav",
+        "Sample_voice_063_free\\そんなことより聞いてくれよ.wav",
+        "Sample_voice_063_free\\もうね、アホかと。バカかと。.wav",
+        "Sample_voice_063_free\\安心せぇ……峰打ちや。あっ、両刃やった…….wav",
+        "Sample_voice_063_free\\ハッ、夢かぁ…！.wav",
+        "Sample_voice_063_free\\オン・マリシエイ・ソワカ.wav",
+        "Sample_voice_063_free\\オン・アニチ・マリシエイ・ソワカ.wav",
+        "Sample_voice_063_free\\オン・アニチヤ・マリシエイ・ソワカ.wav",
+        "Sample_voice_063_free\\二酸化マンガン、酸化マンガン.wav",
+        "Sample_voice_063_free\\マイムマイムマイムマイム・マイムレッセッセ.wav",
+        "Sample_voice_063_for500\\勝ってうれしいはないちもんめ.wav",
+        "Sample_voice_063_for500\\負け～てくやしいはないちもんめ.wav",
+        "Sample_voice_063_for500\\隣のおばさんちょっと来ておくれ.wav",
+        "Sample_voice_063_for500\\鬼～が怖くて行かれない.wav",
+        "Sample_voice_063_for500\\あの子がほしい、あの子じゃ分からん.wav",
+        "Sample_voice_063_for1000\\この子がほしい、この子じゃわからん.wav",
+        "Sample_voice_063_for1000\\相談しよう、そうしよう.wav",
+        "Sample_voice_063_for1000\\決～まった！.wav",
+        "Sample_voice_063_for1000\\波羅僧羯帝菩提娑婆訶.wav",
+        "Sample_voice_063_for1000\\般若心経.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
