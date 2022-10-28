@@ -19,6 +19,12 @@ function Find-SpeakerParam($speaker) {
                 }
                 '*ツンツン*' {
                     6
+                }
+                '*ささやき*' {
+                    36
+                } 
+                '*ヒソヒソ*' {
+                    37
                 } 
                 default {
                     2
@@ -45,6 +51,9 @@ function Find-SpeakerParam($speaker) {
                 } 
                 '*ささやき*' {
                     22
+                }
+                '*ヒソヒソ*' {
+                    38
                 }
                 default {
                     3

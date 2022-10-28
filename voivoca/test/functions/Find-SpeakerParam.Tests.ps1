@@ -29,7 +29,17 @@ Describe "Find-SpeakerParam" {
                 $actual = Find-SpeakerParam("四国めたん（ツンツン）")
                 $actual.baseUrl | Should -Be $VOICEVOX_URL
                 $actual.id | Should -Be 6
-            }    
+            }
+            It "ささやきは、VOICEVOXのid=36" {
+                $actual = Find-SpeakerParam("四国めたん（ささやき）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 36
+            }
+            It "ヒソヒソは、VOICEVOXのid=37" {
+                $actual = Find-SpeakerParam("四国めたん（ヒソヒソ）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 37
+            }
         }
     
         Context "ずんだもん" {
@@ -57,6 +67,11 @@ Describe "Find-SpeakerParam" {
                 $actual = Find-SpeakerParam("ずんだもん（ささやき）")
                 $actual.baseUrl | Should -Be $VOICEVOX_URL
                 $actual.id | Should -Be 22
+            }
+            It "ヒソヒソは、VOICEVOXのid=38" {
+                $actual = Find-SpeakerParam("ずんだもん（ヒソヒソ）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 38
             }
         }
 
