@@ -254,7 +254,17 @@ function Find-SpeakerParam($speaker) {
         if ($speaker -match "(MANA|ＭＡＮＡ)(\+|＋).*") {
             return @{
                 baseUrl = $COEIROINK_URL
-                id      = 41 # ふくれっつら
+                id      = switch -Wildcard ($speaker) {
+                    '*ふくれっつら*' {
+                        41
+                    }
+                    '*しょんぼり*' {
+                        42
+                    }
+                    default {
+                        41
+                    }
+                }
             }
         }
 
@@ -349,6 +359,28 @@ function Find-SpeakerParam($speaker) {
             }
         }
     }
+
+    if ($speaker -Like "朱花") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 50
+        }
+    }
+
+    if ($speaker -Like "青葉") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 60
+        }
+    }
+
+    if ($speaker -Like "銀芽") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 70
+        }
+    }
+
 
     Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください

@@ -324,6 +324,16 @@ Describe "Find-SpeakerParam" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 41
             }
+            It "MANA+（ふくれっつら）はCOEIROINKのid=41" {
+                $actual = Find-SpeakerParam("MANA+（ふくれっつら）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 41
+            }
+            It "MANA+（しょんぼり）はCOEIROINKのid=42" {
+                $actual = Find-SpeakerParam("MANA+（しょんぼり）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 42
+            }
         }
 
         Context "KANA" {
@@ -411,6 +421,24 @@ Describe "Find-SpeakerParam" {
                 $actual = Find-SpeakerParam("アルマちゃん（裏）")
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 11
+            }
+        }
+
+        Context "AI声優" {
+            It "朱花はCOEIROINKのid=50" {
+                $actual = Find-SpeakerParam("朱花")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 50
+            }
+            It "青葉はCOEIROINKのid=60" {
+                $actual = Find-SpeakerParam("青葉")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 60
+            }
+            It "銀芽はCOEIROINKのid=4" {
+                $actual = Find-SpeakerParam("銀芽")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 70
             }
         }
 
