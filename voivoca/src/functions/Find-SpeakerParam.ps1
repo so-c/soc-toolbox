@@ -261,6 +261,9 @@ function Find-SpeakerParam($speaker) {
                     '*しょんぼり*' {
                         42
                     }
+                    '*ないしょばなし*' {
+                        43
+                    }
                     default {
                         41
                     }
@@ -305,14 +308,56 @@ function Find-SpeakerParam($speaker) {
     }
     
     if ($speaker -match "おふとん(P|Ｐ).*") {
+        if ($speaker -match "おふとん(P|Ｐ)(\+|＋){1}.*") {
+            if ($speaker -match "おふとん(P|Ｐ)(\++|＋＋){2}.*") {
+                return @{
+                    baseUrl = $COEIROINK_URL
+                    id      = switch -Wildcard ($speaker) {
+                        '*はくしん*' {
+                            25
+                        }
+                        '*いらだち*' {
+                            26
+                        }
+                        '*よわり*' {
+                            27
+                        }
+                        '*めんよう*' {
+                            28
+                        }
+                        default {
+                            25
+                        }
+                    }
+                }
+            }
+            return @{
+                baseUrl = $COEIROINK_URL
+                id      = switch -Wildcard ($speaker) {
+                    '*きざささやき*' {
+                        24
+                        break
+                    }
+                    '*ささやき*' {
+                        22
+                    }
+                    '*ナレーション*' {
+                        8
+                    }
+                    '*きざ*' {
+                        23
+                    }
+                    default {
+                        8
+                    }
+                }
+            }
+        }
         return @{
             baseUrl = $COEIROINK_URL
             id      = switch -Wildcard ($speaker) {
                 '*のーまる*' {
                     2
-                }
-                '*ナレーション*' {
-                    8
                 }
                 '*かなしみ*' {
                     9
@@ -322,9 +367,6 @@ function Find-SpeakerParam($speaker) {
                 }
                 '*よろこび*' {
                     21
-                }
-                '*ささやき*' {
-                    22
                 }
                 default {
                     2
@@ -406,6 +448,8 @@ COEIROINK
 ・MANA+
 ・KANA
 ・おふとんP
+・おふとんP+
+・おふとんP++
 ・ディアちゃん
 ・アルマちゃん
 ・朱花
