@@ -5,6 +5,7 @@
 1. [voivoca](#voivoca)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
 1. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
 1. voice-list-generator
+   * [セット](#voice-list-generatorセット)：音声合成キャラクター音声素材をぴた声アプリやRecotte Studioから使いやすくするためのスクリプト詰合せ
    * [tuinavo-list-generator](#tuinavo-list-generator)：[ついなちゃん](https://ついなちゃん.com)の配布ボイスをぴた声アプリやRecotte Studioから使いやすくするためのスクリプト
 
 ----
@@ -26,6 +27,36 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
   1. Recotte Studioのユーザー定義音声連携として`aivos-userdef\aivos-userdef.rvls`をインポートする
 
 使い方はRecotte Studioのマニュアルでご確認ください
+
+----
+
+## voice-list-generatorセット
+
+音声合成キャラクタの音声素材をぴた声やRecotte Studioから便利に使えるようにするスクリプトの詰合せです。下記のボイス用のスクリプトがあります。
+
+* [紲星あかり exVOICE vol.1](https://www.ah-soft.com/exvoice/)
+* [A.I.VOICE 紲星あかり exVOICE](https://aivoice.jp/news/1637/)
+* [A.I.VOICE 咲ちゃん exVOICE](https://aivoice.jp/product/sakichan/)
+* [フリモメン おまけ音声素材](https://www.ah-soft.com/frimomen/)
+
+※ついなちゃんがfantiaで配布しているサンプルボイスには、[tuinavo-list-generator](#tuinavo-list-generator)をお使いください
+
+### 使い方
+
+各種音声素材は取得したそのままのフォルダ構成、ファイル名を前提としています。変更されている場合、正常に動作しません。ご了承ください。
+
+1. [Releaseページ](https://github.com/so-c/soc-toolbox/releases)から`voice-list-generator-vX.Y.Z.zip`をダウンロードして展開してください
+2. スタートメニューから「Windows PowerShell ISE」または「Windows PowerShell」を起動します
+3. まず今開いているウィンドウでスクリプトを実行できるようにします。`Set-ExecutionPolicy Bypass -Scope Process`をコピペしてEnterを押してください
+4. メッセージを確認してこのスクリプトを信用して動かすなら「Y」を入力してEnterを押してください
+5. スクリプトをShiftを押しながら右クリックして「パスのコピー」を選択します
+6. 先頭に". "を入力、スクリプトのパスをペースト、`exVoiceFolder`オプションに音声素材フォルダのパスを入力して、Enterを押してください
+7. 音声素材フォルダに設定ファイルが作成されていれば実行成功です。ぴた声アプリ、Recotte Studioへの登録は各ソフトのマニュアルを参照してください
+
+```PowerShell
+# 入力例：A.I.VOICE紲星あかり exVOICEが、C:\exVOICE_KizunaAkari_vo1にある場合
+. "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\akarivo\akarivo-aivos-list-generator.ps1" -exVoiceFolder "C:\exVOICE_KizunaAkari_vo1"
+```
 
 ----
 
@@ -57,6 +88,7 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
   * Recotte StudioやVOICEVOX、各キャラクターなどそれぞれの利用規約に従ってください
   * （任意）ニコニコ動画で使う際はニコニ･コモンズをコンテンツツリーに登録してもらえると作者が喜びます
     * [voivoca](https://commons.nicovideo.jp/material/nc252957)
+    * voice-list-generatorセット（ニコニ・コモンズ登録作業中）
     * [tuinavo\-list\-generator（ついなボリストジェネレータ）](https://commons.nicovideo.jp/material/nc254607)
 * 開発者向け
   * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
