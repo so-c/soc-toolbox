@@ -33,11 +33,6 @@ function New-Yomigana($DisplayName) {
 function Get-DisplayName($DisplayName) {
     $ret = $DisplayName -replace '^[0-9\-]+(/|_)', ''
     $ret = $ret -replace '[1-4]_1', '1' 
-
-    if ($ret -contains "速") {
-        Write-Host $ret
-    }
-
     return $ret
 }
 
