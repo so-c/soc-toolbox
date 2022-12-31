@@ -98,7 +98,7 @@ Describe "Find-SpeakerParam for VOICEVOX" {
     }
 
     Context "玄野武宏" {
-        It "指定なしはのid=10" {
+        It "指定なしはid=10" {
             $actual = Find-SpeakerParam("玄野武宏")
             $actual.baseUrl | Should -Be $VOICEVOX_URL
             $actual.id | Should -Be 11
