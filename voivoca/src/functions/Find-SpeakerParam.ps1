@@ -4,6 +4,7 @@ $VOICEVOX_URL = "http://127.0.0.1:50021"
 $COEIROINK_URL = "http://127.0.0.1:50031"
 
 function Find-SpeakerParam($speaker) {
+    # VOICEVOX    
     if ($speaker -Like "四国めたん*") {
         return @{
             baseUrl = $VOICEVOX_URL
@@ -86,7 +87,23 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "玄野武宏*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = 11
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    11
+                }
+                '*喜び*' {
+                    39
+                }
+                '*ツンギレ*' {
+                    40
+                }
+                '*悲しみ*' {
+                    41
+                }
+                default {
+                    11
+                }
+            }
         }
     }
     
@@ -230,6 +247,64 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -like "ちび式じい*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id = 42
+        }
+    }
+
+    if ($speaker -like "櫻歌ミコ*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    43
+                }
+                '*第二形態*' {
+                    44
+                }
+                '*ロリ*' {
+                    45
+                }
+                default {
+                    43
+                }
+            }
+        }
+    }
+
+    if ($speaker -match "小夜(/|／)(sayo|ｓａｙｏ|ＳＡＹＯ)*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id = 46
+        }
+    }
+
+    if ($speaker -match "ナースロボ(_|＿)タイプ(t|ｔ|Ｔ)") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    47
+                }
+                '*楽々*' {
+                    48
+                }
+                '*恐怖*' {
+                    49
+                }
+                '*内緒話*' {
+                    50
+                }
+                default {
+                    47
+                }
+            }
+        }
+    }
+
+    # COEIROINK
     if ($speaker -Like "つくよみちゃん*") {
         return @{
             baseUrl = $COEIROINK_URL
@@ -442,6 +517,10 @@ VOICEVOX
 ・No.7
 ・後鬼
 ・WhiteCUL
+・ちび式じい
+・櫻歌ミコ
+・小夜/SAYO
+・ナースロボ_タイプT
 COEIROINK
 ・つくよみちゃん
 ・MANA
