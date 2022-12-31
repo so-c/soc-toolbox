@@ -39,7 +39,7 @@ Describe "Find-SpeakerParam for VOICEVOX" {
             $actual.id | Should -Be 37
         }
     }
-    
+
     Context "ずんだもん" {
         It "あまあまは、VOICEVOXのid=1" {
             $actual = Find-SpeakerParam("ずんだもん（あまあま）")
@@ -98,10 +98,30 @@ Describe "Find-SpeakerParam for VOICEVOX" {
     }
 
     Context "玄野武宏" {
-        It "玄野武宏は、VOICEVOXのid=10" {
+        It "指定なしはのid=10" {
             $actual = Find-SpeakerParam("玄野武宏")
             $actual.baseUrl | Should -Be $VOICEVOX_URL
             $actual.id | Should -Be 11
+        }
+        It "ノーマルはid=10" {
+            $actual = Find-SpeakerParam("玄野武宏（ノーマル）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 11
+        }
+        It "喜びはid=39" {
+            $actual = Find-SpeakerParam("玄野武宏（喜び）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 39
+        }
+        It "ツンギレはid=40" {
+            $actual = Find-SpeakerParam("玄野武宏（ツンギレ）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 40
+        }
+        It "悲しみはid=41" {
+            $actual = Find-SpeakerParam("玄野武宏（悲しみ）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 41
         }
     }
 
@@ -266,5 +286,72 @@ Describe "Find-SpeakerParam for VOICEVOX" {
             $actual.id | Should -Be 31
         }
     }
-   
+
+    Context "ちび式じい" {
+        It "ちび式じいはid=42" {
+            $actual = Find-SpeakerParam("ちび式じい")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 42
+        }
+    }
+
+    Context "櫻歌ミコ" {
+        It "指定なしはid=43" {
+            $actual = Find-SpeakerParam("櫻歌ミコ")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 43
+        }
+        It "ノーマルはid=43" {
+            $actual = Find-SpeakerParam("櫻歌ミコ（ノーマル）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 43
+        }
+        It "第二形態はid=44" {
+            $actual = Find-SpeakerParam("櫻歌ミコ（第二形態）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 44
+        }
+        It "ロリはid=45" {
+            $actual = Find-SpeakerParam("櫻歌ミコ（ロリ）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 45
+        }
+    }
+
+    Context "小夜/SAYO" {
+        It "小夜/SAYOはid=46" {
+            $actual = Find-SpeakerParam("小夜/SAYO")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 46
+        }
+    }
+
+    Context "ナースロボ_タイプT" {
+        It "指定なしはid=47" {
+            $actual = Find-SpeakerParam("ナースロボ_タイプT")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 47
+        }
+        It "ノーマルはid=47" {
+            $actual = Find-SpeakerParam("ナースロボ_タイプT（ノーマル）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 47
+        }
+        It "楽々はid=48" {
+            $actual = Find-SpeakerParam("ナースロボ_タイプT（楽々）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 48
+        }
+        It "恐怖はid=49" {
+            $actual = Find-SpeakerParam("ナースロボ_タイプT（恐怖）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 49
+        }
+        It "内緒話はid=50" {
+            $actual = Find-SpeakerParam("ナースロボ_タイプT（内緒話）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 50
+        }
+    }
+
 }
