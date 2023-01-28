@@ -250,7 +250,7 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -like "ちび式じい*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id = 42
+            id      = 42
         }
     }
 
@@ -277,7 +277,7 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -match "小夜(/|／)(sayo|ｓａｙｏ|ＳＡＹＯ)*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id = 46
+            id      = 46
         }
     }
 
@@ -339,6 +339,9 @@ function Find-SpeakerParam($speaker) {
                     '*ないしょばなし*' {
                         43
                     }
+                    '*ひっさつわざ*' {
+                        44
+                    }
                     default {
                         41
                     }
@@ -385,6 +388,28 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -match "おふとん(P|Ｐ).*") {
         if ($speaker -match "おふとん(P|Ｐ)(\+|＋){1}.*") {
             if ($speaker -match "おふとん(P|Ｐ)(\++|＋＋){2}.*") {
+                if ($speaker -match "おふとん(P|Ｐ)(\++|＋＋){3}.*") {
+                    return @{
+                        baseUrl = $COEIROINK_URL
+                        id      = switch -Wildcard ($speaker) {
+                            '*どくはく*' {
+                                80
+                            }
+                            '*ホラー*' {
+                                81
+                            }
+                            '*おちつき*' {
+                                82
+                            }
+                            '*無声ささやき*' {
+                                83
+                            }
+                            default {
+                                80
+                            }
+                        }
+                    }    
+                }
                 return @{
                     baseUrl = $COEIROINK_URL
                     id      = switch -Wildcard ($speaker) {
@@ -477,27 +502,30 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
-    if ($speaker -Like "朱花") {
+    if ($speaker -match "(AI-声優)?朱花") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = 50
         }
     }
 
-    if ($speaker -Like "青葉") {
+    if ($speaker -match "(AI-声優)?青葉") {
         return @{
             baseUrl = $COEIROINK_URL
             id      = 60
         }
     }
 
-    if ($speaker -Like "銀芽") {
+    if ($speaker -match "(AI-声優)?銀芽*") {
         return @{
             baseUrl = $COEIROINK_URL
-            id      = 70
+            id      = switch -Wildcard ($speaker) {
+                '*のーまる*' { 70 }
+                '*感情的*' { 71 }
+                Default { 70 }
+            }
         }
     }
-
 
     Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
