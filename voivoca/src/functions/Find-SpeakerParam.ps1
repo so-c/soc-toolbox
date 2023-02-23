@@ -304,6 +304,29 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    # †と半角スペースの有無の違いは許容する
+    if ($speaker -match "^†?聖騎士\s?紅桜*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 51
+        }
+    }
+
+    if ($speaker -match "雀松朱司*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 52
+        }
+    }
+
+    if ($speaker -match "麒ヶ島宗麟*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 53
+        }
+    }
+
+
     # COEIROINK
     if ($speaker -Like "つくよみちゃん*") {
         return @{
@@ -549,6 +572,9 @@ VOICEVOX
 ・櫻歌ミコ
 ・小夜/SAYO
 ・ナースロボ_タイプT
+・†聖騎士 紅桜†
+・雀松朱司
+・麒ヶ島宗麟
 COEIROINK
 ・つくよみちゃん
 ・MANA

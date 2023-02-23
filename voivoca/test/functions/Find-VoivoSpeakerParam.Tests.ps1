@@ -354,4 +354,28 @@ Describe "Find-SpeakerParam for VOICEVOX" {
         }
     }
 
+    Context "†聖騎士 紅桜†" {
+        It "<_>はVOICEVOXのid=51" -ForEach @("†聖騎士 紅桜†", "聖騎士 紅桜", "聖騎士紅桜") {
+            $actual = Find-SpeakerParam("$_")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 51
+        }
+    }
+
+    Context "雀松朱司" {
+        It "雀松朱司はid=52" {
+            $actual = Find-SpeakerParam("雀松朱司")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 52
+        }
+    }
+
+    Context "麒ヶ島宗麟" {
+        It "麒ヶ島宗麟はid=53" {
+            $actual = Find-SpeakerParam("麒ヶ島宗麟")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 53
+        }
+    }
+
 }
