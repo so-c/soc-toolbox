@@ -2,6 +2,7 @@
 
 ここではついなちゃんのボイスリストを作る
 `tuinavo-list-generator.ps1`
+`tuinavo-list-generator_ex.ps1`
 の使い方を書いています
 
 咲ちゃんのボイスリストを作る
@@ -17,22 +18,17 @@
 
 現バージョンは下記ボイスに対応しています
 
-* サンプルボイス第1回～第67回
-* 病気予防のサンプルボイス（基本・うがい・手洗い・マスク）
-* Synthesizer Vクラウドファンディング支援者限定追加ボイス
-* VOICEROID2 ついなちゃん同梱のexVOICE
-* VOICEROID2 ついなちゃん追加300種
+* `tuinavo-list-generator.ps1`
+  * サンプルボイス第1回～第67回
+  * 病気予防のサンプルボイス（基本・うがい・手洗い・マスク）
+  * Synthesizer Vクラウドファンディング支援者限定追加ボイス
+`tuinavo-list-generator_ex.ps1`
+  * VOICEROID2 ついなちゃん同梱のexVOICE
+  * VOICEROID2 ついなちゃん追加300種
 
 ファイル形式は下記両方に対応しています
 * Fantia配布のZipファイル
 * Synthesizer V クラウドファンディングのリターンとして一括配信されたzipファイル
-  → 使い方が2箇所変わります。
-    1. 「サンプルボイスの準備」でFantiaからダウンロードする代わりに
-       配信されたzipファイルを一度展開し、出てきたzipファイルを"zip"フォルダに保存してください
-    2. 「設定ファイルを自動作成（スクリプトの実行）」で
-       末尾の"Sample"を"SampleCF"に変更してください
-
-
 
 ## 使いやすさ
 
@@ -113,7 +109,7 @@ Windows PowerShellでスクリプトを実行します
   「パスのコピー」を選択します
 5. 先頭に". "を入力してペーストし、下記のようにしてEnterを押します
   ↓
-  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1 -Voice Sample"
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1"
   ↑
 6. 「ついなちゃん セリフ集.csv」を作成した旨が表示されるまで待ちます
    無事に表示されたら実行成功です
@@ -128,10 +124,9 @@ Windows PowerShellでスクリプトを実行します
 
 1. サンプルボイスを準備する代わりに、
   「ex」フォルダにexVOICEをコピーしてください
-
-2. 実行するコマンドの末尾を"Sample"から"Ex"に変えてください
+2. `tuinavo-list-generator_ex.ps1`を実行してください
   ↓
-  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator.ps1 -Voice Ex"
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator_ex.ps1"
   ↑
 
 
