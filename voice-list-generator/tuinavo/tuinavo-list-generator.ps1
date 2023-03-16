@@ -13,6 +13,7 @@
 $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
+. "$workDir\lib\Renama-SVCFFolders.ps1"
 $destDir = "$workDir\wav"
 $csvFileName = "ついなちゃん セリフ集.csv"
 
@@ -44,7 +45,9 @@ if (-not $NoExpand) {
     Write-Host "zipフォルダ内のzipファイルを展開します"
     Expand-SampeZips
     Write-Host "展開を完了しました"
-    Write-Host "第5, 8, 21回は展開できないので、まだなら手動で展開したあと、-NoExpandオプションをつけて再実行してください"
+    Write-Host "第5, 8, 21回は展開できません。未展開なら手動で展開したあと、-NoExpandオプションをつけて再実行してください"
+
+    Rename-SVCFFolders $destDir
 }
 
 $pitagoes = [PitagoeRecord]::newPitagoeList("$destDir")
