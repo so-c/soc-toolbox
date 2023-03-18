@@ -13,13 +13,13 @@
 $workDir = $PSScriptRoot
 . "$workDir\lib\Expand-MacZip.ps1"
 . "$workDir\lib\PitagoeRecord.ps1"
-. "$workDir\lib\Renama-SVCFFolders.ps1"
+. "$workDir\lib\Rename-SVCFFolders.ps1"
 $destDir = "$workDir\wav"
 $csvFileName = "ついなちゃん セリフ集.csv"
 
 function Expand-SampeZips {
     if (Test-Path $destDir) {
-        Get-ChildItem $destDir\* -Recurse |
+        Get-ChildItem $destDir -Recurse |
         ForEach-Object {
             if ($_.FullName -match '第(5|8|21)回') {
                 # zipエラーで展開できないので同期しない
