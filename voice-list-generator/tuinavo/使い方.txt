@@ -2,7 +2,7 @@
 
 ここではついなちゃんのボイスリストを作る
 `tuinavo-list-generator.ps1`
-`tuinavo-list-generator_ex.ps1`
+`tuinavo-list-generator-ex.ps1`
 の使い方を書いています
 
 咲ちゃんのボイスリストを作る
@@ -22,7 +22,7 @@
   * サンプルボイス第1回～第67回
   * 病気予防のサンプルボイス（基本・うがい・手洗い・マスク）
   * Synthesizer Vクラウドファンディング支援者限定追加ボイス
-`tuinavo-list-generator_ex.ps1`
+`tuinavo-list-generator-ex.ps1`
   * VOICEROID2 ついなちゃん同梱のexVOICE
   * VOICEROID2 ついなちゃん追加300種
 
@@ -124,9 +124,9 @@ Windows PowerShellでスクリプトを実行します
 
 1. サンプルボイスを準備する代わりに、
   「ex」フォルダにexVOICEをコピーしてください
-2. `tuinavo-list-generator_ex.ps1`を実行してください
+2. `tuinavo-list-generator-ex.ps1`を実行してください
   ↓
-  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator_ex.ps1"
+  . "C:\Users\YourName\Documents\soc-toolbox\voice-list-generator\tuinavo\tuinavo-list-generator-ex.ps1"
   ↑
 
 
