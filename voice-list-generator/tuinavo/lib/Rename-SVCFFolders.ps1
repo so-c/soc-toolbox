@@ -1,10 +1,10 @@
 ﻿function Move-ChildFolders($zipNumber, $planName, $destDir) {
-    foreach ($zn in $zipNumber1) {
+    foreach ($zn in $zipNumber) {
         if (Test-Path ("$destDir\Sample_voice_${zn}_wav\Sample_voice_${zn}_${pn}")) {
             Write-Host "SynthV CFリターンの第${_}回のフォルダ構成をFantiaで配布されているフォルダ構成に合わせます"
-            foreach ($pn in $planName1.Keys ) {
+            foreach ($pn in $planName.Keys ) {
                 Move-Item -Pass "$destDir\Sample_voice_${zn}_wav\Sample_voice_${zn}_${pn}" `
-                    -Destination "$destDir\Sample_voice_${zn}_$($planName1[$pn])"
+                    -Destination "$destDir\Sample_voice_${zn}_$($planName[$pn])"
             } 
             Remove-Item -Path "$destDir\Sample_voice_${zn}_wav"
             Write-Host "第${zn}回のフォルダをリネームしました"
@@ -32,7 +32,7 @@ function Rename-SVCFFolders($destDir) {
     # XXX: 空フォルダ"wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"が作成されるので削除する
     $svcf5000Folder = "$destDir\wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"
     if (Test-Path ($svcf5000Folder)) {
-        if ((Get-ChildItem $svf5000Folder | Measure-Object ).count -eq 0) {
+        if ((Get-ChildItem $svcf5000Folder | Measure-Object ).count -eq 0) {
             Remove-Item -Path "$destDir\wav_SynthesizerV CF向け限定ボイス（5000円プラン以上向け）"
         }
     }
