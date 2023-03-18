@@ -231,6 +231,24 @@ Describe "Find-SpeakerParam for COEIROINK" {
                 $actual.id | Should -Be 11
             }
         }
+
+        Context "リリンちゃん" {
+            It "<_>はCOEIROINKのid=90 (のーまる)" -ForEach @("リリンちゃん") {
+                $actual = Find-SpeakerParam($_)
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 90
+            }
+            It "リリンちゃん（のーまる）はCOEIROINKのid=90" {
+                $actual = Find-SpeakerParam("リリンちゃん（のーまる）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 90
+            }
+            It "リリンちゃん（ささやき）はCOEIROINKのid=91" {
+                $actual = Find-SpeakerParam("リリンちゃん（ささやき）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 91
+            }
+        }
     }
 
     Context "AI声優" {
