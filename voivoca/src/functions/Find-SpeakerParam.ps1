@@ -525,6 +525,23 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -Like "リリンちゃん*") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = switch -Wildcard ($speaker) {
+                '*のーまる*' {
+                    90
+                }
+                '*ささやき*' {
+                    91
+                }
+                default {
+                    90
+                }
+            }
+        }
+    }
+
     if ($speaker -match "(AI-声優)?朱花") {
         return @{
             baseUrl = $COEIROINK_URL
