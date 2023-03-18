@@ -1,4 +1,5 @@
-﻿$destDir = "$workDir\ex"
+﻿$destDir = "$PSScriptRoot\ex"
+. "$PSScriptRoot\lib\PitagoeRecordExvo.ps1"
 $csvFileName = "ついなちゃん exVOICE.csv"
 
 $pitagoes = [PitagoeRecordExvo]::newPitagoeList("$destDir\")
@@ -14,7 +15,7 @@ $CsvContents = ($pitagoes | Sort-Object -Property DisplayName | ConvertTo-Csv -N
     ForEach-Object { $_.Replace('‹" ', "‹''") } |
     Select-Object -Skip 1)
 [System.IO.File]::WriteAllLines("$destDir\$csvFileName", $CsvContents, $UTF8noBOM)
-Copy-Item $workDir\resource\character.ini $destDir -Force
+Copy-Item $PSScriptRoot\resource\character.ini $destDir -Force
 $folderName = (Split-Path $destDir -Leaf)
 Write-Host "${folderName}フォルダに「$csvFileName」を作成しました"
 Write-Host "${folderName}フォルダを好きな位置・名前に変更して、ぴた声アプリに追加してください"
