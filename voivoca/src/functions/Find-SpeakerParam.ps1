@@ -326,6 +326,52 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -like "春歌ナナ*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 54
+        }
+    }
+
+    if ($speaker -like "猫使アル*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    55
+                }
+                '*おちつき*' {
+                    56
+                }
+                '*うきうき*' {
+                    57
+                }
+                default {
+                    55
+                }
+            }
+        }
+    }
+
+    if ($speaker -like "猫使ビィ*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    58
+                }
+                '*おちつき*' {
+                    59
+                }
+                '*人見知り*' {
+                    60
+                }
+                default {
+                    58
+                }
+            }
+        }
+    }
 
     # COEIROINK
     if ($speaker -Like "つくよみちゃん*") {
@@ -592,6 +638,9 @@ VOICEVOX
 ・†聖騎士 紅桜†
 ・雀松朱司
 ・麒ヶ島宗麟
+・春歌ナナ
+・猫使アル
+・猫使ビィ
 COEIROINK
 ・つくよみちゃん
 ・MANA
