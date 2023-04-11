@@ -98,6 +98,11 @@ Describe "Find-SpeakerParam for COEIROINK" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 31
             }
+            It "KANA（ほうかご）はCOEIROINKのid=32" {
+                $actual = Find-SpeakerParam("KANA（ほうかご）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 32
+            }
         }
     }
 
