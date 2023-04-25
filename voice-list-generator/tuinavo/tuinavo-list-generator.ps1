@@ -24,6 +24,11 @@ function Expand-SampeZips {
             if ($_.FullName -match '第(5|8|21)回') {
                 # zipエラーで展開できないので同期しない
             }
+            if ($_.Name -eq "【超会議CF】ニコ動公認☆ついなちゃん特典ボイス") {
+                # Google DriveにフォルダなしでWAVファイル配布だった
+                # ・フォルダ名はこちらで設計
+                # ・削除しない
+            }
             elseif ($_.Name -eq "thumbnail.png") {
                 # zip外から持ってくるファイルなので同期しない
             }
