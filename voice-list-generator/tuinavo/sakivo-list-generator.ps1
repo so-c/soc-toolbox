@@ -51,14 +51,15 @@ function Rename-Entry {
 
     $ret = $_.Name.Normalize() -replace '/', '\'
     $ret = $ret -replace ':', '_'
-    $ret = $ret -replace '!\?', '！？' # !？[半角・全角]は表示が乱れるのでペアで置換    
+    $ret = $ret -replace '!\?', '！？' # !？[半角・全角]は表示が乱れるのでペアで置換
 
     return $ret
 }
 
 function Clear-Destination {
     if (Test-Path $DestDir) {
-        Get-ChildItem $DestDir\* -Recurse | Where-Object { $_.Name -ne "thumbnail.png" } |
+        Get-ChildItem $DestDir\* -Recurse | 
+        Where-Object { -not (($_.Name -eq "thumbnail.png") -or ($_.FullName -like "*\【超会議CF】ニコ動公認☆咲ちゃん特典ボイス*")) } | 
         ForEach-Object {
             Remove-Item $_.FullName -Recurse -Force -Confirm:$false
         }
