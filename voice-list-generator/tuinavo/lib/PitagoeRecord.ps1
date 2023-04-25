@@ -64,7 +64,7 @@
         # ファイル名が一貫していないケースの前処理
         $ret = $baseName -replace '^(116|859|860|861|862|863|864|2-42|92) ', ''
         # 超神社CFのパターン
-        $ret = $baseName -replace '^1-[012][0-9] ', ''
+        $ret = $baseName -replace '^[12]-[012][0-9] ', ''
 
         $dic = [PitagoeRecord]::replaceTable
         foreach ($key in $dic.keys) {
