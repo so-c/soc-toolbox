@@ -101,6 +101,34 @@ Describe "Find-SpeakerParam for VOICEVOX" {
                 $actual.id | Should -Be 19
             }
         }
+
+        Context "中国うさぎ" {
+            It "ノーマルは、VOICEVOXのid=61" {
+                $actual = Find-SpeakerParam("中国うさぎ（ノーマル）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 61
+            }
+            It "おどろきは、VOICEVOXのid=62" {
+                $actual = Find-SpeakerParam("中国うさぎ（おどろき）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 62
+            }
+            It "こわがりは、VOICEVOXのid=63" {
+                $actual = Find-SpeakerParam("中国うさぎ（こわがり）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 63
+            }
+            It "へろへろは、VOICEVOXのid=64" {
+                $actual = Find-SpeakerParam("中国うさぎ（へろへろ）")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 64
+            }
+            It "指定なしは、VOICEVOXのid=61" {
+                $actual = Find-SpeakerParam("中国うさぎ")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 61
+            }
+        }
     }
 
     Context "春日部つむぎ" {
@@ -122,6 +150,16 @@ Describe "Find-SpeakerParam for VOICEVOX" {
     Context "波音リツ" {
         It "波音リツは、VOICEVOXのid=9" {
             $actual = Find-SpeakerParam("波音リツ")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 9
+        }
+        It "ノーマルは、VOICEVOXのid=9" {
+            $actual = Find-SpeakerParam("波音リツ（ノーマル）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 9
+        }
+        It "クイーンは、VOICEVOXのid=65" {
+            $actual = Find-SpeakerParam("波音リツ（クイーン）")
             $actual.baseUrl | Should -Be $VOICEVOX_URL
             $actual.id | Should -Be 9
         }
@@ -227,6 +265,11 @@ Describe "Find-SpeakerParam for VOICEVOX" {
             $actual = Find-SpeakerParam($_)
             $actual.baseUrl | Should -Be $VOICEVOX_URL
             $actual.id | Should -Be 20
+        }
+        It "<_>はVOICEVOXのid=66" -ForEach @("セクシー", "あん子", "セクシー／あん子") {
+            $actual = Find-SpeakerParam("もち子さん（$_）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 66
         }
     }
 
