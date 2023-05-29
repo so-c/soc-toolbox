@@ -73,7 +73,18 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -Like "波音リツ*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = 9
+            id      = switch ($speaker) {
+                "ノーマル" {
+                    9
+                }
+                "クイーン" {
+                    65
+                }
+                default {
+                    9
+                }
+
+            }
         }
     }
     
@@ -176,7 +187,17 @@ function Find-SpeakerParam($speaker) {
     if ($speaker -match "モチノ・キョウコ|もち子(さん)?.*") {
         return @{
             baseUrl = $VOICEVOX_URL
-            id      = 20
+            id      = switch -Regex ($speaker) {
+                "ノーマル" {
+                    20
+                }
+                "(セクシー|あん子)" {
+                    66
+                }
+                default {
+                    20
+                }
+            }
         }
     }
 
@@ -368,6 +389,29 @@ function Find-SpeakerParam($speaker) {
                 }
                 default {
                     58
+                }
+            }
+        }
+    }
+
+    if ($speaker -like "中国うさぎ*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    61
+                }
+                '*おどろき*' {
+                    62
+                }
+                '*こわがり*' {
+                    63
+                }
+                '*へろへろ*' {
+                    64
+                }
+                default {
+                    61
                 }
             }
         }
@@ -629,7 +673,7 @@ VOICEVOX
 ・白上虎太郎
 ・青山龍星
 ・九州そら
-・モチノ・キョウコ
+・もち子さん
 ・剣崎雌雄
 ・No.7
 ・後鬼
@@ -644,6 +688,7 @@ VOICEVOX
 ・春歌ナナ
 ・猫使アル
 ・猫使ビィ
+・中国うさぎ
 COEIROINK
 ・つくよみちゃん
 ・MANA
