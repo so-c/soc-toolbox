@@ -1,11 +1,9 @@
-﻿$baseUrl = "http://127.0.0.1:50032"
+﻿. $PSScriptRoot\CoeiroinkEngine.ps1
 
 function Get-NormalizedSpeakers() {
-  $speakersRawResponse = Invoke-WebRequest -Method Get -Uri "$baseUrl/v1/speakers" -Headers @{"accept" = "application/json" }
-  $decodedSpeakers = [System.Text.Encoding]::UTF8.GetString([System.Text.Encoding]::GetEncoding("ISO-8859-1").GetBytes($speakersRawResponse.Content))
-  $minifiedSpeakers = $decodedSpeakers -replace ',(\"base64Icon\":|\"base64Portrait\":)(\".+?\"|null)', ''
+  $speakersRawResponse = Invoke-Speakers
+  $minifiedSpeakers = $speakersRawResponse -replace ',(\"base64Icon\":|\"base64Portrait\":)(\".+?\"|null)', ''
   $speakers = ($minifiedSpeakers | ConvertFrom-Json)
-
   return $speakers
 }
 
@@ -23,7 +21,6 @@ function Find-Speaker($speakerName) {
   }
 
   return @{
-  
     uuid    = $uuid
     styleId = $styleId
   }

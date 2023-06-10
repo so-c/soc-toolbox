@@ -1,4 +1,4 @@
-Param(
+﻿Param(
   [Parameter(Mandatory)]
   [string]$speakerName,
   [Parameter(Mandatory)]
@@ -7,16 +7,20 @@ Param(
   $output,
   # パラメータのリファレンス：
   # COEIROINK(v2) http://127.0.0.1:50032/docs
-  $speedScale = 1.0,
-  $pitchScale = 0.0,
-  $intonationScale = 1.0,
-  $volumeScale = 1.0,
-  $prePhonemeLength = 0.1,
-  $postPhonemeLength = 0.1,
-  $outputSamplingRate = 44100,
-  $outputStereo = $false
+  $params = @{
+    speedScale         = 1.0;
+    pitchScale         = 0.0;
+    intonationScale    = 1.0;
+    volumeScale        = 1.0;
+    prePhonemeLength   = 0.1;
+    postPhonemeLength  = 0.1;
+    outputSamplingRate = 44100
+  }
 )
 
-$speaker = Find-Speaker($speakerName)
+. $PSScriptRoot\functions\Speakers.ps1
+. $PSScriptRoot\functions\SynthesisQuery.ps1
 
-Synthesis-Talk($speaker, $text, $output)
+$speaker = Find-Speaker($speakerName)
+$synthesisQuery = [SynthesisQuery]::new($speaker, $text, $params)
+$synthesisQuery.Execute($output)
