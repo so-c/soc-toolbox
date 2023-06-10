@@ -2,7 +2,7 @@
   . $PSScriptRoot\..\..\src\functions\Speakers.ps1
 }
 
-Describe "test" {
+Describe "スピーカー名からUUIDとStyleIDを検索する機能のテスト" {
   It "「八蜂鞠ククリ」" {
     $actual = Find-Speaker("八蜂鞠ククリ")
     $actual.uuid | should -Be "8b8d4e5e-33bd-11ed-915b-0242ac1c0002"

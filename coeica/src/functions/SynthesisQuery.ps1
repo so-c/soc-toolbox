@@ -1,4 +1,6 @@
-﻿. $PSScriptRoot\CoeiroinkEngine.ps1
+﻿# 音声合成クエリを表すクラス
+
+. $PSScriptRoot\CoeiroinkEngine.ps1
 
 class SynthesisQuery {
   $speaker
@@ -17,9 +19,12 @@ class SynthesisQuery {
   }
 
   [Void]Execute($output) {
-    Remove-TypeData -TypeName System.Array
-    $jsonQuery = (ConvertTo-Json $this.Build() -Depth 16 -Compress)
+    $jsonQuery = ToJsonString
     Invoke-Synthesis　$jsonQuery $output;
+  }
+
+  [string]ToJsonString() {
+    return (ConvertTo-Json $this.Build() -Depth 16 -Compress)
   }
 
   [PSCustomObject]Build() {
@@ -29,12 +34,18 @@ class SynthesisQuery {
       text          = $this.text
       prosodyDetail = $this.GetProsody()
     }
+    
     return $queryPrameters + $this.params
   }
 
-  [PSCustomObject]GetProsody() {
+  [System.Collections.ArrayList]GetProsody() {
     $prosodyResponse = Invoke-EsimateProsody($this.text)
-    return (ConvertFrom-Json $prosodyResponse).detail
+    $prosodyJson = (ConvertFrom-Json $prosodyResponse)
+    $detailArrayList = [System.Collections.ArrayList]::new()
+    foreach ($d in $prosodyJson.detail) {
+      $detailArrayList.add($d)
+    }
+    return $detailArrayList
   }
 
 }

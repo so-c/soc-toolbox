@@ -1,4 +1,6 @@
-﻿. $PSScriptRoot\CoeiroinkEngine.ps1
+﻿# 話者（音源）を表すクラスもどき
+
+. $PSScriptRoot\CoeiroinkEngine.ps1
 
 function Get-NormalizedSpeakers() {
   $speakersRawResponse = Invoke-Speakers
