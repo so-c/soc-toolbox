@@ -4,7 +4,7 @@
     $output,
     # パラメータのリファレンス：
     # VOICEVOX  http://127.0.0.1:50021/docs
-    # COEIROINK http://127.0.0.1:50031/docs
+    # COEIROINK(v1) http://127.0.0.1:50031/docs
     $speedScale         = 1.0,
     $pitchScale         = 0.0,
     $intonationScale    = 1.0,
