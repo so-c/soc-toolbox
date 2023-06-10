@@ -1,6 +1,11 @@
-﻿$baseUrl = "http://127.0.0.1:50032"
+﻿# COEIROINKのAPI Wrapper
+
+$baseUrl = "http://127.0.0.1:50032"
 
 function Decode-String($rawResponse) {
+  # COEIROINKのレスポンスにCharsetが指定されていないため
+  # PowerShellがISO-8859-1でデコードしてしまうのでUTG-8文字列に変換してしまう
+  # バイトシーケンス経由でUTF-8でデコードしなおす
   return [System.Text.Encoding]::UTF8.GetString([System.Text.Encoding]::GetEncoding("ISO-8859-1").GetBytes($rawResponse.Content))
 }
 
