@@ -19,7 +19,7 @@ class SynthesisQuery {
   }
 
   [Void]Execute($output) {
-    $jsonQuery = ToJsonString
+    $jsonQuery = $this.ToJsonString()
     Invoke-Synthesis　$jsonQuery $output;
   }
 

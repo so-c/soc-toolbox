@@ -18,6 +18,8 @@ jobs:
           draft: true
           files: |
             release/voivoca-${{ github.ref_name }}.zip
+            release/coeica-${{ github.ref_name }}.zip
             release/tuinavo-list-generator-${{ github.ref_name }}.zip
             release/voice-list-generator-set-${{ github.ref_name }}.zip
             release/aivos-userdef-${{ github.ref_name }}.zip
+            

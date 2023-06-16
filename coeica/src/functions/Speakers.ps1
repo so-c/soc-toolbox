@@ -1,4 +1,4 @@
-﻿# 話者（音源）を表すクラスもどき
+﻿# 話者（音源）を取得する静的メソッド
 
 . $PSScriptRoot\CoeiroinkEngine.ps1
 

@@ -21,6 +21,19 @@
 . $PSScriptRoot\functions\Speakers.ps1
 . $PSScriptRoot\functions\SynthesisQuery.ps1
 
-$speaker = Find-Speaker($speakerName)
-$synthesisQuery = [SynthesisQuery]::new($speaker, $text, $params)
-$synthesisQuery.Execute($output)
+# ロガー定義
+$logFile = "$PSScriptRoot\last_error.txt"
+function Write-Log($msg) {
+  $date = Get-Date -Format "yyyy/MM/dd HH:mm:ss"
+  Write-Error "$date`t$msg" 2>&1 > $logFile
+}
+
+try {
+  $speaker = Find-Speaker($speakerName)
+  $synthesisQuery = [SynthesisQuery]::new($speaker, $text, $params)
+  $synthesisQuery.Execute($output)
+}
+catch {
+  Write-Log($PSItem)
+  return
+}

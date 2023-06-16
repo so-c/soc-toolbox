@@ -30,19 +30,20 @@ function Zip-Tuinavo($tuinavo) {
 $tuinavo = "tuinavo-list-generator-$version"
 Zip-Tuinavo($tuinavo)
 
-# voivoca
-$voivoxCaller = "voivoca-$version"
-New-Item "$PSScriptRoot\release\$voivoxCaller" -ItemType Directory > $null
+@("voivoca", "coeica") | ForEach-Object {
+    $caller = "$_-$version"
+    New-Item "$PSScriptRoot\release\$caller" -ItemType Directory > $null
 
-if (Test-Path $PSScriptRoot\voivoca\src\last_error.txt) {
-    Remove-Item $PSScriptRoot\voivoca\src\last_error.txt
+    if (Test-Path $PSScriptRoot\$_\src\last_error.txt) {
+        Remove-Item $PSScriptRoot\$_\src\last_error.txt
+    }
+    Copy-Item $PSScriptRoot\$_\src\*.* $PSScriptRoot\release\$caller\
+    Copy-Item $PSScriptRoot\$_\src\functions -Recurse $PSScriptRoot\release\$caller\
+    Copy-Item $PSScriptRoot\$_\create-rvls.bat $PSScriptRoot\release\$caller\
+    Copy-Item $PSScriptRoot\$_\template -Recurse $PSScriptRoot\release\$caller\
+    Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$caller
+    Compress-Archive -Path $PSScriptRoot\release\$caller -DestinationPath $PSScriptRoot\release\$caller.zip
 }
-Copy-Item $PSScriptRoot\voivoca\src\*.* $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voivoca\src\functions -Recurse $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voivoca\create-rvls.bat $PSScriptRoot\release\$voivoxCaller\
-Copy-Item $PSScriptRoot\voivoca\template -Recurse $PSScriptRoot\release\$voivoxCaller\
-Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$voivoxCaller
-Compress-Archive -Path $PSScriptRoot\release\$voivoxCaller -DestinationPath $PSScriptRoot\release\$voivoxCaller.zip
 
 # aivos-userdef
 $aivosUserDef = "aivos-userdef-$version"
