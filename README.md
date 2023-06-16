@@ -2,9 +2,10 @@
 
 主に動画編集に使うちょっとしたツール類
 
-1. [voivoca](#voivoca)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
-1. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
-1. voice-list-generator
+1. [voivoca](#voivoca)：[VOICEVOX](https://voicevox.hiroshiba.jp/), [COEIROINK(v1)](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。Recotte Studioのユーザー定義音声連携に使えます
+2. [coeica](#coeica)：[COEIROINK(v2)](https://coeiroink.com/)の音声合成エンジンを呼ぶスクリプト。voivocaと同じようにRecotte Studioのユーザー定義音声連携に使えます
+3. [aivos-userdef](#aivos-userdef)：Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるためのユーザー定義音声連携設定ファイル
+4. voice-list-generator
    * [セット](#voice-list-generatorセット)：音声合成キャラクター音声素材をぴた声アプリやRecotte Studioから使いやすくするためのスクリプト詰合せ
    * [tuinavo-list-generator](#tuinavo-list-generator)：[ついなちゃん](https://ついなちゃん.com)の配布ボイスをぴた声アプリやRecotte Studioから使いやすくするためのスクリプト
 
@@ -12,7 +13,15 @@
 
 ## voivoca
 
-VOICEVOX, COEIROINKの音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます
+VOICEVOX, COEIROINK (v1) の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(v2)には[coeica](#coeica)を使ってください。
+
+詳しくは[マニュアルページ](https://so-c.github.io/toolbox/voicevox-caller.html)をご覧ください
+
+----
+
+## coeica
+
+COEIROINK (v1) の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。voivoca同様にRecotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(V1)には[voivoca](#voivoca)を使ってください
 
 詳しくは[マニュアルページ](https://so-c.github.io/toolbox/voicevox-caller.html)をご覧ください
 
@@ -62,7 +71,7 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
 
 ## tuinavo-list-generator
 
-* [tuinavo – Mirror House Annex](https://so-c.github.io/toolbox/tuinavo)をご覧ください
+* [マニュアルページ](https://so-c.github.io/toolbox/tuinavo)をご覧ください
 
 ----
 
@@ -72,12 +81,11 @@ Recotte StudioでA.I.VOICEをVOICEROD2と同じように連携させるための
   * このリポジトリで公開しているスクリプトなどはインターネット全般で非商用・商用問わず利用できます
   * Recotte StudioやVOICEVOX、各キャラクターなどそれぞれの利用規約に従ってください
   * （任意）ニコニコ動画で使う際はニコニ･コモンズをコンテンツツリーに登録してもらえると作者が喜びます
-    * [voivoca](https://commons.nicovideo.jp/material/nc252957)
-    * voice-list-generatorセット（ニコニ・コモンズ登録作業中）
+    * [voivoca/coeica](https://commons.nicovideo.jp/material/nc252957)
     * [tuinavo\-list\-generator（ついなボリストジェネレータ）](https://commons.nicovideo.jp/material/nc254607)
 * 開発者向け
   * スクリプト本体(ps1)は[MIT License](https://github.com/so-c/soc-toolbox/blob/main/LICENSE)です
 
 ### PR
 
-主に[soc - ニコニコ](https://www.nicovideo.jp/user/13145014)で動画、イラスト、DTMもしています。よかったらご覧ください。ご無理なければクリエイターサポート（月額￥3３0）もしていただけると幸いです
+主に[soc - ニコニコ](https://www.nicovideo.jp/user/13145014)で動画、イラスト、DTMもしています。よかったらご覧ください。ご無理なければクリエイターサポート（月額￥330）もしていただけると幸いです
