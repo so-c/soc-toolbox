@@ -628,6 +628,9 @@ function Find-SpeakerParam($speaker) {
                 '*ささやき*' {
                     91
                 }
+                '*メスガキ*' {
+                    92
+                }
                 default {
                     90
                 }
