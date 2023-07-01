@@ -253,6 +253,11 @@ Describe "Find-SpeakerParam for COEIROINK" {
                 $actual.baseUrl | Should -Be $COEIROINK_URL
                 $actual.id | Should -Be 91
             }
+            It "リリンちゃん（メスガキ）はCOEIROINKのid=92" {
+                $actual = Find-SpeakerParam("リリンちゃん（メスガキ）")
+                $actual.baseUrl | Should -Be $COEIROINK_URL
+                $actual.id | Should -Be 92
+            }
         }
     }
 
