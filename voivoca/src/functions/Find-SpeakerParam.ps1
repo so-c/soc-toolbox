@@ -474,6 +474,9 @@ function Find-SpeakerParam($speaker) {
                 '*ごきげん*' {
                     40
                 }
+                '*どやがお*' {
+                    45
+                }
                 default {
                     1
                 }
