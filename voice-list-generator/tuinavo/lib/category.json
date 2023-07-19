@@ -1467,7 +1467,7 @@
         "Sample_voice_070_for1000\\いづれの御時にか、女御、更衣あまたさぶらひたまひけるなかに、.wav",
         "Sample_voice_070_for1000\\いとやむごとなき際にはあらぬが、すぐれて時めきたまふありけり.wav"
     ],
-    "71": [
+    "71-72": [
         "Sample_voice_071_free\\案内してあげる！.wav",
         "Sample_voice_071_free\\また変なの見ちゃった！.wav",
         "Sample_voice_071_free\\素人質問で恐縮ですが.wav",
@@ -1492,7 +1492,32 @@
         "Sample_voice_071_for1000\\おいっ、コタロー！.wav",
         "Sample_voice_071_for1000\\ベントラー、ベントラー.wav",
         "Sample_voice_071_for1000\\今は昔、竹取の翁といふものありけり.wav",
-        "Sample_voice_071_for1000\\野山にまじりて竹を取りつつ、よろづのことに使ひけり.wav"
+        "Sample_voice_071_for1000\\野山にまじりて竹を取りつつ、よろづのことに使ひけり.wav",
+        "Sample_voice_072_free\\名物に美味いものなし！！.wav",
+        "Sample_voice_072_free\\不思議…….wav",
+        "Sample_voice_072_free\\きのこ！.wav",
+        "Sample_voice_072_free\\たけのこ！.wav",
+        "Sample_voice_072_free\\すぎのこ！.wav",
+        "Sample_voice_072_free\\つちのこ！.wav",
+        "Sample_voice_072_free\\発見！！.wav",
+        "Sample_voice_072_free\\うわっ…ウチのお小遣い、低すぎ…？.wav",
+        "Sample_voice_072_free\\そうか、そうか、つまりキミはそんな奴なんやな.wav",
+        "Sample_voice_072_free\\フラグ立った！.wav",
+        "Sample_voice_072_free\\悔しいやろうが仕方ないんや.wav",
+        "Sample_voice_072_free\\公式が最大手……！.wav",
+        "Sample_voice_072_free\\やはり恵方巻き‥‥！！　恵方巻きは全てを解決する……！！.wav",
+        "Sample_voice_072_free\\なにそれこわい.wav",
+        "Sample_voice_072_free\\饅頭こわい.wav",
+        "Sample_voice_072_for500\\ここらで一杯お茶がこわい.wav",
+        "Sample_voice_072_for500\\止めてくれ、咲。その術はウチに効く.wav",
+        "Sample_voice_072_for500\\もう、絶対に許さないんだから！.wav",
+        "Sample_voice_072_for500\\ヤ、ヤ、ヤキモチなんかやないしっ！？.wav",
+        "Sample_voice_072_for500\\白河の清きに魚も住みかねて もとの濁りの田沼恋しき.wav",
+        "Sample_voice_072_for1000\\楽しいロンドン、愉快なロンドン、ロンドーン、ロンドン.wav",
+        "Sample_voice_072_for1000\\始めちょろちょろ中ぱっぱ赤子泣くとも蓋取るな.wav",
+        "Sample_voice_072_for1000\\鼠尾馬尾鼠尾.wav",
+        "Sample_voice_072_for1000\\がんばり入道郭公.wav",
+        "Sample_voice_072_for1000\\男もすなる日記といふものを、女もしてみむとてするなり.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
