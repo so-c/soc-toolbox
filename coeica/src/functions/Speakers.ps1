@@ -17,7 +17,7 @@ function Find-Speaker($speakerName) {
 
   $styleId = $styles[0].styleId
   $styles | ForEach-Object {
-    if ($speakerName -contains $_.styleName ) {
+    if ($speakerName.Contains($_.styleName )) {
       $styleId = $_.styleId
     }
   }
