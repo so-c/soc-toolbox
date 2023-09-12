@@ -15,6 +15,8 @@ function Find-Speaker($speakerName) {
   $uuid = ($speakers | Where-Object { $speakerName.StartsWith($_.speakerName) }).speakerUuid
   $styles = ($speakers | Where-Object speakerUuid -eq $uuid).styles
 
+  Write-Host ($speakerName + ":" + $uuid)
+
   $styleId = $styles[0].styleId
   $styles | ForEach-Object {
     if ($speakerName.Contains($_.styleName )) {
