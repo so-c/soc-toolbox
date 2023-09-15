@@ -666,6 +666,13 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -match "(AI-声優)?金苗") {
+        return @{
+            baseUrl = $COEIROINK_URL
+            id      = 100
+        }
+    }
+
     Write-Error(@'
 話者名(≠レイヤー名）がキャラクター名で始まるようにしてください
 
@@ -709,6 +716,7 @@ COEIROINK
 ・朱花
 ・青葉
 ・銀芽
+・金苗
 '@
     )
 }
