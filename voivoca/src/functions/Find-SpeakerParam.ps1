@@ -2,6 +2,7 @@
 # VOICEVOX/COEIROINKの.env参照
 $VOICEVOX_URL = "http://127.0.0.1:50021"
 $COEIROINK_URL = "http://127.0.0.1:50031"
+$SHAREVOX_URL = "http://127.0.0.1:50025"
 
 function Find-SpeakerParam($speaker) {
     # VOICEVOX    
@@ -414,6 +415,44 @@ function Find-SpeakerParam($speaker) {
                     61
                 }
             }
+        }
+    }
+
+    # SHAREVOX
+
+    # TODO:つくよみちゃん
+
+    # TODO:小春音アミ
+
+    # TODO:白痴―/黒聡鵜月
+
+    # TODO:Yくん/開発者
+
+    # TODO:らごぱすホワイト
+
+    # TODO:らごぱすブラック
+
+    # 風花ゆき
+    if ($speaker -match "風花(ゆき|ユキ)*") {
+        return @{
+            baseUrl = $SHAREVOX_URL
+            id = 23
+        }
+    }
+
+    # 安倍広葉
+    if ($speaker -Like "安倍広葉*") {
+        return @{
+            baseUrl = $SHAREVOX_URL
+            id = 24
+        }
+    }
+
+    # 鈴乃
+    if ($speaker -Like "鈴乃*") {
+        return @{
+            baseUrl = $SHAREVOX_URL
+            id = 25
         }
     }
 
