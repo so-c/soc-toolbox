@@ -417,11 +417,29 @@ Describe "Find-SpeakerParam for VOICEVOX" {
         }
     }
 
-    Context "†聖騎士 紅桜†" {
-        It "<_>はVOICEVOXのid=51" -ForEach @("†聖騎士 紅桜†", "聖騎士 紅桜", "聖騎士紅桜") {
-            $actual = Find-SpeakerParam("$_")
-            $actual.baseUrl | Should -Be $VOICEVOX_URL
-            $actual.id | Should -Be 51
+    Context "ニコニコ" {
+        Context "栗田まろん" {
+            It "栗田まろんはid=67" {
+                $actual = Find-SpeakerParam("栗田まろん")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 67
+            }
+        }
+
+        Context "†聖騎士 紅桜†" {
+            It "<_>はVOICEVOXのid=51" -ForEach @("†聖騎士 紅桜†", "聖騎士 紅桜", "聖騎士紅桜") {
+                $actual = Find-SpeakerParam("$_")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 51
+            }
+        }
+
+        Context "琴詠ニア" {
+            It "琴詠ニアはid=74" {
+                $actual = Find-SpeakerParam("琴詠ニア")
+                $actual.baseUrl | Should -Be $VOICEVOX_URL
+                $actual.id | Should -Be 74
+            }
         }
     }
 
@@ -480,4 +498,41 @@ Describe "Find-SpeakerParam for VOICEVOX" {
             }            
         }
     }
+
+    Context "あいえるたん" {
+        It "あいえるたんはid=68" {
+            $actual = Find-SpeakerParam("あいえるたん")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 68
+        }
+    }
+
+    Context "満別花丸" {
+        It "<_>はVOICEVOXのid=69" -ForEach @("満別花丸", "満別花丸（ノーマル）") {
+            $actual = Find-SpeakerParam("$_")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 69
+        }
+        It "満別花丸（元気）はid=70" {
+            $actual = Find-SpeakerParam("満別花丸（元気）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 70
+        }
+        It "満別花丸（ささやき）はid=71" {
+            $actual = Find-SpeakerParam("満別花丸（ささやき）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 71
+        }
+        It "満別花丸（ぶりっ子）はid=72" {
+            $actual = Find-SpeakerParam("満別花丸（ぶりっ子）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 72
+        }
+        It "満別花丸（ボーイ）はid=73" {
+            $actual = Find-SpeakerParam("満別花丸（ボーイ）")
+            $actual.baseUrl | Should -Be $VOICEVOX_URL
+            $actual.id | Should -Be 73
+        }
+    }
+
 }
