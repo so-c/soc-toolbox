@@ -417,6 +417,53 @@ function Find-SpeakerParam($speaker) {
         }
     }
 
+    if ($speaker -like "栗田まろん*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 67
+        }
+    }
+
+    if ($speaker -like "あいえるたん*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 68
+        }
+    }
+
+    if ($speaker -like "満別花丸*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = switch -Wildcard ($speaker) {
+                '*ノーマル*' {
+                    69
+                }
+                '*元気*' {
+                    70
+                }
+                '*ささやき*' {
+                    71
+                }
+                '*ぶりっ子*' {
+                    72
+                }
+                '*ボーイ*' {
+                    73
+                }
+                default {
+                    69
+                }
+            }
+        }
+    }
+
+    if ($speaker -like "琴詠ニア*") {
+        return @{
+            baseUrl = $VOICEVOX_URL
+            id      = 74
+        }
+    }
+
     # COEIROINK
     if ($speaker -Like "つくよみちゃん*") {
         return @{
@@ -702,6 +749,10 @@ VOICEVOX
 ・猫使アル
 ・猫使ビィ
 ・中国うさぎ
+・栗田まろん
+・あいえるたん
+・満別花丸
+・琴詠ニア
 COEIROINK
 ・つくよみちゃん
 ・MANA
