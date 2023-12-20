@@ -13,7 +13,7 @@
 
 ## voivoca
 
-VOICEVOX, COEIROINK (v1) の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(v2)には[coeica](#coeica)を使ってください。
+VOICEVOX, COEIROINK(v1)の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。Recotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(v2)には[coeica](#coeica)を使ってください。
 
 詳しくは[マニュアルページ](https://so-c.github.io/toolbox/voivoca.html)をご覧ください
 
@@ -21,7 +21,7 @@ VOICEVOX, COEIROINK (v1) の音声合成エンジンを呼ぶためのWindows Po
 
 ## coeica
 
-COEIROINK (v1) の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。voivoca同様にRecotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(V1)には[voivoca](#voivoca)を使ってください
+COEIROINK(v2)の音声合成エンジンを呼ぶためのWindows PowerShellスクリプトです。voivoca同様にRecotte Studioの「ユーザー定義音声連携」で使うことができます。COEIROINK(V1)には[voivoca](#voivoca)を使ってください
 
 詳しくは[マニュアルページ](https://so-c.github.io/toolbox/voivoca.html)をご覧ください
 
