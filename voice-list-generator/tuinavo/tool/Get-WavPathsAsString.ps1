@@ -19,7 +19,7 @@ function Get-VoicePaths {
        
         $paths = Get-WavPathAsString($folderPath)
 
-        $result += $paths -join "`r`n"
+        $result += "$paths`r`n"
     }
 
     return $result
