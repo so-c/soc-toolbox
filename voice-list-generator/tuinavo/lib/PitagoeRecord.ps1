@@ -82,6 +82,7 @@
         $ret = $ret.Replace("（笑い_14）/", "（笑い_14）")
         $ret = $ret.Replace("（声にならない声_1）/", "（声にならない声_1）")
         $ret = $ret.Replace("（寝言_1）/", "（寝言_1）")
+        $ret = $ret.Replace("黙したる", "點したる")
 
         return $ret.Trim()
     }
