@@ -1719,7 +1719,7 @@
         "Sample_voice_080_for1000\\痛ッ！.wav",
         "Sample_voice_080_for1000\\願はくは之を語りて平地人を戦慄せしめよ.wav"
     ],
-    "081": [
+    "081-082": [
         "Sample_voice_081_free\\でっっっっっ！！！.wav",
         "Sample_voice_081_free\\にゅおおおおお…….wav",
         "Sample_voice_081_free\\へい、親父！.wav",
@@ -1744,7 +1744,32 @@
         "Sample_voice_081_for1000\\秋は夕暮れ。夕日のさして山の端いと近うなりたるに、烏の寝どころへ行くとて、三つ四つ、二つ三つなど、飛びいそぐさへあはれなり。.wav",
         "Sample_voice_081_for1000\\冬はつとめて。雪の降りたるは、言ふべきにもあらず。.wav",
         "Sample_voice_081_for1000\\つごもりの夜は内裏に猶つねよりもをかしき燈台ども間もなく立て並べ黙したる火のさまなどのただのところにやは似たる。.wav",
-        "Sample_voice_081_for1000\\南殿に出でさせたまひて、いみじう明き火の影に宣命読ませて聴き立てる鬼のさまなどぞおそろしけれどゆかしき。.wav"
+        "Sample_voice_081_for1000\\南殿に出でさせたまひて、いみじう明き火の影に宣命読ませて聴き立てる鬼のさまなどぞおそろしけれどゆかしき。.wav",
+        "Sample_voice_082_free\\夢酔じょうこ！.wav",
+        "Sample_voice_082_free\\じょうこ！.wav",
+        "Sample_voice_082_free\\じょうこはん.wav",
+        "Sample_voice_082_free\\じょうこ…….wav",
+        "Sample_voice_082_free\\じょうこはん…….wav",
+        "Sample_voice_082_free\\じょうこ♡.wav",
+        "Sample_voice_082_free\\じょうこはん♡.wav",
+        "Sample_voice_082_free\\じょうこ〜♫.wav",
+        "Sample_voice_082_free\\じょうこはん〜♫.wav",
+        "Sample_voice_082_free\\美味そう……（じゅるる）.wav",
+        "Sample_voice_082_free\\なんか……、めっ、目付きがおかしいで…！？.wav",
+        "Sample_voice_082_free\\ウッ、ウ、ウチは食べても美味くないで〜〜っ！？.wav",
+        "Sample_voice_082_free\\抜けば玉散る氷の刃！.wav",
+        "Sample_voice_082_free\\やったー、カッコいいーーーー！.wav",
+        "Sample_voice_082_free\\わからん！　文化が違う！.wav",
+        "Sample_voice_082_for500\\文化がちが〜〜〜う！.wav",
+        "Sample_voice_082_for500\\ぼけーーーーー！.wav",
+        "Sample_voice_082_for500\\粗にして野だが卑ではない！.wav",
+        "Sample_voice_082_for500\\は……、発想のスケールで………、ま………………まけた…….wav",
+        "Sample_voice_082_for500\\語り得ぬものについては、沈黙しなければならない.wav",
+        "Sample_voice_082_for1000\\惟神言挙げせず（かんながらことあげせず）！.wav",
+        "Sample_voice_082_for1000\\酒は飲め飲め、飲むならば〜.wav",
+        "Sample_voice_082_for1000\\飲んだら乗るな。乗るなら飲むな！.wav",
+        "Sample_voice_082_for1000\\酒なくて何の己が桜かな.wav",
+        "Sample_voice_082_for1000\\泰平のねむりをさますじょうきせん たった四はいで夜も寝られず.wav"
     ],
     "アクションボイス": [
         "ついなちゃんサンプルボイス SynthesizerV_追加25種_for3万円プラン以上\\これがついなちゃんの鬼退治や！.wav",
