@@ -11,4 +11,7 @@
   <ItemGroup>
     <Compile Include="RecostaProjectCleaner.Tests.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\recosta-project-cleaner\recosta-project-cleaner.fsproj" />
+  </ItemGroup>
 </Project>
