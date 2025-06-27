@@ -22,3 +22,6 @@ paket-files/
 # Others
 *.log
 *.vs/
+
+# Release binary output
+publish/
