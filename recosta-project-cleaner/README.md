@@ -25,5 +25,16 @@ F# CLI tool for cleaning up Recotte Studio (レコスタ) project JSON files by 
 
 - .NET 5.0 SDK or later
 
+## Build Release Binary
+
+To build a self-contained release binary (Windows x64):
+
+```sh
+# From the project root
+ dotnet publish src/recosta-project-cleaner/recosta-project-cleaner.fsproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o ./publish/win-x64
+```
+
+The output binary will be in the `publish/win-x64` directory.
+
 ## License
 MIT License
