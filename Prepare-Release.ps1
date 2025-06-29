@@ -61,3 +61,20 @@ Copy-Item "$PSScriptRoot\release\$tuinavo" "$PSScriptRoot\release\$vlgSet\" -Rec
 Rename-Item "$PSScriptRoot\release\$vlgSet\$tuinavo" "tuinavo"
 Copy-Item -Path $PSScriptRoot\README.md, $PSScriptRoot\LICENSE -Destination $PSScriptRoot\release\$vlgSet
 Compress-Archive -Path $PSScriptRoot\release\$vlgSet -DestinationPath $PSScriptRoot\release\$vlgSet.zip
+
+# recosta-project-cleaner
+$recosta = "recosta-project-cleaner-$version"
+$publishDir = "$PSScriptRoot\recosta-project-cleaner\publish\win-x64"
+
+# ビルド（publish）
+dotnet publish "$PSScriptRoot\recosta-project-cleaner\src\recosta-project-cleaner\recosta-project-cleaner.fsproj" -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o $publishDir
+
+# 配布用ディレクトリ作成
+New-Item "$PSScriptRoot\release\$recosta" -ItemType Directory > $null
+
+# exeファイルのみコピー
+Copy-Item "$publishDir\recosta-project-cleaner.exe" "$PSScriptRoot\release\$recosta\"
+Copy-Item "$PSScriptRoot\README.md", "$PSScriptRoot\LICENSE" -Destination "$PSScriptRoot\release\$recosta"
+
+# zip化
+Compress-Archive -Path "$PSScriptRoot\release\$recosta" -DestinationPath "$PSScriptRoot\release\$recosta.zip"
