@@ -3,3 +3,5 @@
 This is an F# CLI tool project for cleaning up Recotte Studio project JSON files. Use functional programming best practices and keep the code testable.
 
 Follow the principles of 『実戦テスト駆動開発』（GOOS） and develop in a test-driven manner (TDD), always starting with a failing acceptance test.
+
+各種 Lint エラーは可能な限り解消してから完了とする

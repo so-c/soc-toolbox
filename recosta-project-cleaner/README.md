@@ -1,40 +1,77 @@
 # recosta-project-cleaner
 
-F# CLI tool for cleaning up Recotte Studio (レコスタ) project JSON files by removing unused file references.
+Recotte Studio（レコスタ）のプロジェクトJSONファイルから未使用ファイル参照を削除するF#製CLIツールです。
 
-## Usage
+## 使い方
 
-1. Build the project:
+### 1. ビルド済みファイルを使う（エンドユーザー向け・推奨）
+
+1. [最新リリースをダウンロード](https://github.com/so-c/soc-toolbox/releases)し、zipファイルを展開します。
+2. コマンドプロンプトで以下のように実行します：
+
+   ```sh
+   recosta-project-cleaner.exe <入力.ccproj> [出力.ccproj] [--force]
+   ```
+
+#### コマンドライン引数の説明
+
+- `<入力.ccproj>` : クリーンアップしたいRecotte Studioプロジェクトファイル（JSON形式）
+- `[出力.ccproj]` : （省略可）出力先ファイル名。省略時は `<入力>.cleaned.ccproj` となります
+- `[--force]` : （省略可）出力先ファイルが既に存在する場合に上書きします
+
+##### 使用例
+
+- 基本的な使い方（`project.ccproj` をクリーンし `project.cleaned.ccproj` を出力）
+
+  ```sh
+  recosta-project-cleaner.exe project.ccproj
+  ```
+
+- 出力ファイル名を指定
+
+  ```sh
+  recosta-project-cleaner.exe project.ccproj cleaned.ccproj
+  ```
+
+- 上書き保存（出力先が既に存在する場合）
+
+  ```sh
+  recosta-project-cleaner.exe project.ccproj cleaned.ccproj --force
+  ```
+
+### 2. ソースからビルドする（開発者向け）
+
+1. プロジェクトをビルド：
 
    ```sh
    dotnet build
    ```
 
-2. Run the tool:
+2. ツールを実行：
 
    ```sh
-   dotnet run -- <options>
+   dotnet run -- <オプション>
    ```
 
-## Features
+## 特長
 
-- Removes unused file references from Recotte Studio project JSON files
-- Designed for Windows CLI
+- Recotte StudioプロジェクトJSONから未使用ファイル参照を削除
+- Windows CLI向けに設計
 
-## Requirements
+## 必要環境
 
-- .NET 5.0 SDK or later
+- .NET 5.0 SDK 以降
 
-## Build Release Binary
+## リリースバイナリのビルド
 
-To build a self-contained release binary (Windows x64):
+Windows x64向けの自己完結型バイナリをビルドするには：
 
 ```sh
-# From the project root
+# プロジェクトルートで実行
  dotnet publish src/recosta-project-cleaner/recosta-project-cleaner.fsproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o ./publish/win-x64
 ```
 
-The output binary will be in the `publish/win-x64` directory.
+出力バイナリは `publish/win-x64` ディレクトリに生成されます。
 
-## License
+## ライセンス
 MIT License
