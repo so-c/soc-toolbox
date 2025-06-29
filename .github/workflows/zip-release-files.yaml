@@ -22,4 +22,6 @@ jobs:
             release/tuinavo-list-generator-${{ github.ref_name }}.zip
             release/voice-list-generator-set-${{ github.ref_name }}.zip
             release/aivos-userdef-${{ github.ref_name }}.zip
+            release/recosta-project-cleaner-${{ github.ref_name }}.zip
+
             
