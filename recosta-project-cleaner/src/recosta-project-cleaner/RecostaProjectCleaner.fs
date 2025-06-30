@@ -1,44 +1,22 @@
-// Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
+module RecostaProjectCleaner.App
 
 open System
+open RecostaProjectCleaner.Domain
 
-// Define a function to construct a message to print
-let from whom =
-    sprintf "from %s" whom
 
-module RecostaProjectCleaner =
     open System.Text.Json
-    open System.Text.Json.Nodes
+open System.Text.Json.Nodes
 
-    let cleanJson (input: string) : string =
-        let doc = JsonNode.Parse(input)
-        let fileItems = doc["file-items"] :?> JsonArray
-        let layers = doc["layers"] :?> JsonArray
-        // p-valueをすべて集める
-        let usedIk =
-            layers
-            |> Seq.collect (fun layer ->
-                let layerObjects = layer["layer-objects"] :?> JsonArray
-                layerObjects
-                |> Seq.choose (fun obj ->
-                    let props = obj["properties"]
-                    if isNull props then None else
-                    let file = props["File"]
-                    if isNull file then None else
-                    let pval = file["p-value"]
-                    if isNull pval then None else
-                    Some (pval.ToString().Trim('"'))))
-            |> Set.ofSeq
-        // file-itemsから未使用ikを除去し、新ノードとして複製
-        let newFileItems =
-            fileItems
-            |> Seq.filter (fun item ->
-                let ik = item["ik"].ToString().Trim('"')
-                Set.contains ik usedIk)
-            |> Seq.map (fun item -> JsonNode.Parse(item.ToJsonString()))
-            |> Seq.toArray
-        doc["file-items"] <- JsonArray(newFileItems)
-        doc.ToJsonString()
+let cleanJson (input: string) : string =
+    let project = JsonParser.fromString input
+    let cleanedProject = Project.clean project
+    let newFileItems =
+        cleanedProject.FileItems
+        |> List.map (fun item -> JsonNode.Parse(item.OriginalNode.ToJsonString()))
+        |> List.toArray
+    let doc = JsonNode.Parse(input)
+    doc["file-items"] <- JsonArray(newFileItems)
+    doc.ToJsonString()
 
 [<EntryPoint>]
 let main argv =
@@ -55,13 +33,17 @@ let main argv =
         // ...処理本体へ...
         try
             let inputJson = System.IO.File.ReadAllText(input)
-            let cleaned = RecostaProjectCleaner.cleanJson inputJson
+            let cleaned = cleanJson inputJson
             if System.IO.File.Exists(output) && not force then
-                printfn $"Error: Output file '%s{output}' already exists. Use --force to overwrite."
+                printfn $"Error: Output file 
+%s{output}
+ already exists. Use --force to overwrite."
                 1
             else
                 System.IO.File.WriteAllText(output, cleaned)
-                printfn $"Cleaned project written to '%s{output}'"
+                printfn $"Cleaned project written to 
+%s{output}
+"
                 0
         with e ->
             printfn $"Error: %s{e.Message}"
@@ -71,13 +53,17 @@ let main argv =
         // ...処理本体へ...
         try
             let inputJson = System.IO.File.ReadAllText(input)
-            let cleaned = RecostaProjectCleaner.cleanJson inputJson
+            let cleaned = cleanJson inputJson
             if System.IO.File.Exists(output) && not force && input = output then
-                printfn $"Error: Output file '%s{output}' already exists. Use --force to overwrite."
+                printfn $"Error: Output file 
+%s{output}
+ already exists. Use --force to overwrite."
                 1
             else
                 System.IO.File.WriteAllText(output, cleaned)
-                printfn $"Cleaned project written to '%s{output}'"
+                printfn $"Cleaned project written to 
+%s{output}
+"
                 0
         with e ->
             printfn $"Error: %s{e.Message}"
@@ -86,9 +72,11 @@ let main argv =
         // 上書き許可
         try
             let inputJson = System.IO.File.ReadAllText(input)
-            let cleaned = RecostaProjectCleaner.cleanJson inputJson
+            let cleaned = cleanJson inputJson
             System.IO.File.WriteAllText(output, cleaned)
-            printfn $"Cleaned project written to '%s{output}' (overwritten)"
+            printfn $"Cleaned project written to 
+%s{output}
+ (overwritten)"
             0
         with e ->
             printfn $"Error: %s{e.Message}"
@@ -100,9 +88,11 @@ let main argv =
             baseName + ".cleaned.ccproj"
         try
             let inputJson = System.IO.File.ReadAllText(input)
-            let cleaned = RecostaProjectCleaner.cleanJson inputJson
+            let cleaned = cleanJson inputJson
             System.IO.File.WriteAllText(output, cleaned)
-            printfn $"Cleaned project written to '%s{output}' (overwritten)"
+            printfn $"Cleaned project written to 
+%s{output}
+ (overwritten)"
             0
         with e ->
             printfn $"Error: %s{e.Message}"

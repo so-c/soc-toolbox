@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain.Tests.fs" />
     <Compile Include="RecostaProjectCleaner.Tests.fs" />
   </ItemGroup>
   <ItemGroup>
