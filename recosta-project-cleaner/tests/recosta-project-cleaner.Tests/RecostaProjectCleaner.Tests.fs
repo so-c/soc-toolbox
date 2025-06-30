@@ -1,9 +1,9 @@
-module RecostaProjectCleanerTests
+module RecostaProjectCleaner.Tests
 
 open System
 open Xunit
 open System.Text.Json
-open RecostaProjectCleaner
+open RecostaProjectCleaner.App
 
 [<Fact>]
 let ``My test`` () =
@@ -58,7 +58,7 @@ let ``file-items から未使用 ik を除去する`` () =
             "7c31b655b76fda5d5f1270feb2d1eedd94ff89ab5b5f17ef9b5015111f972388"
             "f6e64de2ac18b9b01c49ca62cc21fe7cecb7ace7127e355d7624259af8754f55"
         ]
-    let actualJson = RecostaProjectCleaner.cleanJson inputJson
+    let actualJson: string = cleanJson inputJson
     let doc = JsonDocument.Parse(actualJson)
     let fileItems = doc.RootElement.GetProperty("file-items")
     let actualIk : Set<string> =
